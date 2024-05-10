@@ -1,7 +1,5 @@
-import { TestContainer } from './components';
-
 const App = () => {
-  return <TestContainer />;
+  return <div>hello</div>;
 };
 
 export default App;
