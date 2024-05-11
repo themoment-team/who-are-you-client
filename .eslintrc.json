@@ -6,12 +6,17 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "react", "unused-imports"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "unused-imports"
+  ],
   "extends": [
     "plugin:prettier/recommended",
     "plugin:react/recommended",
     "eslint:recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
+    "plugin:storybook/recommended"
   ],
   "rules": {
     "unused-imports/no-unused-imports-ts": "error",
