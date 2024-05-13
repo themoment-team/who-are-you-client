@@ -3,7 +3,7 @@ import * as S from './style';
 interface Props {
   title: string;
   required?: boolean;
-  errorMessage?: string | null;
+  errorMessage?: string;
   children: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ const FormItemWrapper: React.FC<Props> = ({
       {required && <S.RequiredMessage>*</S.RequiredMessage>}
     </S.Title>
     {children}
-    <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
+    {errorMessage ?? <S.ErrorMessage>{errorMessage}</S.ErrorMessage>}
   </S.Container>
 );
 

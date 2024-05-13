@@ -4,7 +4,7 @@ import { FormItemWrapper, Select } from '@/components';
 
 interface Props extends React.SelectHTMLAttributes<HTMLSelectElement> {
   selectTitle: string;
-  errorMessage?: string | null;
+  errorMessage?: string;
   options: any[];
   required?: boolean;
 }

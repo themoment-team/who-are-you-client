@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import * as S from './style';
 
 interface Props extends React.InputHTMLAttributes<HTMLSelectElement> {
-  errorMessage?: string | null;
+  errorMessage?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: any[];
 }

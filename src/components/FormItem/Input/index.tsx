@@ -8,7 +8,7 @@ import { FormItemWrapper } from '@/components';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   inputTitle: string;
-  errorMessage?: string | null;
+  errorMessage?: string;
   required?: boolean;
 }
 
