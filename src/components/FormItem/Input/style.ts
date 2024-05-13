@@ -10,7 +10,6 @@ export const CustomInput = styled.input<{ isError: boolean }>`
   border-radius: 0.625rem;
 
   ::placeholder {
-    ${({ theme }) => theme.typo.h3};
     color: ${({ theme }) => theme.color.gray[40]};
   }
 
