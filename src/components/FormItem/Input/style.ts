@@ -6,7 +6,7 @@ export const CustomInput = styled.input<{ isError: boolean }>`
   padding: 0.75rem 1rem;
   border: 0.0625rem solid
     ${({ theme, isError }) =>
-      isError ? theme.color.error : theme.color.gray[10]};
+      isError ? theme.color.error : theme.color.gray[40]};
   border-radius: 0.625rem;
 
   ::placeholder {

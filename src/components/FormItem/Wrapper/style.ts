@@ -13,7 +13,7 @@ export const Title = styled.p`
 `;
 
 export const RequiredMessage = styled.span`
-  color: ${({ theme }) => theme.color.error};
+  color: ${({ theme }) => theme.color.primary[30]};
 `;
 
 export const ErrorMessage = styled.p`
