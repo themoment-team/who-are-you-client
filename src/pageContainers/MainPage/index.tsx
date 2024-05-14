@@ -14,6 +14,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Header, InputFormItem, SelectFormItem } from '@/components';
 import { userInfoFormSchema } from '@/schemas';
 import type { userInfoFormType } from '@/types';
+import { MBTI_ARRAY } from '@/constants';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.FORM_FLOW);
@@ -30,7 +31,7 @@ const MainPage = () => {
       phoneNumber: '',
       email: '',
       major: '',
-      mbti: 'mbti를 선택해주세요.',
+      mbti: 'MBTI를 선택해주세요.',
     },
   });
 
@@ -41,10 +42,10 @@ const MainPage = () => {
   const onSubmit: SubmitHandler<userInfoFormType> = (data) => {
     const body = {
       ...data,
-      generation: Number(data.mbti),
     };
     console.log(body);
     toast.success('정보 등록에 성공하였습니다.');
+    setFlow(Flow.PHOTO_FLOW);
   };
 
   const onError: SubmitErrorHandler<userInfoFormType> = () => {
@@ -55,85 +56,64 @@ const MainPage = () => {
     handleSubmit(onSubmit, onError)();
   };
 
-  const MBTI_ARRAY = [
-    'ISTJ',
-    'ISFJ',
-    'INFJ',
-    'INTJ',
-    'ISTP',
-    'ISFP',
-    'INFP',
-    'INTP',
-    'ESTP',
-    'ESFP',
-    'ENFP',
-    'ENTP',
-    'ESTJ',
-    'ESFJ',
-    'ENFJ',
-    'ENTJ',
-  ];
-
   return (
     <S.Wrapper>
-      <S.Container>
-        <div>
-          <Header />
-          {flow === Flow.PHOTO_FLOW && (
-            <PhotoPage setImage={setImage} setFlow={setFlow} />
-          )}
-          <S.TextContainer>
-            <S.TextBox>
-              <S.Text>
-                후아유에 오신걸 환영합니다! <br />
-                먼저, 명함에 들어갈 정보들을 입력해주세요.
-              </S.Text>
-            </S.TextBox>
-          </S.TextContainer>
+      <div>
+        <Header />
+        {flow === Flow.PHOTO_FLOW && (
+          <PhotoPage setImage={setImage} setFlow={setFlow} />
+        )}
+        {flow === Flow.FORM_FLOW && (
+          <S.MainContianer>
+            <S.Text>
+              후아유에 오신걸 환영합니다! <br />
+              먼저, 명함에 들어갈 정보들을 입력해주세요.
+            </S.Text>
 
-          <S.InputContainer>
-            <InputFormItem
-              {...register('name')}
-              inputTitle='이름'
-              placeholder='이름을 입력해주세요.'
-              errorMessage={errors.name?.message}
-              required
-            />
-            <InputFormItem
-              {...register('phoneNumber')}
-              inputTitle='전화번호'
-              placeholder='전화번호를 입력해주세요.'
-              errorMessage={errors.phoneNumber?.message}
-              required
-            />
-            <InputFormItem
-              {...register('email')}
-              inputTitle='이메일'
-              placeholder='이메일을 입력해주세요.'
-              errorMessage={errors.email?.message}
-              required
-            />
-            <InputFormItem
-              {...register('major')}
-              inputTitle='전공/직함'
-              placeholder='전공/직함을 입력해주세요.'
-              errorMessage={errors.major?.message}
-            />
-            <SelectFormItem
-              {...register('mbti')}
-              selectTitle='MBTI'
-              defaultValue='MBTI를 선택해주세요.'
-              options={[...MBTI_ARRAY]}
-              errorMessage={errors.mbti?.message}
-            />
+            <S.InputContainer>
+              <InputFormItem
+                {...register('name')}
+                inputTitle='이름'
+                placeholder='이름을 입력해주세요.'
+                errorMessage={errors.name?.message}
+                required
+              />
+              <InputFormItem
+                {...register('phoneNumber')}
+                inputTitle='전화번호'
+                placeholder='전화번호를 입력해주세요.'
+                errorMessage={errors.phoneNumber?.message}
+                required
+              />
+              <InputFormItem
+                {...register('email')}
+                inputTitle='이메일'
+                placeholder='이메일을 입력해주세요.'
+                errorMessage={errors.email?.message}
+                required
+              />
+              <InputFormItem
+                {...register('major')}
+                inputTitle='전공/직함'
+                placeholder='전공/직함을 입력해주세요.'
+                errorMessage={errors.major?.message}
+              />
+              <SelectFormItem
+                {...register('mbti')}
+                selectTitle='MBTI'
+                defaultValue='MBTI를 선택해주세요.'
+                options={[...MBTI_ARRAY]}
+                errorMessage={errors.mbti?.message}
+              />
+            </S.InputContainer>
             <S.BottomContainer>
               <S.ContinueButton onClick={handleContinueButtonClick}>
                 <S.ContinueText>계속</S.ContinueText>
               </S.ContinueButton>
             </S.BottomContainer>
-          </S.InputContainer>
-        </div>
-      </S.Container>
+          </S.MainContianer>
+        )}
+      </div>
     </S.Wrapper>
   );
 };

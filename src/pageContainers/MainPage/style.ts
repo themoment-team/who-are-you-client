@@ -12,12 +12,19 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12.75rem;
+`;
+
+export const MainContianer = styled.div`
+  height: calc(100vh - 5rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 `;
 
 export const TextContainer = styled.div`
   display: flex;
-  padding: 0rem 3rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
@@ -34,23 +41,26 @@ export const TextBox = styled.div`
 export const Text = styled.p`
   color: ${({ theme }) => theme.color.gray[90]};
   ${({ theme }) => theme.typo.title};
+  font-weight: bold;
+  margin: 2.5rem 0 2.25rem 0;
+  width: 32.7rem;
 `;
 
 export const InputContainer = styled.div`
   display: flex;
-  padding: 0rem 3rem;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  width: 100%;
 `;
 
 export const BottomContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  padding-left: 24.875rem;
+  width: 32.75rem;
   justify-content: flex-end;
-  gap: 0.5rem;
-  margin-top: 11.75rem;
+  gap: 0.75rem;
+  position: absolute;
+  bottom: 2.5rem;
 `;
 
 export const ContinueButton = styled.button`
