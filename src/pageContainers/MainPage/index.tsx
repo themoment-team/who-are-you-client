@@ -43,7 +43,6 @@ const MainPage = () => {
     const body = {
       ...data,
     };
-    console.log(body);
     toast.success('정보 등록에 성공하였습니다.');
     setFlow(Flow.PHOTO_FLOW);
   };
