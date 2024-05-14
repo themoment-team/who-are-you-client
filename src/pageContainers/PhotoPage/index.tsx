@@ -50,7 +50,6 @@ const PhotoPage: React.FC<Props> = ({ setImage, setFlow }) => {
         />
       </S.WebcamWrapper>
       <S.ButtonBox>
-        <S.PreviewButton>미리보기</S.PreviewButton>
         <S.ShotButton onClick={handleShotButtonClick}>사진촬영</S.ShotButton>
       </S.ButtonBox>
     </S.Container>

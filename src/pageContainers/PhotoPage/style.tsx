@@ -52,9 +52,3 @@ export const ShotButton = styled.button`
   width: 7.875rem;
   height: 3rem;
 `;
-
-export const PreviewButton = styled(ShotButton)`
-  color: ${({ theme }) => theme.color.primary[30]};
-  background-color: ${({ theme }) => theme.color.white};
-  border: 0.0625rem solid ${({ theme }) => theme.color.primary[30]};
-`;
