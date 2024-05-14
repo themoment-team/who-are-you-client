@@ -1,16 +1,24 @@
 import * as S from './style';
+import { PhotoPage } from '@/pageContainers';
+import { useState } from 'react';
+import { Flow } from '@/types';
 
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+
+import { toast } from 'react-toastify';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Header, InputFormItem, SelectFormItem } from '@/components';
 import { userInfoFormSchema } from '@/schemas';
 import type { userInfoFormType } from '@/types';
-// import { useEffect } from 'react';
 
 const MainPage = () => {
+  const [flow, setFlow] = useState<Flow>(Flow.FORM_FLOW);
+  const [Image, setImage] = useState<File | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -26,18 +34,21 @@ const MainPage = () => {
     },
   });
 
+  useEffect(() => {
+    toast.info('정보 등록 후에 서비스 이용이 가능합니다.');
+  }, []);
+
   const onSubmit: SubmitHandler<userInfoFormType> = (data) => {
     const body = {
       ...data,
       generation: Number(data.mbti),
     };
     console.log(body);
-    console.log('hello');
+    toast.success('정보 등록에 성공하였습니다.');
   };
 
   const onError: SubmitErrorHandler<userInfoFormType> = () => {
-    // toast.error('입력 정보를 다시 확인해주세요.');
-    console.log('error');
+    toast.error('입력 정보를 다시 확인해주세요.');
   };
 
   const handleContinueButtonClick = () => {
@@ -63,15 +74,14 @@ const MainPage = () => {
     'ENTJ',
   ];
 
-  // useEffect(() => {
-  //   toast.info('멘티 정보 등록 후에 서비스 이용이 가능합니다.');
-  // }, []);
-
   return (
     <S.Wrapper>
       <S.Container>
         <div>
           <Header />
+          {flow === Flow.PHOTO_FLOW && (
+            <PhotoPage setImage={setImage} setFlow={setFlow} />
+          )}
           <S.TextContainer>
             <S.TextBox>
               <S.Text>

@@ -57,6 +57,8 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"],\
           ["react-hook-form", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.51.4"],\
+          ["react-toastify", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:10.0.5"],\
+          ["react-webcam", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0"],\
           ["storybook", "npm:8.0.10"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:5.2.11"],\
@@ -6854,6 +6856,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["clsx", [\
+      ["npm:2.1.1", {\
+        "packageLocation": "./.yarn/cache/clsx-npm-2.1.1-96125b98be-cdfb57fa6c.zip/node_modules/clsx/",\
+        "packageDependencies": [\
+          ["clsx", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["color-convert", [\
       ["npm:1.9.3", {\
         "packageLocation": "./.yarn/cache/color-convert-npm-1.9.3-1fe690075e-ffa3190250.zip/node_modules/color-convert/",\
@@ -11663,6 +11674,59 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-toastify", [\
+      ["npm:10.0.5", {\
+        "packageLocation": "./.yarn/cache/react-toastify-npm-10.0.5-86b63c99fc-6630f4b6d6.zip/node_modules/react-toastify/",\
+        "packageDependencies": [\
+          ["react-toastify", "npm:10.0.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:10.0.5", {\
+        "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-87590ed7b0/0/cache/react-toastify-npm-10.0.5-86b63c99fc-6630f4b6d6.zip/node_modules/react-toastify/",\
+        "packageDependencies": [\
+          ["react-toastify", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:10.0.5"],\
+          ["@types/react", "npm:18.3.1"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["clsx", "npm:2.1.1"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-webcam", [\
+      ["npm:7.2.0", {\
+        "packageLocation": "./.yarn/cache/react-webcam-npm-7.2.0-4404f3658d-fe16756b9b.zip/node_modules/react-webcam/",\
+        "packageDependencies": [\
+          ["react-webcam", "npm:7.2.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-webcam-virtual-809ee3b3b2/0/cache/react-webcam-npm-7.2.0-4404f3658d-fe16756b9b.zip/node_modules/react-webcam/",\
+        "packageDependencies": [\
+          ["react-webcam", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0"],\
+          ["@types/react", "npm:18.3.1"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["read-pkg", [\
       ["npm:5.2.0", {\
         "packageLocation": "./.yarn/cache/read-pkg-npm-5.2.0-50426bd8dc-eb696e6052.zip/node_modules/read-pkg/",\
@@ -13540,6 +13604,8 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"],\
           ["react-hook-form", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.51.4"],\
+          ["react-toastify", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:10.0.5"],\
+          ["react-webcam", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0"],\
           ["storybook", "npm:8.0.10"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:5.2.11"],\

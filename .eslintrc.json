@@ -6,11 +6,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "unused-imports"
-  ],
+  "plugins": ["@typescript-eslint", "react", "unused-imports"],
   "extends": [
     "plugin:prettier/recommended",
     "plugin:react/recommended",
@@ -23,7 +19,8 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "no-console": "error",
-    "no-undef": "off"
+    "no-undef": "off",
+    "react/prop-types": "off"
   },
   "settings": {
     "react": {
