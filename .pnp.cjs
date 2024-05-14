@@ -56,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"],\
           ["react-hook-form", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.51.4"],\
+          ["react-webcam", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0"],\
           ["storybook", "npm:8.0.10"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:5.2.11"]\
@@ -11639,6 +11640,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-webcam", [\
+      ["npm:7.2.0", {\
+        "packageLocation": "./.yarn/cache/react-webcam-npm-7.2.0-4404f3658d-fe16756b9b.zip/node_modules/react-webcam/",\
+        "packageDependencies": [\
+          ["react-webcam", "npm:7.2.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-webcam-virtual-809ee3b3b2/0/cache/react-webcam-npm-7.2.0-4404f3658d-fe16756b9b.zip/node_modules/react-webcam/",\
+        "packageDependencies": [\
+          ["react-webcam", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0"],\
+          ["@types/react", "npm:18.3.1"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["read-pkg", [\
       ["npm:5.2.0", {\
         "packageLocation": "./.yarn/cache/read-pkg-npm-5.2.0-50426bd8dc-eb696e6052.zip/node_modules/read-pkg/",\
@@ -13515,6 +13542,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:18.3.1"],\
           ["react-hook-form", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.51.4"],\
+          ["react-webcam", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:7.2.0"],\
           ["storybook", "npm:8.0.10"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:f1ab24aea4768dda9fd8bbcbd09a08994c979c1810c33985405c2c23372f5f3b301cf521fa86ff478591f6f4de1c234ec1b1c7684fa9bb1fbb8d89a27b7851bf#npm:5.2.11"]\
