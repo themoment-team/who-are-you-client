@@ -17,7 +17,7 @@ const PhotoPage: React.FC<Props> = ({ setImage, setFlow }) => {
       const imageSrc = webcamRef.current.getScreenshot();
       const imageFile = dataURLtoFile(imageSrc!, 'userImg');
       setImage(imageFile);
-      setFlow(Flow.CONVERT_AI_PHOTO_FLOW);
+      setFlow(Flow.CONVERT_PHOTO_FLOW);
     }
   }, [webcamRef]);
 
