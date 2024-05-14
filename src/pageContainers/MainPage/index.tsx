@@ -21,6 +21,7 @@ const MainPage = () => {
       name: '',
       phoneNumber: '',
       email: '',
+      major: '',
       mbti: 'mbti를 선택해주세요.',
     },
   });
@@ -28,10 +29,8 @@ const MainPage = () => {
   const onSubmit: SubmitHandler<userInfoFormType> = (data) => {
     const body = {
       ...data,
-      profileUrl: undefined,
       generation: Number(data.mbti),
     };
-
     console.log(body);
     console.log('hello');
   };
@@ -40,6 +39,29 @@ const MainPage = () => {
     // toast.error('입력 정보를 다시 확인해주세요.');
     console.log('error');
   };
+
+  const handleContinueButtonClick = () => {
+    handleSubmit(onSubmit, onError)();
+  };
+
+  const MBTI_ARRAY = [
+    'ISTJ',
+    'ISFJ',
+    'INFJ',
+    'INTJ',
+    'ISTP',
+    'ISFP',
+    'INFP',
+    'INTP',
+    'ESTP',
+    'ESFP',
+    'ENFP',
+    'ENTP',
+    'ESTJ',
+    'ESFJ',
+    'ENFJ',
+    'ENTJ',
+  ];
 
   // useEffect(() => {
   //   toast.info('멘티 정보 등록 후에 서비스 이용이 가능합니다.');
@@ -59,7 +81,7 @@ const MainPage = () => {
             </S.TextBox>
           </S.TextContainer>
 
-          <S.InputContainer onSubmit={handleSubmit(onSubmit, onError)}>
+          <S.InputContainer>
             <InputFormItem
               {...register('name')}
               inputTitle='이름'
@@ -82,12 +104,20 @@ const MainPage = () => {
               required
             />
             <InputFormItem
+              {...register('major')}
               inputTitle='전공/직함'
               placeholder='전공/직함을 입력해주세요.'
+              errorMessage={errors.major?.message}
             />
-            <SelectFormItem selectTitle='MBTI' options={[]} />
+            <SelectFormItem
+              {...register('mbti')}
+              selectTitle='MBTI'
+              defaultValue='MBTI를 선택해주세요.'
+              options={[...MBTI_ARRAY]}
+              errorMessage={errors.mbti?.message}
+            />
             <S.BottomContainer>
-              <S.ContinueButton>
+              <S.ContinueButton onClick={handleContinueButtonClick}>
                 <S.ContinueText>계속</S.ContinueText>
               </S.ContinueButton>
             </S.BottomContainer>

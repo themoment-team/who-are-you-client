@@ -13,9 +13,8 @@ export const userInfoFormSchema = z.object({
   email: z
     .string({ required_error: '이메일을 입력해주세요.' })
     .email({ message: '이메일 형식으로 입력해주세요.' }),
-  mbti: z
-    .string({
-      required_error: 'MBTI를 선택해주세요.',
-    })
-    .regex(/^[0-9]+$/, { message: 'MBTI를 선택해주세요.' }),
+  major: z.string({ required_error: '전공/직합을 입력해주세요.' }),
+  mbti: z.string({
+    required_error: 'MBTI를 선택해주세요.',
+  }),
 });
