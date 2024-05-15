@@ -5,7 +5,7 @@ import { CameraGuide } from '@/assets';
 import { Flow } from '@/types';
 
 interface Props {
-  setImage: React.Dispatch<React.SetStateAction<File | null>>;
+  setImage: React.Dispatch<React.SetStateAction<string>>;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
 }
 
@@ -16,7 +16,8 @@ const PhotoPage: React.FC<Props> = ({ setImage, setFlow }) => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
       const imageFile = dataURLtoFile(imageSrc!, 'userImg');
-      setImage(imageFile);
+      console.log(imageFile);
+      setImage(imageSrc!);
       setFlow(Flow.CONVERT_PHOTO_FLOW);
     }
   }, [webcamRef]);
