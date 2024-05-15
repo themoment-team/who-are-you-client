@@ -1,4 +1,4 @@
-const Xicon = () => (
+const XIcon = () => (
   <svg
     width='7.5rem'
     height='8.375rem'
@@ -35,4 +35,4 @@ const Xicon = () => (
   </svg>
 );
 
-export default Xicon;
+export default XIcon;
