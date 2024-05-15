@@ -1,5 +1,5 @@
 import * as S from './style';
-import { PhotoPage, FormPage } from '@/pageContainers';
+import { PhotoPage, FormPage, SelectPage } from '@/pageContainers';
 import { useState } from 'react';
 import { Flow } from '@/types';
 
@@ -13,10 +13,11 @@ const MainPage = () => {
     <S.Wrapper>
       <div>
         <Header />
-        {flow === Flow.PHOTO_FLOW && (
+        {/* {flow === Flow.PHOTO_FLOW && (
           <PhotoPage setImage={setImage} setFlow={setFlow} />
         )}
-        {flow === Flow.FORM_FLOW && <FormPage setFlow={setFlow} />}
+        {flow === Flow.FORM_FLOW && <FormPage setFlow={setFlow} />} */}
+        <SelectPage />
       </div>
     </S.Wrapper>
   );

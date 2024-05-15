@@ -10,7 +10,7 @@ interface Props {
   sns: string;
 }
 
-const CardTheme: React.FC<Props> = ({
+const Theme1: React.FC<Props> = ({
   name,
   major,
   phoneNumber,
@@ -38,4 +38,4 @@ const CardTheme: React.FC<Props> = ({
   );
 };
 
-export default CardTheme;
+export default Theme1;
