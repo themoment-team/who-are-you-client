@@ -1,4 +1,5 @@
 const MBTI_ARRAY = [
+  '선택 안함',
   'ISTJ',
   'ISFJ',
   'INFJ',
