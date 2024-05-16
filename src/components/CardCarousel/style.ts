@@ -5,6 +5,15 @@ export const CardContainer = styled.div`
   padding: 6.125rem 2.5rem;
   align-items: center;
   gap: 1.625rem;
+  height: 20.625rem;
 `;
 
-export const CarouselButton = styled.button``;
+export const CarouselLeftButton = styled.button`
+  position: absolute;
+  left: 3rem;
+`;
+
+export const CarouselRightButton = styled.button`
+  position: absolute;
+  right: 3rem;
+`;
