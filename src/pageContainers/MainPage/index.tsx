@@ -2,20 +2,33 @@ import { Header } from '@/components';
 import * as S from './style';
 import { ConvertPage, PhotoPage } from '@/pageContainers';
 import { useState } from 'react';
-import { Flow } from '@/types';
+import { Flow, SelectedType } from '@/types';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.PHOTO_FLOW);
-  const [image, setImage] = useState<string>('');
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const [selectedButton, setSelectedButton] = useState<SelectedType | null>(
+    null
+  );
+  const [convertedImageUrl, setConvertedImageUrl] = useState<string | null>(
+    null
+  );
 
   return (
     <S.Container>
       <Header />
       {flow === Flow.PHOTO_FLOW && (
-        <PhotoPage setImage={setImage} setFlow={setFlow} />
+        <PhotoPage setImageUrl={setImageUrl} setFlow={setFlow} />
       )}
       {flow === Flow.CONVERT_PHOTO_FLOW && (
-        <ConvertPage image={image} setFlow={setFlow} />
+        <ConvertPage
+          imageUrl={imageUrl}
+          setFlow={setFlow}
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          convertedImageUrl={convertedImageUrl}
+          setConvertedImageUrl={setConvertedImageUrl}
+        />
       )}
     </S.Container>
   );
