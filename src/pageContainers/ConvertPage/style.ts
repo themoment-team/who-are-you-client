@@ -6,14 +6,25 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+`;
+
+export const TopBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0 2.25rem 0;
+  width: 32.75rem;
+`;
+
+export const Image = styled.img`
+  height: 6.9375rem;
+  border-radius: 0.5rem;
 `;
 
 export const Description = styled.h1`
   ${({ theme }) => theme.typo.h1};
   color: ${({ theme }) => theme.color.gray[90]};
   font-weight: bold;
-  width: 32.75rem;
-  margin: 3rem 0 2.25rem 0;
 `;
 
 export const ButtonBox = styled.div`
@@ -25,7 +36,7 @@ export const ButtonBox = styled.div`
   bottom: 2.5rem;
 `;
 
-export const ShotButton = styled.button`
+export const NextButton = styled.button`
   ${({ theme }) => theme.typo.h3};
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.primary[30]};
@@ -35,8 +46,39 @@ export const ShotButton = styled.button`
   height: 3rem;
 `;
 
-export const PreviewButton = styled(ShotButton)`
+export const PreviewButton = styled(NextButton)`
   color: ${({ theme }) => theme.color.primary[30]};
   border: 0.0625rem solid ${({ theme }) => theme.color.primary[30]};
   background-color: ${({ theme }) => theme.color.white};
+`;
+
+export const PreviewModal = styled.div`
+  height: calc(100vh - 5rem);
+  width: 38.75rem;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ModalBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: end;
+`;
+
+export const ModalImg = styled.img`
+  height: 27.5rem;
+  width: 27.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+`;
+
+export const ModalButton = styled(NextButton)`
+  color: ${({ theme }) => theme.color.primary[40]};
+  background-color: ${({ theme }) => theme.color.primary[10]};
+  margin-right: 0.99rem;
 `;
