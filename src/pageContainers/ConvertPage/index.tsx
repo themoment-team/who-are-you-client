@@ -28,7 +28,7 @@ const ConvertPage: React.FC<Props> = ({
     if (!selectedButton) return; // 추후 toast 넣을 예정
 
     if (!convertedImageUrl && selectedButton === SelectedType.YES) {
-      const response = await getConvertedImage();
+      const response = await postConvertedImage();
 
       setConvertedImageUrl(response.images[0].image);
     }
@@ -36,7 +36,7 @@ const ConvertPage: React.FC<Props> = ({
     setIsModal(true);
   };
 
-  const getConvertedImage = async (): Promise<ConvertedImageType> => {
+  const postConvertedImage = async (): Promise<ConvertedImageType> => {
     try {
       const sliceUrl = imageUrl.slice(22);
 
