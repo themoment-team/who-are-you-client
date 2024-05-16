@@ -5,34 +5,20 @@ import { CameraGuide } from '@/assets';
 import { Flow } from '@/types';
 
 interface Props {
-  setImage: React.Dispatch<React.SetStateAction<string>>;
+  setImageUrl: React.Dispatch<React.SetStateAction<string>>;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
 }
 
-const PhotoPage: React.FC<Props> = ({ setImage, setFlow }) => {
+const PhotoPage: React.FC<Props> = ({ setImageUrl, setFlow }) => {
   const webcamRef = useRef<Webcam>(null);
 
   const handleShotButtonClick = useCallback(() => {
     if (webcamRef.current) {
-      const imageSrc = webcamRef.current.getScreenshot();
-      const imageFile = dataURLtoFile(imageSrc!, 'userImg');
-      console.log(imageFile);
-      setImage(imageSrc!);
+      const imageUrl = webcamRef.current.getScreenshot();
+      setImageUrl(imageUrl!);
       setFlow(Flow.CONVERT_PHOTO_FLOW);
     }
   }, [webcamRef]);
-
-  const dataURLtoFile = (dataUrl: string, filename: string) => {
-    const splitedUrl = dataUrl.split(',');
-    const mime = splitedUrl?.[0].match(/:(.*?);/)?.[1];
-    const byteString = atob(splitedUrl[1]);
-    let n = byteString.length;
-    const uint8Array = new Uint8Array(n);
-    while (n--) {
-      uint8Array[n] = byteString.charCodeAt(n);
-    }
-    return new File([uint8Array], filename, { type: mime });
-  };
 
   return (
     <S.Container>
