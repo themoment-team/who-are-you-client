@@ -1,4 +1,4 @@
 export enum SelectedType {
-  YES,
-  NO,
+  YES = 'YES',
+  NO = 'NO',
 }
