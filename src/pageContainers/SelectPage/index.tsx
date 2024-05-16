@@ -9,7 +9,7 @@ const SelectPage = () => {
       </S.Description>
       <CardCarousel />
       <S.ButtonBox>
-        <S.ShotButton>임시버튼</S.ShotButton>
+        <S.ShotButton>명함인쇄</S.ShotButton>
       </S.ButtonBox>
     </S.Container>
   );
