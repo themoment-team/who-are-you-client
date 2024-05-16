@@ -1,7 +1,7 @@
 import { ConvertedImageType, Flow, SelectedType } from '@/types';
 import * as S from './style';
 import YesOrNoButton from '@/components/YesOrNoButton';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Props {
   imageUrl: string;
@@ -24,16 +24,12 @@ const ConvertPage: React.FC<Props> = ({
 
   const handleNextButtonClick = () => setFlow(Flow.CHOOSE_DESIGN_FLOW);
   const handleModalButtonClick = () => setIsModal(false);
-  const handlePreviewButtonClick = async () => {
-    if (!selectedButton) return; // 추후 toast 넣을 예정
+  const handlePreviewButtonClick = () => setIsModal(true);
 
-    if (!convertedImageUrl && selectedButton === SelectedType.YES) {
-      const response = await postConvertedImage();
+  const convertImage = async () => {
+    const response = await postConvertedImage();
 
-      setConvertedImageUrl(response.images[0].image);
-    }
-
-    setIsModal(true);
+    setConvertedImageUrl(response.images[0].image);
   };
 
   const postConvertedImage = async (): Promise<ConvertedImageType> => {
@@ -64,6 +60,10 @@ const ConvertPage: React.FC<Props> = ({
       throw new Error('Error');
     }
   };
+
+  useEffect(() => {
+    convertImage();
+  }, []);
 
   return (
     <S.Container>
