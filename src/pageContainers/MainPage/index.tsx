@@ -1,20 +1,24 @@
-import { Header } from '@/components';
 import * as S from './style';
-import { PhotoPage } from '@/pageContainers';
+import { PhotoPage, FormPage } from '@/pageContainers';
 import { useState } from 'react';
 import { Flow } from '@/types';
+
+import { Header } from '@/components';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.FORM_FLOW);
   const [Image, setImage] = useState<File | null>(null);
 
   return (
-    <S.Container>
-      <Header />
-      {flow === Flow.PHOTO_FLOW && (
-        <PhotoPage setImage={setImage} setFlow={setFlow} />
-      )}
-    </S.Container>
+    <S.Wrapper>
+      <div>
+        <Header />
+        {flow === Flow.PHOTO_FLOW && (
+          <PhotoPage setImage={setImage} setFlow={setFlow} />
+        )}
+        {flow === Flow.FORM_FLOW && <FormPage setFlow={setFlow} />}
+      </div>
+    </S.Wrapper>
   );
 };
 
