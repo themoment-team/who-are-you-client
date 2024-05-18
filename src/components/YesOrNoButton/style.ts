@@ -7,7 +7,7 @@ export const YesOrNoBox = styled.div`
 
 export const Button = styled.button<{ isSelected: boolean }>`
   ${({ theme }) => theme.typo.h2}
-  border: 1px solid ${({ theme }) => theme.color.primary[30]};
+  border: 0.0625rem solid ${({ theme }) => theme.color.primary[30]};
   color: ${({ isSelected, theme }) =>
     isSelected ? theme.color.white : theme.color.gray[90]};
   background-color: ${({ isSelected, theme }) =>
