@@ -94,11 +94,9 @@ const ConvertPage: React.FC<Props> = ({
           <S.ModalBox>
             <S.ModalImg
               src={
-                selectedButton! === SelectedType.YES
+                selectedButton === SelectedType.YES
                   ? convertedImageUrl!
-                  : selectedButton! === SelectedType.NO
-                    ? imageUrl
-                    : ''
+                  : imageUrl
               }
             />
             <S.ModalButton onClick={handleModalButtonClick}>확인</S.ModalButton>
