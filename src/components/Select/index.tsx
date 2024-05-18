@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 
 import * as S from './style';
+import { SelectIcon } from '@/assets';
 
 interface Props extends React.InputHTMLAttributes<HTMLSelectElement> {
   errorMessage?: string;
@@ -14,22 +15,25 @@ interface Props extends React.InputHTMLAttributes<HTMLSelectElement> {
  */
 const Select = forwardRef<HTMLSelectElement, Props>(
   ({ errorMessage, options, defaultValue, value, ...attributes }, ref) => (
-    <S.CustomSelect
-      isError={!!errorMessage}
-      ref={ref}
-      isDefault={value === defaultValue}
-      value={value}
-      {...attributes}
-    >
-      <option disabled hidden value={defaultValue}>
-        {defaultValue}
-      </option>
-      {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
+    <S.Container>
+      <S.CustomSelect
+        isError={!!errorMessage}
+        ref={ref}
+        isDefault={value === defaultValue}
+        value={value}
+        {...attributes}
+      >
+        <option disabled hidden value={defaultValue}>
+          {defaultValue}
         </option>
-      ))}
-    </S.CustomSelect>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </S.CustomSelect>
+      <SelectIcon />
+    </S.Container>
   )
 );
 

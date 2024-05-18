@@ -1,23 +1,39 @@
 import * as S from './style';
-import { PhotoPage, FormPage } from '@/pageContainers';
+import { ConvertPage, FormPage, PhotoPage } from '@/pageContainers';
 import { useState } from 'react';
-import { Flow } from '@/types';
-
+import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.FORM_FLOW);
-  const [Image, setImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const [userInfo, setUserInfo] = useState<userInfoFormType | null>(null);
+  const [selectedButton, setSelectedButton] = useState<SelectedType | null>(
+    null
+  );
+  const [convertedImageUrl, setConvertedImageUrl] = useState<string | null>(
+    null
+  );
 
   return (
     <S.Wrapper>
-      <div>
-        <Header />
-        {flow === Flow.PHOTO_FLOW && (
-          <PhotoPage setImage={setImage} setFlow={setFlow} />
-        )}
-        {flow === Flow.FORM_FLOW && <FormPage setFlow={setFlow} />}
-      </div>
+      <Header />
+      {flow === Flow.FORM_FLOW && (
+        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
+      )}
+      {flow === Flow.PHOTO_FLOW && (
+        <PhotoPage setImageUrl={setImageUrl} setFlow={setFlow} />
+      )}
+      {flow === Flow.CONVERT_PHOTO_FLOW && (
+        <ConvertPage
+          imageUrl={imageUrl}
+          setFlow={setFlow}
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          convertedImageUrl={convertedImageUrl}
+          setConvertedImageUrl={setConvertedImageUrl}
+        />
+      )}
     </S.Wrapper>
   );
 };
