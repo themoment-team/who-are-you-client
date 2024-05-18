@@ -2,6 +2,7 @@ import { ConvertedImageType, Flow, SelectedType } from '@/types';
 import * as S from './style';
 import YesOrNoButton from '@/components/YesOrNoButton';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface Props {
   imageUrl: string;
@@ -24,7 +25,10 @@ const ConvertPage: React.FC<Props> = ({
 
   const handleNextButtonClick = () => setFlow(Flow.CHOOSE_DESIGN_FLOW);
   const handleModalButtonClick = () => setIsModal(false);
-  const handlePreviewButtonClick = () => setIsModal(true);
+  const handlePreviewButtonClick = () =>
+    selectedButton !== null
+      ? setIsModal(true)
+      : toast.error('예, 아니요 중 하나를 선택해 주셔야해요.');
 
   const convertImage = async () => {
     const response = await postConvertedImage();
