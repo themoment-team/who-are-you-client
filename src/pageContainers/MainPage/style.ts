@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   width: 38.75rem;
   height: 100vh;

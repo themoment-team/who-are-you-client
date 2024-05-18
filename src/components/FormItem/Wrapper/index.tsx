@@ -19,7 +19,7 @@ const FormItemWrapper: React.FC<Props> = ({
       {required && <S.RequiredMessage>*</S.RequiredMessage>}
     </S.Title>
     {children}
-    {errorMessage ?? <S.ErrorMessage>{errorMessage}</S.ErrorMessage>}
+    <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
   </S.Container>
 );
 

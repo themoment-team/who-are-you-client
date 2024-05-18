@@ -1,8 +1,8 @@
-import { Header } from '@/components';
 import * as S from './style';
-import { ConvertPage, PhotoPage } from '@/pageContainers';
+import { ConvertPage, FormPage, PhotoPage } from '@/pageContainers';
 import { useState } from 'react';
 import { Flow, SelectedType } from '@/types';
+import { Header } from '@/components';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.PHOTO_FLOW);
@@ -15,7 +15,7 @@ const MainPage = () => {
   );
 
   return (
-    <S.Container>
+    <S.Wrapper>
       <Header />
       {flow === Flow.PHOTO_FLOW && (
         <PhotoPage setImageUrl={setImageUrl} setFlow={setFlow} />
@@ -30,7 +30,8 @@ const MainPage = () => {
           setConvertedImageUrl={setConvertedImageUrl}
         />
       )}
-    </S.Container>
+      {flow === Flow.FORM_FLOW && <FormPage setFlow={setFlow} />}
+    </S.Wrapper>
   );
 };
 
