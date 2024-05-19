@@ -15,10 +15,11 @@ import { MBTI_ARRAY } from '@/constants';
 import { Flow } from '@/types';
 
 interface Props {
+  setUserInfo: React.Dispatch<React.SetStateAction<userInfoFormType | null>>;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
 }
 
-const FormPage: React.FC<Props> = ({ setFlow }) => {
+const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
   const {
     register,
     handleSubmit,
@@ -39,9 +40,7 @@ const FormPage: React.FC<Props> = ({ setFlow }) => {
   }, []);
 
   const onSubmit: SubmitHandler<userInfoFormType> = (data) => {
-    const body = {
-      ...data,
-    };
+    setUserInfo(data);
     toast.success('정보 등록에 성공하였습니다.');
     setFlow(Flow.PHOTO_FLOW);
   };

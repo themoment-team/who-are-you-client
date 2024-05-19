@@ -33,4 +33,24 @@ export const CustomSelect = styled.select<{
   :default {
     color: ${({ theme }) => theme.color.gray[40]};
   }
+
+  // 기본 화살표 제거
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  ::-ms-expand {
+    display: none; /*for IE10,11*/
+  }
+`;
+
+export const Container = styled.div`
+  position: relative;
+
+  svg {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
