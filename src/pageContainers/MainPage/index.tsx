@@ -34,7 +34,7 @@ const MainPage = () => {
           setConvertedImageUrl={setConvertedImageUrl}
         />
       )}
-      {flow === Flow.SELECT_DESIGN_FLOW && (
+      {flow === Flow.SELECT_THEME_FLOW && (
         <SelectPage
           userInfo={userInfo}
           imageUrl={imageUrl}

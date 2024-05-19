@@ -23,7 +23,7 @@ const ConvertPage: React.FC<Props> = ({
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
-  const handleNextButtonClick = () => setFlow(Flow.CHOOSE_DESIGN_FLOW);
+  const handleNextButtonClick = () => setFlow(Flow.SELECT_THEME_FLOW);
   const handleModalButtonClick = () => setIsModal(false);
   const handlePreviewButtonClick = () =>
     selectedButton !== null
