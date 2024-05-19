@@ -27,6 +27,10 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
     return phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
   };
 
+  const isValidMBTI = (mbti: string | undefined) => {
+    return !!mbti && /^[A-Za-z]{4}$/.test(mbti);
+  };
+
   return (
     <>
       {openModalCase === 'open' && (
@@ -49,7 +53,7 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
               major={userInfo.major}
               phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
               email={userInfo.email}
-              mbti={userInfo.mbti}
+              mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
               sns='jxx_gyun'
               imageUrl={imageUrl}
             />
@@ -60,7 +64,7 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
               major={userInfo.major}
               phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
               email={userInfo.email}
-              mbti={userInfo.mbti}
+              mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
               sns='jxx_gyun'
               imageUrl={imageUrl}
             />
@@ -70,7 +74,7 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
               name={userInfo.name}
               phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
               email={userInfo.email}
-              mbti={userInfo.mbti}
+              mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
               sns='jxx_gyun'
               imageUrl={imageUrl}
             />
