@@ -7,9 +7,17 @@ interface Props {
   email: string;
   mbti: string;
   sns: string;
+  imageUrl: string;
 }
 
-const Theme3: React.FC<Props> = ({ name, phoneNumber, email, mbti, sns }) => {
+const Theme3: React.FC<Props> = ({
+  name,
+  phoneNumber,
+  email,
+  mbti,
+  sns,
+  imageUrl,
+}) => {
   return (
     <S.Contianer>
       <S.MainInfoContianer>
@@ -20,14 +28,14 @@ const Theme3: React.FC<Props> = ({ name, phoneNumber, email, mbti, sns }) => {
             <T.UserInfoBox>
               <T.UserInfoText>Tel) {phoneNumber}</T.UserInfoText>
               <T.UserInfoText>Email) {email}</T.UserInfoText>
-              <T.UserInfoText>MBTI) {mbti}</T.UserInfoText>
+              {mbti && <T.UserInfoText>MBTI) {mbti}</T.UserInfoText>}
               <T.UserInfoText>Insta) {sns}</T.UserInfoText>
             </T.UserInfoBox>
           </T.MainInfoBox>
         </S.PuppleContainer>
 
         <S.ImgHeightBox>
-          <S.ImgContinaer>img</S.ImgContinaer>
+          <S.ImgContinaer src={imageUrl} />
         </S.ImgHeightBox>
       </S.MainInfoContianer>
     </S.Contianer>

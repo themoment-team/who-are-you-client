@@ -4,8 +4,14 @@ import { useState } from 'react';
 
 import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
+import { userInfoFormType } from '@/types';
 
-const SelectPage = () => {
+interface Props {
+  userInfo: userInfoFormType | null;
+  imageUrl: string;
+}
+
+const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
   const [openModalCase, setOpenModalCase] = useState<'close' | 'open'>('close');
   const [currentTheme, setCurrentTheme] = useState(1);
 
@@ -15,6 +21,10 @@ const SelectPage = () => {
 
   const prevTheme = () => {
     setCurrentTheme((prevTheme) => ((prevTheme - 2 + 3) % 3) + 1);
+  };
+
+  const formatPhoneNumber = (phoneNumber: string) => {
+    return phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
   };
 
   return (
@@ -35,31 +45,34 @@ const SelectPage = () => {
           </S.CarouselLeftButton>
           {currentTheme === 1 && (
             <Theme1
-              name='김재균'
-              major='Front End'
-              phoneNumber='010-1234-5678'
-              email='s23005@gsm.hs.kr'
-              mbti='ESTP'
+              name={userInfo.name}
+              major={userInfo.major}
+              phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
+              email={userInfo.email}
+              mbti={userInfo.mbti}
               sns='jxx_gyun'
+              imageUrl={imageUrl}
             />
           )}
           {currentTheme === 2 && (
             <Theme2
-              name='김재균'
-              major='Front End'
-              phoneNumber='010-1234-5678'
-              email='s23005@gsm.hs.kr'
-              mbti='ESTP'
+              name={userInfo.name}
+              major={userInfo.major}
+              phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
+              email={userInfo.email}
+              mbti={userInfo.mbti}
               sns='jxx_gyun'
+              imageUrl={imageUrl}
             />
           )}
           {currentTheme === 3 && (
             <Theme3
-              name='김재균'
-              phoneNumber='010-1234-5678'
-              email='s23005@gsm.hs.kr'
-              mbti='ESTP'
+              name={userInfo.name}
+              phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
+              email={userInfo.email}
+              mbti={userInfo.mbti}
               sns='jxx_gyun'
+              imageUrl={imageUrl}
             />
           )}
           <S.CarouselRightButton onClick={nextTheme}>

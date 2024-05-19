@@ -34,7 +34,9 @@ const MainPage = () => {
           setConvertedImageUrl={setConvertedImageUrl}
         />
       )}
-      <SelectPage />
+      {flow === Flow.CHOOSE_DESIGN_FLOW && (
+        <SelectPage userInfo={userInfo} imageUrl={imageUrl} />
+      )}
     </S.Wrapper>
   );
 };

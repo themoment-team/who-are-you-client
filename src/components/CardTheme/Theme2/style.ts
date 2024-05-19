@@ -33,3 +33,9 @@ export const UserContianer = styled.div`
   align-items: flex-start;
   gap: 0.75rem;
 `;
+
+export const ImgBox = styled.img`
+  width: 5.25rem;
+  height: 5.25rem;
+  border-radius: 0.5rem;
+`;

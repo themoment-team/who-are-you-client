@@ -13,7 +13,7 @@ export const Contianer = styled.div`
   background-color: ${({ theme }) => theme.color.white};
 `;
 
-export const ImgContinaer = styled.div`
+export const ImgContinaer = styled.img`
   width: 6rem;
   height: 6rem;
   border-radius: 0.75rem;
