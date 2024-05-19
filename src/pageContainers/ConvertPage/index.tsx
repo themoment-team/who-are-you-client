@@ -23,7 +23,11 @@ const ConvertPage: React.FC<Props> = ({
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
-  const handleNextButtonClick = () => setFlow(Flow.SELECT_THEME_FLOW);
+  const handleNextButtonClick = () => {
+    selectedButton !== null
+      ? setFlow(Flow.SELECT_THEME_FLOW)
+      : toast.error('예, 아니오 중 하나를 선택해 주셔야해요.');
+  };
   const handleModalButtonClick = () => setIsModal(false);
   const handlePreviewButtonClick = () =>
     selectedButton !== null
