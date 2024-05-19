@@ -21,7 +21,7 @@ const CardModal: React.FC<Props> = ({
   imageUrl,
 }) => {
   const printRef = useRef<HTMLDivElement>(null);
-  const [isPrinting, setIsPringting] = useState(false);
+  const [isPrinting, setIsPrinting] = useState(false);
 
   const commonProps = {
     name: userInfo?.name,
@@ -79,13 +79,15 @@ const CardModal: React.FC<Props> = ({
               trigger={() => (
                 <S.ShotButton
                   onClick={() => {
-                    setIsPringting(true);
+                    setIsPrinting(true);
                   }}
                 >
                   인쇄하기
                 </S.ShotButton>
               )}
               content={() => printRef.current}
+              onBeforePrint={() => setIsPrinting(true)}
+              onAfterPrint={() => setIsPrinting(false)}
             />
           )}
         </S.ButtonContainer>
