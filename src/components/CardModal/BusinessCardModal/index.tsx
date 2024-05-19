@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
 import { userInfoFormType } from '@/types';
+import { formatPhoneNumber, isValidMBTI } from '@/utils';
 
 interface Props {
   closeModal: () => void;
@@ -21,14 +22,6 @@ const CardModal: React.FC<Props> = ({
 }) => {
   const printRef = useRef<HTMLDivElement>(null);
   const [isPrinting, setIsPringting] = useState(false);
-
-  const formatPhoneNumber = (phoneNumber: string) => {
-    return phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-  };
-
-  const isValidMBTI = (mbti: string | undefined) => {
-    return !!mbti && /^[A-Za-z]{4}$/.test(mbti);
-  };
 
   const commonProps = {
     name: userInfo?.name,

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
+import { formatPhoneNumber, isValidMBTI } from '@/utils';
 
 interface Props {
   userInfo: userInfoFormType | null;
@@ -28,14 +29,6 @@ const SelectPage: React.FC<Props> = ({
 
   const prevTheme = () => {
     setCurrentTheme((prevTheme) => ((prevTheme + 1) % 3) + 1);
-  };
-
-  const formatPhoneNumber = (phoneNumber: string) => {
-    return phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-  };
-
-  const isValidMBTI = (mbti: string | undefined) => {
-    return !!mbti && /^[A-Za-z]{4}$/.test(mbti);
   };
 
   return (
