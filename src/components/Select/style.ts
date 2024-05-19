@@ -6,7 +6,6 @@ export const CustomSelect = styled.select<{
 }>`
   ${({ theme }) => theme.typo.h3}
   width: 100%;
-  height: 3rem;
   color: ${({ theme, isDefault }) =>
     isDefault ? theme.color.gray[40] : theme.color.black};
   padding: 0.75rem 1rem;
