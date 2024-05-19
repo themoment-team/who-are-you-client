@@ -17,5 +17,5 @@ export const ModalWrapper = styled.div`
 export const ModalInner = styled.div`
   padding: 1rem 1.75rem;
   border-radius: 0.625rem;
-  background: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.white};
 `;

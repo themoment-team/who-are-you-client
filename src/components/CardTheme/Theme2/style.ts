@@ -8,7 +8,7 @@ export const Contianer = styled.div`
   align-items: flex-start;
   gap: 8.75rem;
   border-radius: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.color.gray[40]};
+  border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
   background-color: ${({ theme }) => theme.color.white};
 `;
 
