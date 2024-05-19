@@ -80,13 +80,7 @@ const CardModal: React.FC<Props> = ({
 
         <S.ButtonContainer>
           {isPrinting ? (
-            <S.ShotButton
-              onClick={() => {
-                closeModal();
-              }}
-            >
-              확인
-            </S.ShotButton>
+            <S.ShotButton onClick={closeModal}>확인</S.ShotButton>
           ) : (
             <ReactToPrint
               trigger={() => (
