@@ -29,7 +29,7 @@ const CardModal: React.FC<Props> = ({
     phoneNumber: userInfo ? formatPhoneNumber(userInfo.phoneNumber) : '',
     email: userInfo?.email,
     mbti: isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined,
-    sns: 'jxx_gyun',
+    instagram: 'jxx_gyun',
     imageUrl: imageUrl,
   };
 

@@ -17,4 +17,7 @@ export const userInfoFormSchema = z.object({
   mbti: z.string({
     required_error: 'MBTI를 선택해주세요.',
   }),
+  instagram: z.string({
+    required_error: 'SNS 아이디를 입력해주세요.',
+  }),
 });

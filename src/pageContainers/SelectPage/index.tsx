@@ -37,7 +37,7 @@ const SelectPage: React.FC<Props> = ({
     phoneNumber: formatPhoneNumber(userInfo.phoneNumber),
     email: userInfo.email,
     mbti: isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined,
-    sns: 'jxx_gyun',
+    instagram: userInfo.instagram,
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
   };

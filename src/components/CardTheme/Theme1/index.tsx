@@ -7,7 +7,7 @@ interface Props {
   phoneNumber: string;
   email: string;
   mbti?: string;
-  sns: string;
+  instagram: string;
   imageUrl: string;
 }
 
@@ -17,14 +17,14 @@ const Theme1: React.FC<Props> = ({
   phoneNumber,
   email,
   mbti,
-  sns,
+  instagram,
   imageUrl,
 }) => {
   const userInfo = [
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
     { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: sns },
+    { label: 'Insta', value: instagram },
   ].filter((info) => info.value);
 
   return (
