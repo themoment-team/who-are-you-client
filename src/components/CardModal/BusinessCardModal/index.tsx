@@ -58,7 +58,7 @@ const CardModal: React.FC<Props> = ({
         <S.FinishMessageBox>
           <S.FinishMessage>
             {isPrinting
-              ? '재균님의 명함이 인쇄되고 있어요 🖨️'
+              ? `${commonProps.name}님의 명함이 인쇄되고 있어요 🖨️`
               : '명함이 완성되었어요 😆'}
           </S.FinishMessage>
           <S.PrintMessage>
