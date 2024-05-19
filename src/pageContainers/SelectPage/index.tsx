@@ -31,6 +31,17 @@ const SelectPage: React.FC<Props> = ({
     setCurrentTheme((prevTheme) => ((prevTheme + 1) % 3) + 1);
   };
 
+  const commonProps = {
+    name: userInfo.name,
+    major: userInfo.major,
+    phoneNumber: formatPhoneNumber(userInfo.phoneNumber),
+    email: userInfo.email,
+    mbti: isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined,
+    sns: 'jxx_gyun',
+    imageUrl:
+      selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
+  };
+
   return (
     <>
       {openModalCase === 'open' && (
@@ -51,50 +62,9 @@ const SelectPage: React.FC<Props> = ({
           <S.CarouselLeftButton onClick={prevTheme}>
             <LeftIcon />
           </S.CarouselLeftButton>
-          {currentTheme === 1 && (
-            <Theme1
-              name={userInfo.name}
-              major={userInfo.major}
-              phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
-              email={userInfo.email}
-              mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
-              sns='jxx_gyun'
-              imageUrl={
-                selectedButton === SelectedType.YES
-                  ? convertedImageUrl!
-                  : imageUrl
-              }
-            />
-          )}
-          {currentTheme === 2 && (
-            <Theme2
-              name={userInfo.name}
-              major={userInfo.major}
-              phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
-              email={userInfo.email}
-              mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
-              sns='jxx_gyun'
-              imageUrl={
-                selectedButton === SelectedType.YES
-                  ? convertedImageUrl!
-                  : imageUrl
-              }
-            />
-          )}
-          {currentTheme === 3 && (
-            <Theme3
-              name={userInfo.name}
-              phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
-              email={userInfo.email}
-              mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
-              sns='jxx_gyun'
-              imageUrl={
-                selectedButton === SelectedType.YES
-                  ? convertedImageUrl!
-                  : imageUrl
-              }
-            />
-          )}
+          {currentTheme === 1 && <Theme1 {...commonProps} />}
+          {currentTheme === 2 && <Theme2 {...commonProps} />}
+          {currentTheme === 3 && <Theme3 {...commonProps} />}
           <S.CarouselRightButton onClick={nextTheme}>
             <RightIcon />
           </S.CarouselRightButton>
