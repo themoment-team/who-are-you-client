@@ -20,6 +20,13 @@ const Theme1: React.FC<Props> = ({
   sns,
   imageUrl,
 }) => {
+  const userInfo = [
+    { label: 'Tel', value: phoneNumber },
+    { label: 'Email', value: email },
+    { label: 'MBTI', value: mbti },
+    { label: 'Insta', value: sns },
+  ].filter((info) => info.value);
+
   return (
     <S.Contianer>
       <S.MainInfoContianer>
@@ -31,10 +38,11 @@ const Theme1: React.FC<Props> = ({
       </S.MainInfoContianer>
 
       <T.UserInfoBox>
-        <T.UserInfoText>Tel) {phoneNumber}</T.UserInfoText>
-        <T.UserInfoText>Email) {email}</T.UserInfoText>
-        {mbti && <T.UserInfoText>MBTI) {mbti}</T.UserInfoText>}
-        <T.UserInfoText>Insta) {sns}</T.UserInfoText>
+        {userInfo.map((info, index) => (
+          <T.UserInfoText key={index}>
+            {info.label}) {info.value}
+          </T.UserInfoText>
+        ))}
       </T.UserInfoBox>
     </S.Contianer>
   );

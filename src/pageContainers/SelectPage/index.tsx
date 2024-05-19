@@ -27,7 +27,7 @@ const SelectPage: React.FC<Props> = ({
   };
 
   const prevTheme = () => {
-    setCurrentTheme((prevTheme) => ((prevTheme - 2 + 3) % 3) + 1);
+    setCurrentTheme((prevTheme) => ((prevTheme + 1) % 3) + 1);
   };
 
   const formatPhoneNumber = (phoneNumber: string) => {
