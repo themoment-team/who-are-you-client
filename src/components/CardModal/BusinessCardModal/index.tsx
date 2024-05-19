@@ -30,43 +30,24 @@ const CardModal: React.FC<Props> = ({
     return !!mbti && /^[A-Za-z]{4}$/.test(mbti);
   };
 
+  const commonProps = {
+    name: userInfo?.name,
+    major: userInfo?.major,
+    phoneNumber: userInfo ? formatPhoneNumber(userInfo.phoneNumber) : '',
+    email: userInfo?.email,
+    mbti: isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined,
+    sns: 'jxx_gyun',
+    imageUrl: imageUrl,
+  };
+
   const selectedTheme = () => {
     switch (currentTheme) {
       case 1:
-        return (
-          <Theme1
-            name={userInfo.name}
-            major={userInfo.major}
-            phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
-            email={userInfo.email}
-            mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
-            sns='jxx_gyun'
-            imageUrl={imageUrl}
-          />
-        );
+        return <Theme1 {...commonProps} />;
       case 2:
-        return (
-          <Theme2
-            name={userInfo.name}
-            major={userInfo.major}
-            phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
-            email={userInfo.email}
-            mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
-            sns='jxx_gyun'
-            imageUrl={imageUrl}
-          />
-        );
+        return <Theme2 {...commonProps} />;
       case 3:
-        return (
-          <Theme3
-            name={userInfo.name}
-            phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
-            email={userInfo.email}
-            mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
-            sns='jxx_gyun'
-            imageUrl={imageUrl}
-          />
-        );
+        return <Theme3 {...commonProps} />;
       default:
         return null;
     }
