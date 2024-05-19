@@ -38,4 +38,5 @@ export const ImgBox = styled.img`
   width: 5.25rem;
   height: 5.25rem;
   border-radius: 0.5rem;
+  object-fit: cover;
 `;

@@ -4,14 +4,21 @@ import { useState } from 'react';
 
 import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
-import { userInfoFormType } from '@/types';
+import { SelectedType, userInfoFormType } from '@/types';
 
 interface Props {
   userInfo: userInfoFormType | null;
   imageUrl: string;
+  selectedButton: SelectedType | null;
+  convertedImageUrl: string | null;
 }
 
-const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
+const SelectPage: React.FC<Props> = ({
+  userInfo,
+  imageUrl,
+  selectedButton,
+  convertedImageUrl,
+}) => {
   const [openModalCase, setOpenModalCase] = useState<'close' | 'open'>('close');
   const [currentTheme, setCurrentTheme] = useState(1);
 
@@ -37,6 +44,10 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
         <BusinessCardModal
           closeModal={() => setOpenModalCase('close')}
           currentTheme={currentTheme}
+          userInfo={userInfo}
+          imageUrl={
+            selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl
+          }
         />
       )}
       <S.Container>
@@ -55,7 +66,11 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
               email={userInfo.email}
               mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
               sns='jxx_gyun'
-              imageUrl={imageUrl}
+              imageUrl={
+                selectedButton === SelectedType.YES
+                  ? convertedImageUrl!
+                  : imageUrl
+              }
             />
           )}
           {currentTheme === 2 && (
@@ -66,7 +81,11 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
               email={userInfo.email}
               mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
               sns='jxx_gyun'
-              imageUrl={imageUrl}
+              imageUrl={
+                selectedButton === SelectedType.YES
+                  ? convertedImageUrl!
+                  : imageUrl
+              }
             />
           )}
           {currentTheme === 3 && (
@@ -76,7 +95,11 @@ const SelectPage: React.FC<Props> = ({ userInfo, imageUrl }) => {
               email={userInfo.email}
               mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
               sns='jxx_gyun'
-              imageUrl={imageUrl}
+              imageUrl={
+                selectedButton === SelectedType.YES
+                  ? convertedImageUrl!
+                  : imageUrl
+              }
             />
           )}
           <S.CarouselRightButton onClick={nextTheme}>

@@ -35,7 +35,12 @@ const MainPage = () => {
         />
       )}
       {flow === Flow.CHOOSE_DESIGN_FLOW && (
-        <SelectPage userInfo={userInfo} imageUrl={imageUrl} />
+        <SelectPage
+          userInfo={userInfo}
+          imageUrl={imageUrl}
+          selectedButton={selectedButton}
+          convertedImageUrl={convertedImageUrl}
+        />
       )}
     </S.Wrapper>
   );

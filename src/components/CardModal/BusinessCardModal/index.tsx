@@ -4,36 +4,68 @@ import * as S from './style';
 import { css } from '@emotion/react';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
+import { userInfoFormType } from '@/types';
 
 interface Props {
   closeModal: () => void;
   currentTheme: number;
+  userInfo: userInfoFormType | null;
+  imageUrl: string;
 }
 
-const CardModal: React.FC<Props> = ({ closeModal, currentTheme }) => {
+const CardModal: React.FC<Props> = ({
+  closeModal,
+  currentTheme,
+  userInfo,
+  imageUrl,
+}) => {
   const printRef = useRef<HTMLDivElement>(null);
   const [isPrinting, setIsPringting] = useState(false);
+
+  const formatPhoneNumber = (phoneNumber: string) => {
+    return phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+  };
+
+  const isValidMBTI = (mbti: string | undefined) => {
+    return !!mbti && /^[A-Za-z]{4}$/.test(mbti);
+  };
 
   const selectedTheme = () => {
     switch (currentTheme) {
       case 1:
         return (
           <Theme1
-            name={'김재균'}
-            major={'Front-End'}
-            phoneNumber={'01025590283'}
-            email={'s23005@gsm.hs.kr'}
-            mbti={'ESTP'}
-            sns={'jxx_gyun'}
+            name={userInfo.name}
+            major={userInfo.major}
+            phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
+            email={userInfo.email}
+            mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
+            sns='jxx_gyun'
+            imageUrl={imageUrl}
           />
         );
       case 2:
         return (
-          <Theme2 name={''} phoneNumber={''} email={''} mbti={''} sns={''} />
+          <Theme2
+            name={userInfo.name}
+            major={userInfo.major}
+            phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
+            email={userInfo.email}
+            mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
+            sns='jxx_gyun'
+            imageUrl={imageUrl}
+          />
         );
       case 3:
         return (
-          <Theme3 name={''} phoneNumber={''} email={''} mbti={''} sns={''} />
+          <Theme3
+            name={userInfo.name}
+            phoneNumber={formatPhoneNumber(userInfo.phoneNumber)}
+            email={userInfo.email}
+            mbti={isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined}
+            sns='jxx_gyun'
+            imageUrl={imageUrl}
+          />
         );
       default:
         return null;
