@@ -1,5 +1,5 @@
 import * as S from './style';
-import { ConvertPage, FormPage, PhotoPage } from '@/pageContainers';
+import { ConvertPage, FormPage, PhotoPage, SelectPage } from '@/pageContainers';
 import { useState } from 'react';
 import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
@@ -32,6 +32,14 @@ const MainPage = () => {
           setSelectedButton={setSelectedButton}
           convertedImageUrl={convertedImageUrl}
           setConvertedImageUrl={setConvertedImageUrl}
+        />
+      )}
+      {flow === Flow.SELECT_THEME_FLOW && (
+        <SelectPage
+          userInfo={userInfo}
+          imageUrl={imageUrl}
+          selectedButton={selectedButton}
+          convertedImageUrl={convertedImageUrl}
         />
       )}
     </S.Wrapper>
