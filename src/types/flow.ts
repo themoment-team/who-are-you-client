@@ -1,0 +1,6 @@
+export enum Flow {
+  FORM_FLOW,
+  PHOTO_FLOW,
+  CONVERT_PHOTO_FLOW,
+  SELECT_THEME_FLOW,
+}
