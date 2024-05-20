@@ -3,12 +3,12 @@ import * as T from '../style';
 
 interface Props {
   name: string;
-  major?: string;
   phoneNumber: string;
   email: string;
-  mbti?: string;
   instagram: string;
   imageUrl: string;
+  major?: string;
+  mbti?: string;
 }
 
 const Theme1: React.FC<Props> = ({

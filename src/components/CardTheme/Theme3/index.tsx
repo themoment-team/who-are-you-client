@@ -5,9 +5,9 @@ interface Props {
   name: string;
   phoneNumber: string;
   email: string;
-  mbti: string;
   instagram: string;
   imageUrl: string;
+  mbti?: string;
 }
 
 const Theme3: React.FC<Props> = ({
