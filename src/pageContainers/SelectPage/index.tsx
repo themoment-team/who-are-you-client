@@ -38,7 +38,8 @@ const SelectPage: React.FC<Props> = ({
     email: userInfo!.email,
     mbti: userInfo && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
     instagram: userInfo?.instagram || '',
-    imageUrl: imageUrl,
+    imageUrl:
+      selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
   };
 
   return (
