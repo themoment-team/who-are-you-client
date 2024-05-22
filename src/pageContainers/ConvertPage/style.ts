@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
@@ -71,14 +72,38 @@ export const ModalBox = styled.div`
 `;
 
 export const ModalImg = styled.img`
-  height: 27.5rem;
-  width: 27.5rem;
   object-fit: cover;
-  border-radius: 0.5rem;
+  height: 100%;
+  width: 100%;
 `;
 
 export const ModalButton = styled(NextButton)`
   color: ${({ theme }) => theme.color.primary[40]};
   background-color: ${({ theme }) => theme.color.primary[10]};
   margin-right: 0.99rem;
+`;
+
+const Spin = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+  `;
+
+export const ImgWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 0.5rem;
+  height: 27.5rem;
+  width: 27.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LoadingSpinner = styled.div`
+  border: 0.3125rem solid rgba(0, 0, 0, 0.1);
+  border-left-color: ${({ theme }) => theme.color.gray[50]};
+  border-radius: 50%;
+  width: 3.125rem;
+  height: 3.125rem;
+  animation: ${Spin} 1s linear infinite;
 `;
