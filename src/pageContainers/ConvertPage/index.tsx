@@ -22,6 +22,7 @@ const ConvertPage: React.FC<Props> = ({
   setConvertedImageUrl,
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleNextButtonClick = () => {
     selectedButton !== null
@@ -35,9 +36,11 @@ const ConvertPage: React.FC<Props> = ({
       : toast.error('예, 아니요 중 하나를 선택해 주셔야해요.');
 
   const convertImage = async () => {
+    setIsLoading(true);
     const response = await postConvertedImage();
 
     setConvertedImageUrl(response.images[0].image);
+    setIsLoading(false);
   };
 
   const postConvertedImage = async (): Promise<ConvertedImageType> => {
@@ -96,13 +99,19 @@ const ConvertPage: React.FC<Props> = ({
       {isModal && (
         <S.PreviewModal>
           <S.ModalBox>
-            <S.ModalImg
-              src={
-                selectedButton === SelectedType.YES
-                  ? convertedImageUrl!
-                  : imageUrl
-              }
-            />
+            <S.ImgWrapper>
+              {isLoading && selectedButton === SelectedType.YES ? (
+                <S.LoadingSpinner />
+              ) : (
+                <S.ModalImg
+                  src={
+                    selectedButton === SelectedType.YES
+                      ? convertedImageUrl!
+                      : imageUrl
+                  }
+                />
+              )}
+            </S.ImgWrapper>
             <S.ModalButton onClick={handleModalButtonClick}>확인</S.ModalButton>
           </S.ModalBox>
         </S.PreviewModal>
