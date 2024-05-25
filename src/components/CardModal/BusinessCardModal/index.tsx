@@ -26,9 +26,12 @@ const CardModal: React.FC<Props> = ({
   const commonProps = {
     name: userInfo!.name,
     major: userInfo?.major || '',
-    phoneNumber: formatPhoneNumber(userInfo!.phoneNumber),
+    phoneNumber: userInfo?.phoneNumber
+      ? formatPhoneNumber(userInfo.phoneNumber)
+      : '',
     email: userInfo!.email,
-    mbti: userInfo && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
+    mbti:
+      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
     instagram: userInfo?.instagram || '',
     imageUrl: imageUrl,
   };

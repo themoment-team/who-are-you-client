@@ -5,10 +5,10 @@ const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
 
 interface Props {
   name: string;
-  phoneNumber: string;
-  email: string;
   instagram: string;
   imageUrl: string;
+  phoneNumber?: string;
+  email?: string;
   major?: string;
   mbti?: string;
 }
