@@ -44,8 +44,8 @@ const Theme3: React.FC<Props> = ({
         </S.PuppleContainer>
 
         <S.ImgHeightBox>
-          <S.ImgContinaer src={imageUrl} />
           <GsmLogo />
+          <S.ImgContinaer src={imageUrl} />
         </S.ImgHeightBox>
       </S.MainInfoContianer>
     </S.Contianer>
