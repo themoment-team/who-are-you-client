@@ -14,9 +14,11 @@ export const Contianer = styled.div`
 `;
 
 export const ImgHeightBox = styled.div`
-  height: 11.3125rem;
+  height: 11.5rem;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const ImgContinaer = styled.img`

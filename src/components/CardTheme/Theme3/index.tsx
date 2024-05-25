@@ -1,5 +1,6 @@
 import * as S from './style';
 import * as T from '../style';
+import { GsmLogo } from '@/assets';
 
 interface Props {
   name: string;
@@ -43,6 +44,7 @@ const Theme3: React.FC<Props> = ({
         </S.PuppleContainer>
 
         <S.ImgHeightBox>
+          <GsmLogo />
           <S.ImgContinaer src={imageUrl} />
         </S.ImgHeightBox>
       </S.MainInfoContianer>
