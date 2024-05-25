@@ -27,6 +27,22 @@ export const MainInfoContianer = styled.div`
   gap: 8.5625rem;
 `;
 
+export const MainInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 11.5rem;
+  justify-content: space-between;
+`;
+
 export const MarginBox = styled.div`
   margin-top: 2.6125rem;
+`;
+
+export const ImgWrapper = styled.div`
+  height: 11.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
