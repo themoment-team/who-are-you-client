@@ -14,6 +14,13 @@ export const Contianer = styled.div`
   background-color: ${({ theme }) => theme.color.white};
 `;
 
+export const ImageWrapper = styled.div`
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+align-items: flex-end;
+`
+
 export const ImgContinaer = styled.img`
   width: 6rem;
   height: 6rem;
@@ -30,3 +37,9 @@ export const MainInfoContianer = styled.div`
 export const MarginBox = styled.div`
   margin-top: 2.6125rem;
 `;
+
+export const LogoImage = styled.img`
+  width: 72px;
+  height: 33px;
+
+`
