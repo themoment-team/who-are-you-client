@@ -74,14 +74,12 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
           inputTitle='전화번호'
           placeholder='전화번호를 입력해주세요.'
           errorMessage={errors.phoneNumber?.message}
-          required
         />
         <InputFormItem
           {...register('email')}
           inputTitle='이메일'
           placeholder='이메일을 입력해주세요.'
           errorMessage={errors.email?.message}
-          required
         />
         <InputFormItem
           {...register('major')}

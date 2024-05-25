@@ -3,10 +3,10 @@ import * as T from '../style';
 
 interface Props {
   name: string;
-  phoneNumber: string;
-  email: string;
   instagram: string;
   imageUrl: string;
+  phoneNumber?: string;
+  email?: string;
   major?: string;
   mbti?: string;
 }
