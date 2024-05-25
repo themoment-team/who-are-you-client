@@ -55,22 +55,3 @@ export const ImgBox = styled.div`
   display: flex;
   justify-content: center;
 `;
-
-export const PrintBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(-90deg);
-  transform-origin: center;
-`;
-
-export const EmptyContianer = styled.div`
-  display: none;
-`;
-
-export const PrintCaseBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
