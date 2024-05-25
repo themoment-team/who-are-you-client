@@ -44,13 +44,13 @@ export const ImgBox = styled.img`
 
 
 export const ImageWrapper = styled.div`
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
   align-items: flex-end;
 `
 
 export const LogoImage = styled.img`
-  width: 72px;
-  height: 33px;
+  width: 4.5rem;
+  height: 2.0625rem;
 `
