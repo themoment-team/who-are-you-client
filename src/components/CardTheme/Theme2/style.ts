@@ -6,7 +6,8 @@ export const Contianer = styled.div`
   padding: 2rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8.75rem;
+  justify-content: space-between;
+  height: 23.5rem;
   border-radius: 0.5rem;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
   background-color: ${({ theme }) => theme.color.white};
@@ -40,3 +41,16 @@ export const ImgBox = styled.img`
   border-radius: 0.5rem;
   object-fit: cover;
 `;
+
+
+export const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  align-items: flex-end;
+`
+
+export const LogoImage = styled.img`
+  width: 4.5rem;
+  height: 2.0625rem;
+`
