@@ -9,8 +9,8 @@ interface Props {
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
   selectedButton: SelectedType | null;
   setSelectedButton: React.Dispatch<React.SetStateAction<SelectedType | null>>;
-  convertedImageUrl: string | null;
-  setConvertedImageUrl: React.Dispatch<React.SetStateAction<string | null>>;
+  convertedImageUrl: string;
+  setConvertedImageUrl: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ConvertPage: React.FC<Props> = ({
@@ -25,10 +25,19 @@ const ConvertPage: React.FC<Props> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleNextButtonClick = () => {
-    selectedButton !== null
-      ? setFlow(Flow.SELECT_THEME_FLOW)
-      : toast.error('예, 아니오 중 하나를 선택해 주셔야해요.');
+    if (selectedButton === null)
+      return toast.error('예, 아니오 중 하나를 선택해 주셔야해요.');
+
+    if (
+      (selectedButton === SelectedType.YES && !isLoading) ||
+      selectedButton === SelectedType.NO
+    )
+      setFlow(Flow.SELECT_THEME_FLOW);
+    else {
+      return toast.error('아직 변환된 사진이 로딩되지 않았습니다');
+    }
   };
+
   const handleModalButtonClick = () => setIsModal(false);
   const handlePreviewButtonClick = () =>
     selectedButton !== null
@@ -42,6 +51,8 @@ const ConvertPage: React.FC<Props> = ({
     setConvertedImageUrl(response.images[0].image);
     setIsLoading(false);
   };
+
+  const handleBackButtonClick = () => setFlow(Flow.PHOTO_FLOW);
 
   const postConvertedImage = async (): Promise<ConvertedImageType> => {
     try {
@@ -91,10 +102,13 @@ const ConvertPage: React.FC<Props> = ({
         setSelectedButton={setSelectedButton}
       />
       <S.ButtonBox>
-        <S.PreviewButton onClick={handlePreviewButtonClick}>
-          미리보기
-        </S.PreviewButton>
-        <S.NextButton onClick={handleNextButtonClick}>다음으로</S.NextButton>
+        <S.BackButton onClick={handleBackButtonClick}>다시찍기</S.BackButton>
+        <S.ButtonWrapper>
+          <S.PreviewButton onClick={handlePreviewButtonClick}>
+            미리보기
+          </S.PreviewButton>
+          <S.NextButton onClick={handleNextButtonClick}>다음으로</S.NextButton>
+        </S.ButtonWrapper>
       </S.ButtonBox>
       {isModal && (
         <S.PreviewModal>

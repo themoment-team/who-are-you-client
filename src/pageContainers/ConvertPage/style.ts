@@ -31,10 +31,14 @@ export const Description = styled.h1`
 export const ButtonBox = styled.div`
   width: 32.75rem;
   display: flex;
-  justify-content: end;
-  gap: 0.75rem;
+  justify-content: space-between;
   position: absolute;
   bottom: 2.5rem;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 0.75rem;
 `;
 
 export const NextButton = styled.button`
@@ -51,6 +55,11 @@ export const PreviewButton = styled(NextButton)`
   color: ${({ theme }) => theme.color.primary[30]};
   border: 0.0625rem solid ${({ theme }) => theme.color.primary[30]};
   background-color: ${({ theme }) => theme.color.white};
+`;
+
+export const BackButton = styled(NextButton)`
+  color: ${({ theme }) => theme.color.primary[40]};
+  background-color: ${({ theme }) => theme.color.primary[10]};
 `;
 
 export const PreviewModal = styled.div`

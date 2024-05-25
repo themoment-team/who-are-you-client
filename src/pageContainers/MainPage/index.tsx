@@ -11,9 +11,7 @@ const MainPage = () => {
   const [selectedButton, setSelectedButton] = useState<SelectedType | null>(
     null
   );
-  const [convertedImageUrl, setConvertedImageUrl] = useState<string | null>(
-    null
-  );
+  const [convertedImageUrl, setConvertedImageUrl] = useState<string>('');
 
   return (
     <S.Wrapper>

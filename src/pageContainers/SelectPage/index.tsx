@@ -11,7 +11,7 @@ interface Props {
   userInfo: userInfoFormType | null;
   imageUrl: string;
   selectedButton: SelectedType | null;
-  convertedImageUrl: string | null;
+  convertedImageUrl: string;
 }
 
 const SelectPage: React.FC<Props> = ({
