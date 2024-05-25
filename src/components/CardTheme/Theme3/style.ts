@@ -35,6 +35,7 @@ export const MainInfoContianer = styled.div`
 
 export const PurpleBar = styled.div`
   width: 0.125rem;
+  height: 7.25rem;
   flex-shrink: 0;
   background-color: ${({ theme }) => theme.color.primary[30]};
 `;

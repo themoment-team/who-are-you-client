@@ -46,34 +46,6 @@ const CardModal: React.FC<Props> = ({
     }
   };
 
-  const printTheme = () => {
-    switch (currentTheme) {
-      case 1:
-        return (
-          <S.PrintBox>
-            <Theme1 {...commonProps} />
-            <Theme1 {...commonProps} />
-          </S.PrintBox>
-        );
-      case 2:
-        return (
-          <S.PrintCaseBox>
-            <Theme2 {...commonProps} />
-            <Theme2 {...commonProps} />
-          </S.PrintCaseBox>
-        );
-      case 3:
-        return (
-          <S.PrintBox>
-            <Theme3 {...commonProps} />
-            <Theme3 {...commonProps} />
-          </S.PrintBox>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <ModalWrapper
       closeModal={closeModal}
@@ -95,12 +67,9 @@ const CardModal: React.FC<Props> = ({
               : '입력한 내용이 맞는지 확인하신 후 인쇄해보세요!'}
           </S.PrintMessage>
         </S.FinishMessageBox>
-
-        <S.ImgBox>{selectedTheme()}</S.ImgBox>
-
-        <S.EmptyContianer>
-          <div ref={printRef}>{printTheme()}</div>
-        </S.EmptyContianer>
+        <S.ImgBox>
+          <div ref={printRef}>{selectedTheme()}</div>
+        </S.ImgBox>
 
         <S.ButtonContainer>
           {isPrinting ? (
