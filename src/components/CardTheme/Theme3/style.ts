@@ -29,8 +29,8 @@ export const ImgContinaer = styled.img`
 export const MainInfoContianer = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 7.5625rem;
-  justify-content: center;
+  width: 25rem;
+  justify-content: space-between;
 `;
 
 export const PurpleBar = styled.div`

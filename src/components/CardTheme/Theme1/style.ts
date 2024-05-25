@@ -24,7 +24,8 @@ export const ImgContinaer = styled.img`
 export const MainInfoContianer = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 8.5625rem;
+  justify-content: space-between;
+  width: 25rem;
 `;
 
 export const MarginBox = styled.div`
