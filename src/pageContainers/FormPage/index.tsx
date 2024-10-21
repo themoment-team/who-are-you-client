@@ -8,10 +8,9 @@ import { toast } from 'react-toastify';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { InputFormItem, SelectFormItem } from '@/components';
+import { InputFormItem } from '@/components';
 import { userInfoFormSchema } from '@/schemas';
 import type { userInfoFormType } from '@/types';
-import { MBTI_ARRAY } from '@/constants';
 import { Flow } from '@/types';
 
 interface Props {
@@ -31,8 +30,6 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
       phoneNumber: '',
       email: '',
       major: '',
-      mbti: 'MBTI를 선택해주세요.',
-      instagram: '',
     },
   });
 
@@ -74,6 +71,7 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
           inputTitle='전화번호'
           placeholder='전화번호를 입력해주세요.'
           errorMessage={errors.phoneNumber?.message}
+          required
         />
         <InputFormItem
           {...register('email')}
@@ -86,19 +84,6 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
           inputTitle='전공/직함'
           placeholder='전공/직함을 입력해주세요.'
           errorMessage={errors.major?.message}
-        />
-        <SelectFormItem
-          {...register('mbti')}
-          selectTitle='MBTI'
-          defaultValue='MBTI를 선택해주세요.'
-          options={[...MBTI_ARRAY]}
-          errorMessage={errors.mbti?.message}
-        />
-        <InputFormItem
-          {...register('instagram')}
-          inputTitle='instagram'
-          placeholder='SNS 아이디를 입력해주세요.'
-          errorMessage={errors.instagram?.message}
         />
       </S.InputContainer>
       <S.BottomContainer>
