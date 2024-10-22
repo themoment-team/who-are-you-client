@@ -29,13 +29,12 @@ export const ImgContinaer = styled.img`
 export const MainInfoContianer = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 7.5625rem;
-  justify-content: center;
+  width: 25rem;
+  justify-content: space-between;
 `;
 
 export const PurpleBar = styled.div`
   width: 0.125rem;
-  height: 7.25rem;
   flex-shrink: 0;
   background-color: ${({ theme }) => theme.color.primary[30]};
 `;
@@ -45,3 +44,16 @@ export const PuppleContainer = styled.div`
   justify-content: center;
   gap: 1rem;
 `;
+
+
+export const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  align-items: flex-end;
+`
+
+export const LogoImage = styled.img`
+  width: 4.5rem;
+  height: 2.0625rem;
+`

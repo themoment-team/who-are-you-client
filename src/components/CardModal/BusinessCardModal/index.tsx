@@ -24,12 +24,15 @@ const CardModal: React.FC<Props> = ({
   const [isPrinting, setIsPrinting] = useState(false);
 
   const commonProps = {
-    name: userInfo?.name,
-    major: userInfo?.major,
-    phoneNumber: userInfo ? formatPhoneNumber(userInfo.phoneNumber) : '',
-    email: userInfo?.email,
-    mbti: isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined,
-    instagram: userInfo.instagram,
+    name: userInfo!.name,
+    major: userInfo?.major || '',
+    phoneNumber: userInfo?.phoneNumber
+      ? formatPhoneNumber(userInfo.phoneNumber)
+      : '',
+    email: userInfo!.email,
+    mbti:
+      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
+    instagram: userInfo?.instagram || '',
     imageUrl: imageUrl,
   };
 

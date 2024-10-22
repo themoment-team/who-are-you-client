@@ -11,7 +11,7 @@ interface Props {
   userInfo: userInfoFormType | null;
   imageUrl: string;
   selectedButton: SelectedType | null;
-  convertedImageUrl: string | null;
+  convertedImageUrl: string;
 }
 
 const SelectPage: React.FC<Props> = ({
@@ -32,12 +32,15 @@ const SelectPage: React.FC<Props> = ({
   };
 
   const commonProps = {
-    name: userInfo.name,
-    major: userInfo.major,
-    phoneNumber: formatPhoneNumber(userInfo.phoneNumber),
-    email: userInfo.email,
-    mbti: isValidMBTI(userInfo?.mbti) ? userInfo.mbti : undefined,
-    instagram: userInfo.instagram,
+    name: userInfo!.name,
+    major: userInfo?.major || '',
+    phoneNumber: userInfo?.phoneNumber
+      ? formatPhoneNumber(userInfo.phoneNumber)
+      : '',
+    email: userInfo!.email,
+    mbti:
+      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
+    instagram: userInfo?.instagram || '',
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
   };

@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const Contianer = styled.div`
   width: fit-content;
+  min-height: 11.3125rem;
   display: flex;
   padding: 2rem 2rem 1.875rem 2rem;
   flex-direction: column;
@@ -13,6 +14,13 @@ export const Contianer = styled.div`
   background-color: ${({ theme }) => theme.color.white};
 `;
 
+export const ImageWrapper = styled.div`
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+align-items: flex-end;
+`
+
 export const ImgContinaer = styled.img`
   width: 6rem;
   height: 6rem;
@@ -23,9 +31,16 @@ export const ImgContinaer = styled.img`
 export const MainInfoContianer = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 8.5625rem;
+  justify-content: space-between;
+  width: 25rem;
 `;
 
 export const MarginBox = styled.div`
   margin-top: 2.6125rem;
 `;
+
+export const LogoImage = styled.img`
+  width: 4.5rem;
+  height: 2.0625rem;
+
+`

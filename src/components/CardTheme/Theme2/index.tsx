@@ -1,12 +1,14 @@
 import * as S from './style';
 import * as T from '../style';
 
+const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
+
 interface Props {
   name: string;
-  phoneNumber: string;
-  email: string;
   instagram: string;
   imageUrl: string;
+  phoneNumber?: string;
+  email?: string;
   major?: string;
   mbti?: string;
 }
@@ -30,7 +32,10 @@ const Theme2: React.FC<Props> = ({
   return (
     <S.Contianer>
       <S.ImgContinaer>
-        <S.ImgBox src={imageUrl} />
+        <S.ImageWrapper>
+          <S.ImgBox src={imageUrl} />
+          <S.LogoImage src={GSM_LOGO_PATH}/>
+        </S.ImageWrapper>
       </S.ImgContinaer>
 
       <S.UserContianer>

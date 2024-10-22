@@ -14,6 +14,7 @@ const CameraGuide = () => (
         fill='black'
         fillOpacity='0.5'
       />
+      // 검은 배경
       <mask
         id='mask0_62_21'
         style={{ maskType: 'luminance' }}
@@ -90,6 +91,7 @@ const CameraGuide = () => (
         strokeLinejoin='round'
         strokeDasharray='10 10'
       />
+      // 원 테두리
     </g>
     <defs>
       <clipPath id='clip0_62_21'>
