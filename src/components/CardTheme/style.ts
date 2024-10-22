@@ -5,6 +5,8 @@ export const UserInfoBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.125rem;
+  height: 100%;
+  justify-content: end;
 `;
 
 export const UserName = styled.h1`
@@ -15,16 +17,17 @@ export const UserName = styled.h1`
 
 export const UserMajor = styled.p`
   ${({ theme }) => theme.typo.description};
-  color: ${({ theme }) => theme.color.primary[30]};
+  color: ${({ theme }) => theme.color.gray[75]};
 `;
 
 export const UserInfoText = styled.p`
   ${({ theme }) => theme.typo.caption};
-  color: ${({ theme }) => theme.color.gray[70]};
+  color: ${({ theme }) => theme.color.gray[65]};
 `;
 
 export const MainInfoBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: 100%;
 `;

@@ -5,44 +5,44 @@ const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
 
 interface Props {
   name: string;
-  instagram: string;
   imageUrl: string;
   phoneNumber?: string;
+  major?: string;
   email?: string;
-  mbti?: string;
 }
 
 const Theme3: React.FC<Props> = ({
   name,
   phoneNumber,
   email,
-  mbti,
-  instagram,
   imageUrl,
+  major,
 }) => {
   const userInfo = [
+    { label: 'Major', value: major },
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
-    { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: instagram },
   ].filter((info) => info.value);
 
   return (
     <S.Contianer>
       <S.MainInfoContianer>
-        <S.PuppleContainer>
-          <S.PurpleBar />
+        <S.BarContainer>
+          <S.Bar />
           <T.MainInfoBox>
             <T.UserName>{name}</T.UserName>
-            <T.UserInfoBox>
-              {userInfo.map((info, index) => (
-                <T.UserInfoText key={index}>
-                  {info.label}) {info.value}
-                </T.UserInfoText>
-              ))}
-            </T.UserInfoBox>
+            <T.UserMajor>{major}</T.UserMajor>
+            <S.MarginBox>
+              <T.UserInfoBox>
+                {userInfo.map((info, index) => (
+                  <T.UserInfoText key={index}>
+                    {info.label}) {info.value}
+                  </T.UserInfoText>
+                ))}
+              </T.UserInfoBox>
+            </S.MarginBox>
           </T.MainInfoBox>
-        </S.PuppleContainer>
+        </S.BarContainer>
 
         <S.ImgHeightBox>
           <S.ImageWrapper>
