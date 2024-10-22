@@ -2,29 +2,25 @@ import styled from '@emotion/styled';
 
 export const Contianer = styled.div`
   width: fit-content;
-  min-height: 11.3125rem;
-  display: flex;
-  padding: 2rem 2rem 1.875rem 2rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  height: 11.3125rem;
+  padding: 1.8rem 1.4rem 1.4rem 2rem;
   gap: 0.0625rem;
-  border-radius: 0.5rem;
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
+  border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
 `;
 
 export const ImageWrapper = styled.div`
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
-align-items: flex-end;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+`;
 
 export const ImgContinaer = styled.img`
   width: 6rem;
   height: 6rem;
-  border-radius: 0.75rem;
+  border-radius: 0.29rem;
   object-fit: cover;
 `;
 
@@ -33,14 +29,20 @@ export const MainInfoContianer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   width: 25rem;
+  height: 100%;
 `;
 
 export const MarginBox = styled.div`
   margin-top: 2.6125rem;
+  height: 100%;
 `;
 
 export const LogoImage = styled.img`
-  width: 4.5rem;
-  height: 2.0625rem;
+  width: 4rem;
+  height: 2.4rem;
+`;
 
-`
+export const LineImage = styled.img`
+  width: 2.2rem;
+  margin-top: 0.4rem;
+`;

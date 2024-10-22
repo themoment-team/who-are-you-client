@@ -2,15 +2,14 @@ import * as S from './style';
 import * as T from '../style';
 
 const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
+const LINE_IMG_PATH = '/image/LineImg.png' as const;
 
 interface Props {
   name: string;
-  instagram: string;
   imageUrl: string;
   phoneNumber?: string;
   email?: string;
   major?: string;
-  mbti?: string;
 }
 
 const Theme1: React.FC<Props> = ({
@@ -18,15 +17,12 @@ const Theme1: React.FC<Props> = ({
   major,
   phoneNumber,
   email,
-  mbti,
-  instagram,
   imageUrl,
 }) => {
   const userInfo = [
+    { label: 'Major', value: major },
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
-    { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: instagram },
   ].filter((info) => info.value);
 
   return (
@@ -35,6 +31,7 @@ const Theme1: React.FC<Props> = ({
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
           <T.UserMajor>{major}</T.UserMajor>
+          <S.LineImage src={LINE_IMG_PATH} />
           <S.MarginBox>
             <T.UserInfoBox>
               {userInfo.map((info, index) => (
