@@ -38,8 +38,8 @@ export const MarginBox = styled.div`
 `;
 
 export const LogoImage = styled.img`
-  width: 4rem;
-  height: 2.4rem;
+  width: 4.935rem;
+  height: 2.97rem;
 `;
 
 export const LineImage = styled.img`
