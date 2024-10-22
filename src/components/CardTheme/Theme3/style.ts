@@ -5,7 +5,7 @@ export const Contianer = styled.div`
   height: 11.3125rem;
   padding: 1.8rem 1.8rem 1.4rem 2rem;
   gap: 0.0625rem;
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
+  border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
 `;
 
