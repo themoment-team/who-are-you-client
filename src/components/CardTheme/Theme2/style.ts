@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Contianer = styled.div`
-  width: fit-content;
+  width: 188.98px;
+  height: 340.16px;
   display: flex;
   padding: 1.9rem;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  height: 23.5rem;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
 `;

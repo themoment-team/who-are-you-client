@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Contianer = styled.div`
-  width: fit-content;
-  height: 11.3125rem;
+  width: 340.16px;
+  height: 188.98px;
   padding: 1.8rem 1.8rem 1.4rem 2rem;
   gap: 0.0625rem;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
@@ -24,7 +24,7 @@ export const MainInfoContianer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 25rem;
+  width: 100%;
   height: 100%;
 `;
 
