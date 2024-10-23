@@ -57,7 +57,7 @@ const CardModal: React.FC<Props> = ({
         padding: 1.5rem;
       `}
     >
-      <S.CardContianier>
+      <S.CardContainer>
         <S.FinishMessageBox>
           <S.FinishMessage>
             {isPrinting
@@ -94,7 +94,7 @@ const CardModal: React.FC<Props> = ({
             />
           )}
         </S.ButtonContainer>
-      </S.CardContianier>
+      </S.CardContainer>
     </ModalWrapper>
   );
 };
