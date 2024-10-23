@@ -1,26 +1,27 @@
 import styled from '@emotion/styled';
 
-export const Contianer = styled.div`
+export const Container = styled.div`
   width: 340.16px;
   height: 188.98px;
-  padding: 1.8rem 1.8rem 1.4rem 2rem;
+  padding: 1.54625rem 1.44938rem;
   gap: 0.0625rem;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
+  box-sizing: border-box;
 `;
 
 export const ImgHeightBox = styled.div`
   height: 100%;
 `;
 
-export const ImgContinaer = styled.img`
-  width: 6rem;
-  height: 6rem;
+export const ImgContainer = styled.img`
+  width: 4.63875rem;
+  height: 4.63875rem;
   border-radius: 0.29rem;
   object-fit: cover;
 `;
 
-export const MainInfoContianer = styled.div`
+export const MainInfoContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -31,7 +32,6 @@ export const MainInfoContianer = styled.div`
 export const Bar = styled.div`
   width: 0.125rem;
   flex-shrink: 0;
-  /* background-color: ${({ theme }) => theme.color.primary[30]}; */
   background: linear-gradient(
     180deg,
     rgba(218, 222, 0, 1) 0%,
@@ -60,11 +60,13 @@ export const ImageWrapper = styled.div`
 `;
 
 export const LogoImage = styled.img`
-  width: 4.935rem;
-  height: 2.97rem;
+  width: 3.28625rem;
+  height: 1.98125rem;
 `;
 
 export const MarginBox = styled.div`
-  margin-top: 2.6125rem;
-  height: 100%;
+  margin-top: auto;
+  height: auto;
+  overflow-y: auto;
+  max-height: 4rem;
 `;

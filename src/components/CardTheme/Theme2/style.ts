@@ -4,17 +4,18 @@ export const Contianer = styled.div`
   width: 188.98px;
   height: 340.16px;
   display: flex;
-  padding: 1.9rem;
+  padding: 1.5425rem;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
+  box-sizing: border-box;
 `;
 
 export const ImgContinaer = styled.div`
   display: flex;
-  width: 11.3125rem;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
@@ -35,8 +36,8 @@ export const UserContianer = styled.div`
 `;
 
 export const ImgBox = styled.img`
-  width: 5.25rem;
-  height: 5.25rem;
+  width: 4.049375rem;
+  height: 4.049375rem;
   border-radius: 0.29rem;
   object-fit: cover;
 `;
