@@ -1,6 +1,5 @@
 import { ModalWrapper, Theme1, Theme2, Theme3 } from '@/components';
 import * as S from './style';
-
 import { css } from '@emotion/react';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
@@ -36,7 +35,7 @@ const CardModal: React.FC<Props> = ({
     imageUrl: imageUrl,
   };
 
-  const selectedTheme = () => {
+  const renderSingleCard = () => {
     switch (currentTheme) {
       case 1:
         return <Theme1 {...commonProps} />;
@@ -47,6 +46,27 @@ const CardModal: React.FC<Props> = ({
       default:
         return null;
     }
+  };
+
+  const renderMultipleCards = () => {
+    const count = currentTheme === 2 ? 12 : 10;
+    const cards = [];
+    for (let i = 0; i < count; i++) {
+      switch (currentTheme) {
+        case 1:
+          cards.push(<Theme1 key={i} {...commonProps} />);
+          break;
+        case 2:
+          cards.push(<Theme2 key={i} {...commonProps} />);
+          break;
+        case 3:
+          cards.push(<Theme3 key={i} {...commonProps} />);
+          break;
+        default:
+          return null;
+      }
+    }
+    return cards;
   };
 
   return (
@@ -70,9 +90,7 @@ const CardModal: React.FC<Props> = ({
               : '입력한 내용이 맞는지 확인하신 후 인쇄해보세요!'}
           </S.PrintMessage>
         </S.FinishMessageBox>
-        <S.ImgBox>
-          <div ref={printRef}>{selectedTheme()}</div>
-        </S.ImgBox>
+        <S.ImgBox>{renderSingleCard()}</S.ImgBox>
 
         <S.ButtonContainer>
           {isPrinting ? (
@@ -90,11 +108,16 @@ const CardModal: React.FC<Props> = ({
               )}
               content={() => printRef.current}
               onBeforePrint={() => setIsPrinting(true)}
-              onAfterPrint={() => setIsPrinting(false)}
+              onAfterPrint={() => {
+                setIsPrinting(false);
+              }}
             />
           )}
         </S.ButtonContainer>
       </S.CardContainer>
+      <div style={{ display: 'none' }}>
+        <S.ImgBox ref={printRef}>{renderMultipleCards()}</S.ImgBox>
+      </div>
     </ModalWrapper>
   );
 };
