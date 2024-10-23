@@ -1,8 +1,8 @@
 const typo = {
   h1: {
-    fontSize: '1.5rem',
-    lineHeight: '2rem',
-    fontWeight: 500,
+    fontSize: '1.063125rem',
+    lineHeight: '1.594375rem',
+    fontWeight: 600,
   },
   h2: {
     fontSize: '1.375rem',
@@ -25,14 +25,14 @@ const typo = {
     fontWeight: 600,
   },
   description: {
-    fontSize: '0.875rem',
-    lineHeight: '1.375rem',
-    fontWeight: 500,
+    fontSize: '0.649375rem',
+    lineHeight: '0.76125rem',
+    fontWeight: 400,
   },
   caption: {
-    fontSize: '0.75rem',
-    lineHeight: '1.25rem',
-    fontWeight: 500,
+    fontSize: '0.53125rem',
+    lineHeight: '0.590625rem',
+    fontWeight: 400,
   },
 };
 
