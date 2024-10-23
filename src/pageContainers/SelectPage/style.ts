@@ -55,4 +55,3 @@ export const CarouselRightButton = styled.button`
   position: absolute;
   right: 3rem;
 `;
-
