@@ -53,5 +53,6 @@ export const ShotButton = styled.button`
 export const ImgBox = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
