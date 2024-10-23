@@ -26,8 +26,8 @@ const Theme1: React.FC<Props> = ({
   ].filter((info) => info.value);
 
   return (
-    <S.Contianer>
-      <S.MainInfoContianer>
+    <S.Container>
+      <S.MainInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
           <T.UserMajor>{major}</T.UserMajor>
@@ -43,11 +43,11 @@ const Theme1: React.FC<Props> = ({
           </S.MarginBox>
         </T.MainInfoBox>
         <S.ImageWrapper>
-          <S.ImgContinaer src={imageUrl} />
+          <S.ImgContainer src={imageUrl} />
           <S.LogoImage src={GSM_LOGO_PATH} />
         </S.ImageWrapper>
-      </S.MainInfoContianer>
-    </S.Contianer>
+      </S.MainInfoContainer>
+    </S.Container>
   );
 };
 
