@@ -90,7 +90,7 @@ const CardModal: React.FC<Props> = ({
               : '입력한 내용이 맞는지 확인하신 후 인쇄해보세요!'}
           </S.PrintMessage>
         </S.FinishMessageBox>
-        <S.ImgBox>{renderSingleCard()}</S.ImgBox>
+        <S.ImgBox themeType={currentTheme}>{renderSingleCard()}</S.ImgBox>
 
         <S.ButtonContainer>
           {isPrinting ? (
@@ -116,7 +116,9 @@ const CardModal: React.FC<Props> = ({
         </S.ButtonContainer>
       </S.CardContainer>
       <div style={{ display: 'none' }}>
-        <S.ImgBox ref={printRef}>{renderMultipleCards()}</S.ImgBox>
+        <S.ImgBox ref={printRef} themeType={currentTheme}>
+          {renderMultipleCards()}
+        </S.ImgBox>
       </div>
     </ModalWrapper>
   );

@@ -50,9 +50,12 @@ export const ShotButton = styled.button`
   height: 3rem;
 `;
 
-export const ImgBox = styled.div`
+export const ImgBox = styled.div<{ themeType: number }>`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ themeType }) =>
+    themeType === 2 ? 'center' : 'space-between'};
   flex-wrap: wrap;
+  align-items: ${({ themeType }) =>
+    themeType === 2 ? 'center' : 'flex-start'}; // 추가: 세로 정렬
 `;
