@@ -59,26 +59,34 @@ const ConvertPage: React.FC<Props> = ({
       const sliceUrl = imageUrl.slice(22);
 
       const body = {
-        width: 1024,
-        height: 1024,
-        version: 'v2.1',
-        image_format: 'png',
+        prompt: 'clear background, naturally, reality',
         image: sliceUrl,
+        steps: 20,
+        seed: 46588,
+        denoise: 0.75,
+        scheduler: 'simple',
+        sampler_name: 'euler',
+        base64: false,
       };
 
       const response = await fetch(import.meta.env.VITE_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: import.meta.env.VITE_API_KEY,
+          'x-api-key': import.meta.env.VITE_API_KEY,
         },
         body: JSON.stringify(body),
       });
 
-      const json = await response.json();
+      console.log('Response status:', response.status);
 
-      return json;
-    } catch {
+      const blobImageUrl = URL.createObjectURL(await response.blob());
+
+      return {
+        images: [{ image: blobImageUrl }],
+      };
+    } catch (error) {
+      toast.error('이미지 변환 중 오류가 발생했습니다. 다시 시도해 주세요.');
       throw new Error('Error');
     }
   };
