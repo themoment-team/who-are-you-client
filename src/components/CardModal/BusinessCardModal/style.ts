@@ -57,5 +57,5 @@ export const ImgBox = styled.div<{ themeType: number }>`
     themeType === 2 ? 'center' : 'space-between'};
   flex-wrap: wrap;
   align-items: ${({ themeType }) =>
-    themeType === 2 ? 'center' : 'flex-start'}; // 추가: 세로 정렬
+    themeType === 2 ? 'center' : 'flex-start'};
 `;
