@@ -7,11 +7,11 @@ const CameraGuide = () => (
     xmlns='http://www.w3.org/2000/svg'
   >
     <path
-      fill-rule='evenodd'
-      clip-rule='evenodd'
+      fillRule='evenodd'
+      clipRule='evenodd'
       d='M524 0H0V397H524V0ZM402 58H122V338H402V58Z'
       fill='black'
-      fill-opacity='0.5'
+      fillOpacity='0.5'
     />
     <mask id='path-2-inside-1_569_1941' fill='white'>
       <path d='M24 24H48V48H24V24Z' />
@@ -52,8 +52,8 @@ const CameraGuide = () => (
       height='280'
       rx='6'
       stroke='white'
-      stroke-width='2'
-      stroke-dasharray='8 8'
+      strokeWidth='2'
+      strokeDasharray='8 8'
     />
   </svg>
 );
