@@ -1,59 +1,58 @@
 import styled from '@emotion/styled';
 
-export const Contianer = styled.div`
-  width: fit-content;
-  display: flex;
-  padding: 2rem 2rem 1.875rem 2rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+export const Container = styled.div`
+  width: 340.16px;
+  height: 188.98px;
+  padding: 1.54625rem 1.44938rem;
   gap: 0.0625rem;
-  border-radius: 0.5rem;
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
+  border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
+  box-sizing: border-box;
 `;
 
 export const ImgHeightBox = styled.div`
-  height: 11.3125rem;
-  display: flex;
-  align-items: flex-end;
+  height: 100%;
 `;
 
-export const ImgContinaer = styled.img`
-  width: 6rem;
-  height: 6rem;
-  border-radius: 0.75rem;
+export const ImgContainer = styled.img`
+  width: 4.63875rem;
+  height: 4.63875rem;
+  border-radius: 0.29rem;
   object-fit: cover;
 `;
 
-export const MainInfoContianer = styled.div`
+export const MainInfoContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  width: 25rem;
   justify-content: space-between;
+  width: 100%;
+  height: 100%;
 `;
 
-export const PurpleBar = styled.div`
-  width: 0.125rem;
-  flex-shrink: 0;
-  background-color: ${({ theme }) => theme.color.primary[30]};
-`;
-
-export const PuppleContainer = styled.div`
+export const BarContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
+  height: 100%;
 `;
-
 
 export const ImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
   align-items: flex-end;
-`
+  justify-content: space-between;
+  height: 100%;
+`;
 
 export const LogoImage = styled.img`
-  width: 4.5rem;
-  height: 2.0625rem;
-`
+  width: 3.28625rem;
+  height: 1.98125rem;
+`;
+
+export const MarginBox = styled.div`
+  margin-top: auto;
+  height: auto;
+  overflow-y: auto;
+  max-height: 4rem;
+`;

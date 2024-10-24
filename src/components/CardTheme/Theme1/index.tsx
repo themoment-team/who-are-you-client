@@ -5,12 +5,10 @@ const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
 
 interface Props {
   name: string;
-  instagram: string;
   imageUrl: string;
   phoneNumber?: string;
   email?: string;
   major?: string;
-  mbti?: string;
 }
 
 const Theme1: React.FC<Props> = ({
@@ -18,23 +16,21 @@ const Theme1: React.FC<Props> = ({
   major,
   phoneNumber,
   email,
-  mbti,
-  instagram,
   imageUrl,
 }) => {
   const userInfo = [
+    { label: 'Major', value: major },
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
-    { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: instagram },
   ].filter((info) => info.value);
 
   return (
-    <S.Contianer>
-      <S.MainInfoContianer>
+    <S.Container>
+      <S.MainInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
           <T.UserMajor>{major}</T.UserMajor>
+          <T.ThreeColorLine isHorizontal={true} />
           <S.MarginBox>
             <T.UserInfoBox>
               {userInfo.map((info, index) => (
@@ -46,11 +42,11 @@ const Theme1: React.FC<Props> = ({
           </S.MarginBox>
         </T.MainInfoBox>
         <S.ImageWrapper>
-          <S.ImgContinaer src={imageUrl} />
+          <S.ImgContainer src={imageUrl} />
           <S.LogoImage src={GSM_LOGO_PATH} />
         </S.ImageWrapper>
-      </S.MainInfoContianer>
-    </S.Contianer>
+      </S.MainInfoContainer>
+    </S.Container>
   );
 };
 

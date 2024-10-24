@@ -1,8 +1,8 @@
 const typo = {
   h1: {
-    fontSize: '1.5rem',
-    lineHeight: '2rem',
-    fontWeight: 500,
+    fontSize: '1.063125rem',
+    lineHeight: '1.594375rem',
+    fontWeight: 600,
   },
   h2: {
     fontSize: '1.375rem',
@@ -25,14 +25,14 @@ const typo = {
     fontWeight: 600,
   },
   description: {
-    fontSize: '0.875rem',
-    lineHeight: '1.375rem',
-    fontWeight: 500,
+    fontSize: '0.649375rem',
+    lineHeight: '0.76125rem',
+    fontWeight: 400,
   },
   caption: {
-    fontSize: '0.75rem',
-    lineHeight: '1.25rem',
-    fontWeight: 500,
+    fontSize: '0.53125rem',
+    lineHeight: '0.590625rem',
+    fontWeight: 400,
   },
 };
 
@@ -49,10 +49,12 @@ const color = {
     30: '#CFCFCF',
     40: '#BDBDBD',
     50: '#999',
-    60: '#888',
-    70: '#777',
-    80: '#666',
-    90: '#333',
+    60: '#888888',
+    65: '#494949',
+    70: '#777777',
+    75: '#7B7B7B',
+    80: '#666666',
+    90: '#333333',
   },
   black: '#000',
   white: '#FFFFFF',
