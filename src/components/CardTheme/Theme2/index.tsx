@@ -1,8 +1,6 @@
 import * as S from './style';
 import * as T from '../style';
 
-const LINE_IMG_PATH = '/image/LineImg.png' as const;
-
 interface Props {
   name: string;
   imageUrl: string;
@@ -35,7 +33,7 @@ const Theme2: React.FC<Props> = ({
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
           <T.UserMajor>{major}</T.UserMajor>
-          <S.LineImage src={LINE_IMG_PATH} />
+          <T.ThreeColorLine isHorizontal={true} />
         </T.MainInfoBox>
         <T.UserInfoBox>
           {userInfo.map((info, index) => (

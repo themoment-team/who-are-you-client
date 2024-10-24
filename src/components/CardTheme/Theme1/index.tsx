@@ -2,7 +2,6 @@ import * as S from './style';
 import * as T from '../style';
 
 const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
-const LINE_IMG_PATH = '/image/LineImg.png' as const;
 
 interface Props {
   name: string;
@@ -31,7 +30,7 @@ const Theme1: React.FC<Props> = ({
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
           <T.UserMajor>{major}</T.UserMajor>
-          <S.LineImage src={LINE_IMG_PATH} />
+          <T.ThreeColorLine isHorizontal={true} />
           <S.MarginBox>
             <T.UserInfoBox>
               {userInfo.map((info, index) => (

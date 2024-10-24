@@ -28,7 +28,7 @@ const Theme3: React.FC<Props> = ({
     <S.Container>
       <S.MainInfoContainer>
         <S.BarContainer>
-          <S.Bar />
+          <T.ThreeColorLine isHorizontal={false} />
           <T.MainInfoBox>
             <T.UserName>{name}</T.UserName>
             <T.UserMajor>{major}</T.UserMajor>

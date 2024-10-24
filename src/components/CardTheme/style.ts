@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+interface LineProps {
+  isHorizontal: boolean;
+}
+
 export const UserInfoBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,4 +34,21 @@ export const MainInfoBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: 100%;
+`;
+
+export const ThreeColorLine = styled.div<LineProps>`
+  width: 0.125rem;
+  height: ${(props) => (props.isHorizontal ? '1.59375rem' : '141.48px')};
+  background: linear-gradient(
+    180deg,
+    rgba(218, 222, 0, 1) 0%,
+    rgba(218, 222, 0, 1) 33.3%,
+    rgba(123, 216, 247, 1) 33.4%,
+    rgba(65, 214, 251, 1) 66.6%,
+    rgba(83, 133, 214, 1) 66.7%,
+    rgba(83, 133, 214, 1) 100%
+  );
+  transform: translateX(50%);
+  transform: ${(props) =>
+    props.isHorizontal ? 'rotate(-90deg) translatey(50%)' : 'none'};
 `;

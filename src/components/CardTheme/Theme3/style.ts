@@ -29,20 +29,6 @@ export const MainInfoContainer = styled.div`
   height: 100%;
 `;
 
-export const Bar = styled.div`
-  width: 0.125rem;
-  flex-shrink: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(218, 222, 0, 1) 0%,
-    rgba(218, 222, 0, 1) 33.3%,
-    rgba(123, 216, 247, 1) 33.4%,
-    rgba(65, 214, 251, 1) 66.6%,
-    rgba(83, 133, 214, 1) 66.7%,
-    rgba(83, 133, 214, 1) 100%
-  );
-`;
-
 export const BarContainer = styled.div`
   display: flex;
   justify-content: center;
