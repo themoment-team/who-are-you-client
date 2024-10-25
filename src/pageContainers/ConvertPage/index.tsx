@@ -48,7 +48,7 @@ const ConvertPage: React.FC<Props> = ({
     setIsLoading(true);
     const response = await postConvertedImage();
 
-    setConvertedImageUrl(response.images[0].image);
+    setConvertedImageUrl(response.image);
     setIsLoading(false);
   };
 
@@ -81,7 +81,7 @@ const ConvertPage: React.FC<Props> = ({
       const blobImageUrl = URL.createObjectURL(await response.blob());
 
       return {
-        images: [{ image: blobImageUrl }],
+        image: blobImageUrl,
       };
     } catch (error) {
       toast.error('이미지 변환 중 오류가 발생했습니다. 다시 시도해 주세요.');

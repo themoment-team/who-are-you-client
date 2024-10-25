@@ -1,3 +1,3 @@
 export interface ConvertedImageType {
-  images: { image: string }[];
+  image: string;
 }
