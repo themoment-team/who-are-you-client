@@ -44,7 +44,6 @@ export const ThreeColorLine = styled.div<{ isHorizontal: boolean }>`
     rgba(83, 133, 214, 1) 66.7%,
     rgba(83, 133, 214, 1) 100%
   );
-  transform: translateX(50%);
   transform: ${({ isHorizontal }) =>
     isHorizontal ? 'rotate(-90deg) translateY(50%)' : 'none'};
 `;
