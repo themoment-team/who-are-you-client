@@ -49,7 +49,7 @@ const CardModal: React.FC<Props> = ({
   };
 
   const renderMultipleCards = () => {
-    const count = currentTheme === 2 ? 12 : 10;
+    const count = 2;
     const cards = [];
     for (let i = 0; i < count; i++) {
       switch (currentTheme) {
