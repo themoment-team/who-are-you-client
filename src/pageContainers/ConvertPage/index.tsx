@@ -78,8 +78,6 @@ const ConvertPage: React.FC<Props> = ({
         body: JSON.stringify(body),
       });
 
-      console.log('Response status:', response.status);
-
       const blobImageUrl = URL.createObjectURL(await response.blob());
 
       return {
