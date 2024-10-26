@@ -1,4 +1,4 @@
-import { ConvertedImageType, Flow, SelectedType } from '@/types';
+import { Flow, SelectedType } from '@/types';
 import * as S from './style';
 import YesOrNoButton from '@/components/YesOrNoButton';
 import { useEffect, useState } from 'react';
@@ -48,13 +48,13 @@ const ConvertPage: React.FC<Props> = ({
     setIsLoading(true);
     const response = await postConvertedImage();
 
-    setConvertedImageUrl(response.image);
+    setConvertedImageUrl(response);
     setIsLoading(false);
   };
 
   const handleBackButtonClick = () => setFlow(Flow.PHOTO_FLOW);
 
-  const postConvertedImage = async (): Promise<ConvertedImageType> => {
+  const postConvertedImage = async () => {
     try {
       const sliceUrl = imageUrl.slice(22);
 
@@ -80,9 +80,7 @@ const ConvertPage: React.FC<Props> = ({
 
       const blobImageUrl = URL.createObjectURL(await response.blob());
 
-      return {
-        image: blobImageUrl,
-      };
+      return blobImageUrl;
     } catch (error) {
       toast.error('이미지 변환 중 오류가 발생했습니다. 다시 시도해 주세요.');
       throw new Error('Error');
