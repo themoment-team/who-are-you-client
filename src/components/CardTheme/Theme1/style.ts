@@ -6,7 +6,7 @@ export const Container = styled.div`
   gap: 0.0625rem;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
-  box-sizing: content-box;
+  box-sizing: border-box;
 `;
 
 export const ImageWrapper = styled.div`
