@@ -15,11 +15,11 @@ export const Contianer = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   gap: 6px;
-align-items: flex-end;
-`
+  align-items: flex-end;
+`;
 
 export const ImgContinaer = styled.img`
   width: 6rem;
@@ -42,5 +42,4 @@ export const MarginBox = styled.div`
 export const LogoImage = styled.img`
   width: 4.5rem;
   height: 2.0625rem;
-
-`
+`;

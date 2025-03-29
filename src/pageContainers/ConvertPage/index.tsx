@@ -1,4 +1,4 @@
-import { ConvertedImageType, Flow, SelectedType } from '@/types';
+import { Flow, SelectedType } from '@/types';
 import * as S from './style';
 import YesOrNoButton from '@/components/YesOrNoButton';
 import { useEffect, useState } from 'react';
@@ -48,37 +48,41 @@ const ConvertPage: React.FC<Props> = ({
     setIsLoading(true);
     const response = await postConvertedImage();
 
-    setConvertedImageUrl(response.images[0].image);
+    setConvertedImageUrl(response);
     setIsLoading(false);
   };
 
   const handleBackButtonClick = () => setFlow(Flow.PHOTO_FLOW);
 
-  const postConvertedImage = async (): Promise<ConvertedImageType> => {
+  const postConvertedImage = async () => {
     try {
       const sliceUrl = imageUrl.slice(22);
 
       const body = {
-        width: 1024,
-        height: 1024,
-        version: 'v2.1',
-        image_format: 'png',
+        prompt: 'clear background, naturally, reality',
         image: sliceUrl,
+        steps: 20,
+        seed: 46588,
+        denoise: 0.75,
+        scheduler: 'simple',
+        sampler_name: 'euler',
+        base64: false,
       };
 
       const response = await fetch(import.meta.env.VITE_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: import.meta.env.VITE_API_KEY,
+          'x-api-key': import.meta.env.VITE_API_KEY,
         },
         body: JSON.stringify(body),
       });
 
-      const json = await response.json();
+      const blobImageUrl = URL.createObjectURL(await response.blob());
 
-      return json;
-    } catch {
+      return blobImageUrl;
+    } catch (error) {
+      toast.error('이미지 변환 중 오류가 발생했습니다. 다시 시도해 주세요.');
       throw new Error('Error');
     }
   };
