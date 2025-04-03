@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
-import { formatPhoneNumber, isValidMBTI } from '@/utils';
+import { formatPhoneNumber } from '@/utils';
 
 interface Props {
   userInfo: userInfoFormType | null;
@@ -38,9 +38,6 @@ const SelectPage: React.FC<Props> = ({
       ? formatPhoneNumber(userInfo.phoneNumber)
       : '',
     email: userInfo!.email,
-    mbti:
-      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
-    instagram: userInfo?.instagram || '',
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
   };

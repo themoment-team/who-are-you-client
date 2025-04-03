@@ -5,12 +5,10 @@ const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
 
 interface Props {
   name: string;
-  instagram: string;
   imageUrl: string;
   phoneNumber?: string;
   email?: string;
   major?: string;
-  mbti?: string;
 }
 
 const Theme2: React.FC<Props> = ({
@@ -18,15 +16,11 @@ const Theme2: React.FC<Props> = ({
   major,
   phoneNumber,
   email,
-  mbti,
-  instagram,
   imageUrl,
 }) => {
   const userInfo = [
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
-    { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: instagram },
   ].filter((info) => info.value);
 
   return (
@@ -34,7 +28,7 @@ const Theme2: React.FC<Props> = ({
       <S.ImgContinaer>
         <S.ImageWrapper>
           <S.ImgBox src={imageUrl} />
-          <S.LogoImage src={GSM_LOGO_PATH}/>
+          <S.LogoImage src={GSM_LOGO_PATH} />
         </S.ImageWrapper>
       </S.ImgContinaer>
 

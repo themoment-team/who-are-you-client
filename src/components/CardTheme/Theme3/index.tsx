@@ -5,26 +5,15 @@ const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
 
 interface Props {
   name: string;
-  instagram: string;
   imageUrl: string;
   phoneNumber?: string;
   email?: string;
-  mbti?: string;
 }
 
-const Theme3: React.FC<Props> = ({
-  name,
-  phoneNumber,
-  email,
-  mbti,
-  instagram,
-  imageUrl,
-}) => {
+const Theme3: React.FC<Props> = ({ name, phoneNumber, email, imageUrl }) => {
   const userInfo = [
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
-    { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: instagram },
   ].filter((info) => info.value);
 
   return (

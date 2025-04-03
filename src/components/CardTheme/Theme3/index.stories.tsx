@@ -15,7 +15,5 @@ export const Primary: Story = {
     name: '김재균',
     phoneNumber: '010-1234-5678',
     email: 's23005@gsm.hs.kr',
-    mbti: 'ESTP',
-    instagram: 'jxx_gyun',
   },
 };

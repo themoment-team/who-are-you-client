@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
 import { userInfoFormType } from '@/types';
-import { formatPhoneNumber, isValidMBTI } from '@/utils';
+import { formatPhoneNumber } from '@/utils';
 
 interface Props {
   closeModal: () => void;
@@ -30,9 +30,6 @@ const CardModal: React.FC<Props> = ({
       ? formatPhoneNumber(userInfo.phoneNumber)
       : '',
     email: userInfo!.email,
-    mbti:
-      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
-    instagram: userInfo?.instagram || '',
     imageUrl: imageUrl,
   };
 

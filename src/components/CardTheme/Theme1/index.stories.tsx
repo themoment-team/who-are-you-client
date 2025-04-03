@@ -16,7 +16,5 @@ export const Primary: Story = {
     major: 'Front End',
     phoneNumber: '010-1234-5678',
     email: 's23005@gsm.hs.kr',
-    mbti: 'ESTP',
-    instagram: 'jxx_gyun',
   },
 };
