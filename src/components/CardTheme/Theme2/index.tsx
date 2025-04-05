@@ -1,7 +1,6 @@
 import * as S from './style';
 import * as T from '../style';
-
-const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
+import { GSMLogo, LongBar } from '@/assets';
 
 interface Props {
   name: string;
@@ -19,34 +18,30 @@ const Theme2: React.FC<Props> = ({
   imageUrl,
 }) => {
   const userInfo = [
+    { label: 'Major', value: major },
     { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
   ].filter((info) => info.value);
 
   return (
-    <S.Contianer>
-      <S.ImgContinaer>
-        <S.ImageWrapper>
-          <S.ImgBox src={imageUrl} />
-          <S.LogoImage src={GSM_LOGO_PATH} />
-        </S.ImageWrapper>
-      </S.ImgContinaer>
-
-      <S.UserContianer>
+    <S.Container>
+      <GSMLogo top={112} left={29} />
+      <LongBar top={31} left={23.1} />
+      <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
-          <T.UserMajor>{major}</T.UserMajor>
+          {major && <T.UserMajor>{major}</T.UserMajor>}
         </T.MainInfoBox>
-
-        <T.UserInfoBox>
+        <T.SubInfoBox>
           {userInfo.map((info, index) => (
-            <T.UserInfoText key={index}>
+            <T.SubInfoText key={index}>
               {info.label}) {info.value}
-            </T.UserInfoText>
+            </T.SubInfoText>
           ))}
-        </T.UserInfoBox>
-      </S.UserContianer>
-    </S.Contianer>
+        </T.SubInfoBox>
+      </S.UserInfoContainer>
+      <S.UserImage imageUrl={imageUrl} />
+    </S.Container>
   );
 };
 
