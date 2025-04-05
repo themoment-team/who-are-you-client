@@ -1,4 +1,4 @@
-import { ModalWrapper, Theme1, Theme2, Theme3 } from '@/components';
+import { ModalWrapper, Theme1, Theme2, Theme3, Theme4 } from '@/components';
 import * as S from './style';
 
 import { css } from '@emotion/react';
@@ -41,6 +41,8 @@ const CardModal: React.FC<Props> = ({
         return <Theme2 {...commonProps} />;
       case 3:
         return <Theme3 {...commonProps} />;
+      case 4:
+        return <Theme4 {...commonProps} />;
       default:
         return null;
     }

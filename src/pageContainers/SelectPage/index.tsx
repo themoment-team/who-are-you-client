@@ -1,4 +1,4 @@
-import { BusinessCardModal } from '@/components';
+import { BusinessCardModal, Theme4 } from '@/components';
 import * as S from './style';
 import { useState } from 'react';
 
@@ -24,11 +24,11 @@ const SelectPage: React.FC<Props> = ({
   const [currentTheme, setCurrentTheme] = useState(1);
 
   const nextTheme = () => {
-    setCurrentTheme((prevTheme) => (prevTheme % 3) + 1);
+    setCurrentTheme((prevTheme) => (prevTheme % 4) + 1);
   };
 
   const prevTheme = () => {
-    setCurrentTheme((prevTheme) => ((prevTheme + 1) % 3) + 1);
+    setCurrentTheme((prevTheme) => ((prevTheme + 2) % 4) + 1);
   };
 
   const commonProps = {
@@ -65,6 +65,7 @@ const SelectPage: React.FC<Props> = ({
           {currentTheme === 1 && <Theme1 {...commonProps} />}
           {currentTheme === 2 && <Theme2 {...commonProps} />}
           {currentTheme === 3 && <Theme3 {...commonProps} />}
+          {currentTheme === 4 && <Theme4 {...commonProps} />}
           <S.CarouselRightButton onClick={nextTheme}>
             <RightIcon />
           </S.CarouselRightButton>
