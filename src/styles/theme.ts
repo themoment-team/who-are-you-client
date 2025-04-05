@@ -25,9 +25,8 @@ const typo = {
     fontWeight: 600,
   },
   description: {
-    fontSize: '0.875rem',
-    lineHeight: '1.375rem',
-    fontWeight: 500,
+    fontSize: '0.625rem',
+    fontWeight: 400,
   },
   caption: {
     fontSize: '0.75rem',
