@@ -1,4 +1,10 @@
-const GSMLogo = () => {
+interface Props {
+  opacity?: number;
+  top?: number | string;
+  left?: number | string;
+}
+
+const GSMLogo = ({ opacity = 0.2, top = 0, left = 0 }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -7,9 +13,14 @@ const GSMLogo = () => {
       height='54'
       viewBox='0 0 120 54'
       fill='none'
+      style={{
+        position: 'absolute',
+        top,
+        left,
+      }}
     >
       <path
-        opacity='0.3'
+        opacity={opacity}
         d='M120 0H0V54H120V0Z'
         fill='url(#pattern0_754_559)'
         fillOpacity='0.15'
