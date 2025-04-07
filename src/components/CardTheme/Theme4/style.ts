@@ -5,7 +5,7 @@ interface UserImageProps {
 }
 
 export const Container = styled.div`
-  width: 11.8125rem;
+  width: 11.875rem;
   height: 21.25rem;
   padding: 1.5rem 1.6875rem 1.75rem;
   display: flex;
@@ -34,5 +34,4 @@ export const UserImage = styled.div<UserImageProps>`
   background-position: center;
   flex-shrink: 0;
   border-radius: 50%;
-  overflow: hidden;
 `;

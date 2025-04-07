@@ -5,7 +5,7 @@ interface UserImageProps {
 }
 
 export const Container = styled.div`
-  width: 11.8125rem;
+  width: 11.875rem;
   height: 21.25rem;
   padding: 1.5rem 1.6875rem 1.75rem;
   display: flex;
@@ -29,6 +29,7 @@ export const UserInfoContainer = styled.div`
 export const UserImage = styled.div`
   width: 8.4375rem;
   height: 8.4375rem;
+  border-radius: 0.5rem;
   background-image: url(${({ imageUrl }: UserImageProps) => imageUrl});
   background-size: cover;
   background-position: center;
