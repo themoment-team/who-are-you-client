@@ -4,7 +4,7 @@ interface Props {
   left?: number | string;
 }
 
-const GSMLogo = ({ opacity = 0.2, top = 0, left = 0 }: Props) => {
+const GSMLogo = ({ top = 0, left = 0 }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -20,7 +20,7 @@ const GSMLogo = ({ opacity = 0.2, top = 0, left = 0 }: Props) => {
       }}
     >
       <path
-        opacity={opacity}
+        opacity='0.3'
         d='M120 0H0V54H120V0Z'
         fill='url(#pattern0_754_559)'
         fillOpacity='0.15'

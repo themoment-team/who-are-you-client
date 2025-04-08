@@ -25,7 +25,7 @@ const Theme1: React.FC<Props> = ({
 
   return (
     <S.Container>
-      <GSMLogo opacity={0.3} top={20} left={17} />
+      <GSMLogo top={20} left={17} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
