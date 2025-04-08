@@ -19,8 +19,8 @@ const Theme4: React.FC<Props> = ({
 }) => {
   const userInfo = [
     { label: 'Major', value: major },
-    { label: 'Tel', value: phoneNumber },
     { label: 'Email', value: email },
+    { label: 'Tel', value: phoneNumber },
   ].filter((info) => info.value);
 
   return (
