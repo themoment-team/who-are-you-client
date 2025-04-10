@@ -1,7 +1,6 @@
 interface Props {
-  opacity?: number;
-  top?: number | string;
-  left?: number | string;
+  top?: number;
+  left?: number;
 }
 
 const GSMLogo = ({ top = 0, left = 0 }: Props) => {
