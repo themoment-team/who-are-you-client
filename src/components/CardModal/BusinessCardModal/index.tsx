@@ -4,12 +4,12 @@ import * as S from './style';
 import { css } from '@emotion/react';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
-import { userInfoFormType } from '@/types';
+import { CardTheme, userInfoFormType } from '@/types';
 import { formatPhoneNumber } from '@/utils';
 
 interface Props {
   closeModal: () => void;
-  currentTheme: number;
+  currentTheme: CardTheme;
   userInfo: userInfoFormType | null;
   imageUrl: string;
 }
@@ -35,13 +35,13 @@ const CardModal: React.FC<Props> = ({
 
   const selectedTheme = () => {
     switch (currentTheme) {
-      case 1:
+      case CardTheme.HORIZONTAL_THEME_1:
         return <Theme1 {...commonProps} />;
-      case 2:
+      case CardTheme.HORIZONTAL_THEME_2:
         return <Theme2 {...commonProps} />;
-      case 3:
+      case CardTheme.VERTICAL_THEME_1:
         return <Theme3 {...commonProps} />;
-      case 4:
+      case CardTheme.VERTICAL_THEME_2:
         return <Theme4 {...commonProps} />;
       default:
         return null;
