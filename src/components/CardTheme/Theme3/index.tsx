@@ -1,6 +1,7 @@
 import * as S from './style';
 import * as T from '../style';
 import { GSMLogo, ShortBar } from '@/assets';
+import { getUserInfoList } from '@/utils';
 
 interface Props {
   name: string;
@@ -17,11 +18,7 @@ const Theme3: React.FC<Props> = ({
   email,
   imageUrl,
 }) => {
-  const userInfo = [
-    { label: 'Major', value: major },
-    { label: 'Email', value: email },
-    { label: 'Tel', value: phoneNumber },
-  ].filter((info) => info.value);
+  const userInfo = getUserInfoList({ major, email, phoneNumber });
 
   return (
     <S.Container>
