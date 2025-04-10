@@ -25,7 +25,7 @@ const Theme2: React.FC<Props> = ({
 
   return (
     <S.Container>
-      <GSMLogo top={112} left={29} />
+      <GSMLogo style={{ top: 112, left: 29, position: 'absolute' }} />
       <LongBar top={31} left={23.1} />
       <S.UserInfoContainer>
         <T.MainInfoBox>

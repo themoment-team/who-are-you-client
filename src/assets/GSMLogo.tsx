@@ -1,9 +1,8 @@
 interface Props {
-  top?: number;
-  left?: number;
+  style?: React.CSSProperties;
 }
 
-const GSMLogo = ({ top = 0, left = 0 }: Props) => {
+const GSMLogo = ({ style }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -12,11 +11,7 @@ const GSMLogo = ({ top = 0, left = 0 }: Props) => {
       height='54'
       viewBox='0 0 120 54'
       fill='none'
-      style={{
-        position: 'absolute',
-        top,
-        left,
-      }}
+      style={style}
     >
       <path
         opacity='0.3'

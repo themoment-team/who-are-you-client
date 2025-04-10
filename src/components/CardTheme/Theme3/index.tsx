@@ -25,7 +25,7 @@ const Theme3: React.FC<Props> = ({
 
   return (
     <S.Container>
-      <GSMLogo top={264} left={20} />
+      <GSMLogo style={{ top: 264, left: 20, position: 'absolute' }} />
       <S.UserImage imageUrl={imageUrl} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
