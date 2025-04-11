@@ -1,2 +1,2 @@
 export { default as formatPhoneNumber } from './formatPhoneNumber';
-export { default as isValidMBTI } from './isValidMBTI';
+export { default as getUserInfoList } from './getUserInfoList';

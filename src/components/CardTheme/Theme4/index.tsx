@@ -4,7 +4,7 @@ import { GSMLogo, ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
 
-const Theme1: React.FC<CardContentProps> = ({
+const Theme4: React.FC<CardContentProps> = ({
   name,
   major,
   phoneNumber,
@@ -15,7 +15,8 @@ const Theme1: React.FC<CardContentProps> = ({
 
   return (
     <S.Container>
-      <GSMLogo style={{ top: 20, left: 17, position: 'absolute' }} />
+      <GSMLogo style={{ top: 264, left: 20, position: 'absolute' }} />
+      <S.UserImage imageUrl={imageUrl} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
@@ -30,9 +31,8 @@ const Theme1: React.FC<CardContentProps> = ({
           ))}
         </T.SubInfoBox>
       </S.UserInfoContainer>
-      <S.UserImage imageUrl={imageUrl} />
     </S.Container>
   );
 };
 
-export default Theme1;
+export default Theme4;
