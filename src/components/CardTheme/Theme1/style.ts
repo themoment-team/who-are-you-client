@@ -1,9 +1,5 @@
 import styled from '@emotion/styled';
 
-interface UserImageProps {
-  imageUrl: string;
-}
-
 export const Container = styled.div`
   width: 21.25rem;
   height: 11.875rem;
@@ -23,11 +19,11 @@ export const UserInfoContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const UserImage = styled.div`
+export const UserImage = styled.div<{ imageUrl: string }>`
   width: 8.125rem;
   height: 8.125rem;
   border-radius: 0.5rem;
-  background-image: url(${({ imageUrl }: UserImageProps) => imageUrl});
+  background-image: url(${({ imageUrl }) => imageUrl});
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
