@@ -16,7 +16,7 @@ const Theme2: React.FC<CardContentProps> = ({
   return (
     <S.Container>
       <GSMLogo style={{ top: 112, left: 29, position: 'absolute' }} />
-      <LongBar top={31} left={23.1} />
+      <LongBar style={{ top: 31, left: 23.1, position: 'absolute' }} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
