@@ -2,16 +2,9 @@ import * as S from './style';
 import * as T from '../style';
 import { GSMLogo, ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
+import { CardContentProps } from '@/types';
 
-interface Props {
-  name: string;
-  imageUrl: string;
-  phoneNumber?: string;
-  email?: string;
-  major?: string;
-}
-
-const Theme3: React.FC<Props> = ({
+const Theme3: React.FC<CardContentProps> = ({
   name,
   major,
   phoneNumber,
