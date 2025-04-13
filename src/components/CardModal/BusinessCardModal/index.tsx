@@ -35,13 +35,13 @@ const CardModal: React.FC<Props> = ({
 
   const selectedTheme = () => {
     switch (currentTheme) {
-      case CardTheme.HORIZONTAL_THEME_1:
+      case CardTheme.HorizontalMiddleLine:
         return <Theme1 {...commonProps} />;
-      case CardTheme.HORIZONTAL_THEME_2:
+      case CardTheme.HorizontalSideLine:
         return <Theme2 {...commonProps} />;
-      case CardTheme.VERTICAL_THEME_1:
+      case CardTheme.VerticalSquare:
         return <Theme3 {...commonProps} />;
-      case CardTheme.VERTICAL_THEME_2:
+      case CardTheme.VerticalCircular:
         return <Theme4 {...commonProps} />;
       default:
         return null;

@@ -1,6 +1,6 @@
 export enum CardTheme {
-  HORIZONTAL_THEME_1 = 1,
-  HORIZONTAL_THEME_2 = 2,
-  VERTICAL_THEME_1 = 3,
-  VERTICAL_THEME_2 = 4,
+  HorizontalMiddleLine = 1,
+  HorizontalSideLine = 2,
+  VerticalSquare = 3,
+  VerticalCircular = 4,
 }
