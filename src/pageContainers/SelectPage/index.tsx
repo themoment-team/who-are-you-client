@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
-import { formatPhoneNumber } from '@/utils';
+import { formatPhoneNumber, getNextTheme, getPrevTheme } from '@/utils';
 
 interface Props {
   userInfo: userInfoFormType | null;
@@ -13,6 +13,8 @@ interface Props {
   selectedButton: SelectedType | null;
   convertedImageUrl: string;
 }
+
+const MAX_THEME = 4;
 
 const SelectPage: React.FC<Props> = ({
   userInfo,
@@ -24,11 +26,11 @@ const SelectPage: React.FC<Props> = ({
   const [currentTheme, setCurrentTheme] = useState(1);
 
   const nextTheme = () => {
-    setCurrentTheme((prevTheme) => (prevTheme % 4) + 1);
+    setCurrentTheme((prev) => getNextTheme(prev, MAX_THEME));
   };
 
   const prevTheme = () => {
-    setCurrentTheme((prevTheme) => ((prevTheme + 2) % 4) + 1);
+    setCurrentTheme((prev) => getPrevTheme(prev, MAX_THEME));
   };
 
   const commonProps = {
