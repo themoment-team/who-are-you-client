@@ -1,11 +1,11 @@
-import { BusinessCardModal } from '@/components';
+import { BusinessCardModal, Theme4 } from '@/components';
 import * as S from './style';
 import { useState } from 'react';
 
 import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
-import { formatPhoneNumber, isValidMBTI } from '@/utils';
+import { formatPhoneNumber, getNextTheme, getPrevTheme } from '@/utils';
 
 interface Props {
   userInfo: userInfoFormType | null;
@@ -13,6 +13,8 @@ interface Props {
   selectedButton: SelectedType | null;
   convertedImageUrl: string;
 }
+
+const MAX_THEME = 4;
 
 const SelectPage: React.FC<Props> = ({
   userInfo,
@@ -24,11 +26,11 @@ const SelectPage: React.FC<Props> = ({
   const [currentTheme, setCurrentTheme] = useState(1);
 
   const nextTheme = () => {
-    setCurrentTheme((prevTheme) => (prevTheme % 3) + 1);
+    setCurrentTheme((prev) => getNextTheme(prev, MAX_THEME));
   };
 
   const prevTheme = () => {
-    setCurrentTheme((prevTheme) => ((prevTheme + 1) % 3) + 1);
+    setCurrentTheme((prev) => getPrevTheme(prev, MAX_THEME));
   };
 
   const commonProps = {
@@ -38,9 +40,6 @@ const SelectPage: React.FC<Props> = ({
       ? formatPhoneNumber(userInfo.phoneNumber)
       : '',
     email: userInfo!.email,
-    mbti:
-      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
-    instagram: userInfo?.instagram || '',
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
   };
@@ -68,6 +67,7 @@ const SelectPage: React.FC<Props> = ({
           {currentTheme === 1 && <Theme1 {...commonProps} />}
           {currentTheme === 2 && <Theme2 {...commonProps} />}
           {currentTheme === 3 && <Theme3 {...commonProps} />}
+          {currentTheme === 4 && <Theme4 {...commonProps} />}
           <S.CarouselRightButton onClick={nextTheme}>
             <RightIcon />
           </S.CarouselRightButton>

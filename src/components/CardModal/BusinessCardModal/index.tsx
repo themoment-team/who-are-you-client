@@ -1,15 +1,15 @@
-import { ModalWrapper, Theme1, Theme2, Theme3 } from '@/components';
+import { ModalWrapper, Theme1, Theme2, Theme3, Theme4 } from '@/components';
 import * as S from './style';
 
 import { css } from '@emotion/react';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
-import { userInfoFormType } from '@/types';
-import { formatPhoneNumber, isValidMBTI } from '@/utils';
+import { CardTheme, userInfoFormType } from '@/types';
+import { formatPhoneNumber } from '@/utils';
 
 interface Props {
   closeModal: () => void;
-  currentTheme: number;
+  currentTheme: CardTheme;
   userInfo: userInfoFormType | null;
   imageUrl: string;
 }
@@ -30,20 +30,19 @@ const CardModal: React.FC<Props> = ({
       ? formatPhoneNumber(userInfo.phoneNumber)
       : '',
     email: userInfo!.email,
-    mbti:
-      userInfo?.mbti && isValidMBTI(userInfo.mbti) ? userInfo.mbti : undefined,
-    instagram: userInfo?.instagram || '',
     imageUrl: imageUrl,
   };
 
   const selectedTheme = () => {
     switch (currentTheme) {
-      case 1:
+      case CardTheme.HorizontalMiddleLine:
         return <Theme1 {...commonProps} />;
-      case 2:
+      case CardTheme.HorizontalSideLine:
         return <Theme2 {...commonProps} />;
-      case 3:
+      case CardTheme.VerticalSquare:
         return <Theme3 {...commonProps} />;
+      case CardTheme.VerticalCircular:
+        return <Theme4 {...commonProps} />;
       default:
         return null;
     }
