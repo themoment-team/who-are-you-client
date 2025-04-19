@@ -5,6 +5,5 @@ export { default as XIcon } from './XIcon';
 export { default as LeftIcon } from './LeftIcon';
 export { default as RightIcon } from './RightIcon';
 export { default as SelectIcon } from './SelectIcon';
-export { default as GSMLogo } from './GSMLogo';
 export { default as ShortBar } from './ShortBar';
 export { default as LongBar } from './LongBar';

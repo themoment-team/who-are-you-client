@@ -1,6 +1,6 @@
 import * as S from './style';
 import * as T from '../style';
-import { GSMLogo, ShortBar } from '@/assets';
+import { ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
 
@@ -15,7 +15,6 @@ const Theme1: React.FC<CardContentProps> = ({
 
   return (
     <S.Container>
-      <GSMLogo style={{ top: 20, left: 17, position: 'absolute' }} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
