@@ -3,6 +3,7 @@ import * as T from '../style';
 import { ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
+import GSMLogo from '@/components/GSMLogo';
 
 const Theme3: React.FC<CardContentProps> = ({
   name,
@@ -15,6 +16,7 @@ const Theme3: React.FC<CardContentProps> = ({
 
   return (
     <S.Container>
+      <GSMLogo top='264px' left='20px' />
       <S.UserImage imageUrl={imageUrl} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
