@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  width: 21.25rem;
-  height: 11.875rem;
-  padding: 1.9375rem 1.75rem 1.75rem 2.375rem;
+  width: 340.16px;
+  height: 188.98px;
+  padding: 31px 28px 28px 38px;
   display: flex;
   justify-content: space-between;
-  border-radius: 0.5rem;
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray[30]};
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
   box-sizing: border-box;
   position: relative;
@@ -20,9 +20,9 @@ export const UserInfoContainer = styled.div`
 `;
 
 export const UserImage = styled.div<{ imageUrl: string }>`
-  width: 8.125rem;
-  height: 8.125rem;
-  border-radius: 0.5rem;
+  width: 130px;
+  height: 130px;
+  border-radius: 8px;
   background-image: url(${({ imageUrl }) => imageUrl});
   background-size: cover;
   background-position: center;
