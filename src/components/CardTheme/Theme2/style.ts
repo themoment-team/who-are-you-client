@@ -6,7 +6,6 @@ export const Container = styled.div`
   padding: 31px 28px 28px 38px;
   display: flex;
   justify-content: space-between;
-  border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
   box-sizing: border-box;

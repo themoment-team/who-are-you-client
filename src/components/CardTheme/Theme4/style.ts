@@ -7,7 +7,6 @@ export const Container = styled.div`
   display: flex;
   gap: 36px;
   flex-direction: column;
-  border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
   box-sizing: border-box;
