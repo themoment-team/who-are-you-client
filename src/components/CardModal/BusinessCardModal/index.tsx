@@ -48,6 +48,13 @@ const CardModal: React.FC<Props> = ({
     }
   };
 
+  const isHorizontalTheme = (theme: CardTheme): boolean => {
+    return (
+      theme === CardTheme.HorizontalMiddleLine ||
+      theme === CardTheme.HorizontalSideLine
+    );
+  };
+
   return (
     <ModalWrapper
       closeModal={closeModal}
@@ -69,8 +76,9 @@ const CardModal: React.FC<Props> = ({
               : '입력한 내용이 맞는지 확인하신 후 인쇄해보세요!'}
           </S.PrintMessage>
         </S.FinishMessageBox>
-        <S.ImgBox>
-          <div ref={printRef}>{selectedTheme()}</div>
+        <S.ImgBox ref={printRef} isHorizontal={isHorizontalTheme(currentTheme)}>
+          {selectedTheme()}
+          <S.PrintOnlyCard>{selectedTheme()}</S.PrintOnlyCard>
         </S.ImgBox>
 
         <S.ButtonContainer>
