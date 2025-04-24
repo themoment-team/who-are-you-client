@@ -50,8 +50,17 @@ export const ShotButton = styled.button`
   height: 3rem;
 `;
 
-export const ImgBox = styled.div`
+export const ImgBox = styled.div<{ isHorizontal: boolean }>`
   width: 100%;
   display: flex;
   justify-content: center;
+  gap: 0.5rem;
+  flex-direction: ${({ isHorizontal }) => (isHorizontal ? 'column' : 'row')};
+`;
+
+export const PrintOnlyCard = styled.div`
+  display: none;
+  @media print {
+    display: block;
+  }
 `;
