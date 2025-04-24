@@ -9,7 +9,7 @@ export const ModalWrapper = styled.div`
   border-radius: 0.5rem;
 `;
 
-export const CardContianier = styled.div`
+export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
