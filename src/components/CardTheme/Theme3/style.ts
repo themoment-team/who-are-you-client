@@ -1,59 +1,32 @@
 import styled from '@emotion/styled';
 
-export const Contianer = styled.div`
-  width: fit-content;
+export const Container = styled.div`
+  width: 188.98px;
+  height: 340.16px;
+  padding: 24px 27px 28px;
   display: flex;
-  padding: 2rem 2rem 1.875rem 2rem;
+  gap: 36px;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.0625rem;
-  border-radius: 0.5rem;
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
+  border: 1px solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
+  box-sizing: border-box;
+  position: relative;
 `;
 
-export const ImgHeightBox = styled.div`
-  height: 11.3125rem;
+export const UserInfoContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: flex-end;
-`;
-
-export const ImgContinaer = styled.img`
-  width: 6rem;
-  height: 6rem;
-  border-radius: 0.75rem;
-  object-fit: cover;
-`;
-
-export const MainInfoContianer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  width: 25rem;
+  flex-direction: column;
   justify-content: space-between;
 `;
 
-export const PurpleBar = styled.div`
-  width: 0.125rem;
+export const UserImage = styled.div<{ imageUrl: string }>`
+  width: 135px;
+  height: 135px;
+  border-radius: 8px;
+  background-image: url(${({ imageUrl }) => imageUrl});
+  background-size: cover;
+  background-position: center;
   flex-shrink: 0;
-  background-color: ${({ theme }) => theme.color.primary[30]};
 `;
-
-export const PuppleContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-`;
-
-
-export const ImageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-  align-items: flex-end;
-`
-
-export const LogoImage = styled.img`
-  width: 4.5rem;
-  height: 2.0625rem;
-`

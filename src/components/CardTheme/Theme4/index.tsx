@@ -1,11 +1,11 @@
 import * as S from './style';
 import * as T from '../style';
-import { LongBar } from '@/assets';
+import { ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
 
-const Theme2: React.FC<CardContentProps> = ({
+const Theme4: React.FC<CardContentProps> = ({
   name,
   major,
   phoneNumber,
@@ -16,12 +16,13 @@ const Theme2: React.FC<CardContentProps> = ({
 
   return (
     <S.Container>
-      <GSMLogo top='112px' left='29px' />
-      <LongBar style={{ top: 31, left: 23.1, position: 'absolute' }} />
+      <GSMLogo top='264px' left='20px' />
+      <S.UserImage imageUrl={imageUrl} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
           {major && <T.UserMajor>{major}</T.UserMajor>}
+          <ShortBar />
         </T.MainInfoBox>
         <T.SubInfoBox>
           {userInfo.map((info, index) => (
@@ -31,9 +32,8 @@ const Theme2: React.FC<CardContentProps> = ({
           ))}
         </T.SubInfoBox>
       </S.UserInfoContainer>
-      <S.UserImage imageUrl={imageUrl} />
     </S.Container>
   );
 };
 
-export default Theme2;
+export default Theme4;
