@@ -1,8 +1,8 @@
 import { Flow, SelectedType } from '@/types';
 import * as S from './style';
-import YesOrNoButton from '@/components/YesOrNoButton';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { PromptSelector, YesOrNoButton } from '@/components';
 
 interface Props {
   imageUrl: string;
@@ -105,6 +105,7 @@ const ConvertPage: React.FC<Props> = ({
         selectedButton={selectedButton}
         setSelectedButton={setSelectedButton}
       />
+      <PromptSelector />
       <S.ButtonBox>
         <S.BackButton onClick={handleBackButtonClick}>다시찍기</S.BackButton>
         <S.ButtonWrapper>
