@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.3.4",
     "emotion-reset": "^3.0.1",
+    "openai": "^4.97.0",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -52,5 +53,5 @@
     "storybook": "^8.0.10",
     "vite": "^5.2.0"
   },
-  "packageManager": "yarn@4.5.1"
+  "packageManager": "yarn@4.9.1"
 }

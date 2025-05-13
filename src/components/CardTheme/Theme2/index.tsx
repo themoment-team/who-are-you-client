@@ -1,58 +1,38 @@
 import * as S from './style';
 import * as T from '../style';
+import { LongBar } from '@/assets';
+import { getUserInfoList } from '@/utils';
+import { CardContentProps } from '@/types';
+import GSMLogo from '@/components/GSMLogo';
 
-const GSM_LOGO_PATH = '/image/GSMLogo.png' as const;
-
-interface Props {
-  name: string;
-  instagram: string;
-  imageUrl: string;
-  phoneNumber?: string;
-  email?: string;
-  major?: string;
-  mbti?: string;
-}
-
-const Theme2: React.FC<Props> = ({
+const Theme2: React.FC<CardContentProps> = ({
   name,
   major,
   phoneNumber,
   email,
-  mbti,
-  instagram,
   imageUrl,
 }) => {
-  const userInfo = [
-    { label: 'Tel', value: phoneNumber },
-    { label: 'Email', value: email },
-    { label: 'MBTI', value: mbti },
-    { label: 'Insta', value: instagram },
-  ].filter((info) => info.value);
+  const userInfo = getUserInfoList({ major, email, phoneNumber });
 
   return (
-    <S.Contianer>
-      <S.ImgContinaer>
-        <S.ImageWrapper>
-          <S.ImgBox src={imageUrl} />
-          <S.LogoImage src={GSM_LOGO_PATH}/>
-        </S.ImageWrapper>
-      </S.ImgContinaer>
-
-      <S.UserContianer>
+    <S.Container>
+      <GSMLogo top='112px' left='29px' />
+      <LongBar style={{ top: 31, left: 23.1, position: 'absolute' }} />
+      <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>
-          <T.UserMajor>{major}</T.UserMajor>
+          {major && <T.UserMajor>{major}</T.UserMajor>}
         </T.MainInfoBox>
-
-        <T.UserInfoBox>
+        <T.SubInfoBox>
           {userInfo.map((info, index) => (
-            <T.UserInfoText key={index}>
+            <T.SubInfoText key={index}>
               {info.label}) {info.value}
-            </T.UserInfoText>
+            </T.SubInfoText>
           ))}
-        </T.UserInfoBox>
-      </S.UserContianer>
-    </S.Contianer>
+        </T.SubInfoBox>
+      </S.UserInfoContainer>
+      <S.UserImage imageUrl={imageUrl} />
+    </S.Container>
   );
 };
 

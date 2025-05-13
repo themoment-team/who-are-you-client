@@ -1,56 +1,29 @@
 import styled from '@emotion/styled';
 
-export const Contianer = styled.div`
-  width: fit-content;
+export const Container = styled.div`
+  width: 328px;
+  height: 189px;
+  padding: 31px 28px 28px 38px;
   display: flex;
-  padding: 2rem;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
-  height: 23.5rem;
-  border-radius: 0.5rem;
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray[40]};
+  border: 1px solid ${({ theme }) => theme.color.gray[30]};
   background-color: ${({ theme }) => theme.color.white};
+  box-sizing: border-box;
+  position: relative;
 `;
 
-export const ImgContinaer = styled.div`
-  display: flex;
-  width: 11.3125rem;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-export const MainInfoContianer = styled.div`
+export const UserInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
 `;
 
-export const UserContianer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
+export const UserImage = styled.div<{ imageUrl: string }>`
+  width: 130px;
+  height: 130px;
+  border-radius: 8px;
+  background-image: url(${({ imageUrl }) => imageUrl});
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
 `;
-
-export const ImgBox = styled.img`
-  width: 5.25rem;
-  height: 5.25rem;
-  border-radius: 0.5rem;
-  object-fit: cover;
-`;
-
-
-export const ImageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-  align-items: flex-end;
-`
-
-export const LogoImage = styled.img`
-  width: 4.5rem;
-  height: 2.0625rem;
-`
