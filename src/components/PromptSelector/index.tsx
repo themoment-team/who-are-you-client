@@ -1,14 +1,15 @@
+import { PromptType } from '@/types/promptType';
 import * as S from './style';
 
 interface Props {
-  selectedPrompt: string;
-  handlePromptClick: (promptText: string) => void;
+  selectedPrompt: keyof PromptType;
+  handlePromptClick: (promptText: keyof PromptType) => void;
 }
 
-const prompts = [
-  { text: '지브리' },
+const prompts: { text: keyof PromptType }[] = [
+  { text: '디즈니' },
   { text: '마인크래프트' },
-  { text: '진격의 거인' },
+  { text: '스누피' },
   { text: '심슨' },
   { text: '레고' },
 ];
