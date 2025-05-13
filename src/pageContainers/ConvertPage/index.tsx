@@ -29,26 +29,11 @@ const ConvertPage: React.FC<Props> = ({
     useState<keyof PromptType>('지브리');
 
   const prompt: PromptType = {
-    지브리: `
- studio Ghibli style, soft lighting, warm colors, anime aesthetic, 2D animation look, hand-drawn
-
-  `,
-
-    마인크래프트: `
-    Convert this image into Minecraft style: voxel art, pixelated blocks, low resolution textures, cubic shapes, blocky environment, bright lighting, 2D Minecraft aesthetic.:
-  `,
-
-    '진격의 거인': `
-  A character in the style of Attack on Titan, with sharp, intense facial features, piercing eyes, a strong and muscular build, and detailed scout regiment gear, all depicted in a dramatic, realistic tone.
-  `,
-
-    심슨: `
-A character in The Simpsons style, with exaggerated yellow skin, large round eyes, a quirky expression, and a simple, colorful outfit, embodying the playful and exaggerated cartoon aesthetic.\${imageDescription}
-  `,
-
-    레고: `
-    "A scene in LEGO style: made of colorful plastic bricks, blocky shapes with visible studs, glossy plastic texture, modular toy design, bright primary colors, highly detailed, resembling LEGO minifigures and LEGO structures
-  `,
+    지브리: `studio Ghibli style, soft lighting, warm colors, anime aesthetic, 2D animation look, hand-drawn`,
+    마인크래프트: `Convert this image into Minecraft style: voxel art, pixelated blocks, low resolution textures, cubic shapes, blocky environment, bright lighting, 2D Minecraft aesthetic.`,
+    '진격의 거인': `A character in the style of Attack on Titan, with sharp, intense facial features, piercing eyes, a strong and muscular build, and detailed scout regiment gear, all depicted in a dramatic, realistic tone.`,
+    심슨: `A character in The Simpsons style, with exaggerated yellow skin, large round eyes, a quirky expression, and a simple, colorful outfit, embodying the playful and exaggerated cartoon aesthetic.\${imageDescription}`,
+    레고: `"A scene in LEGO style: made of colorful plastic bricks, blocky shapes with visible studs, glossy plastic texture, modular toy design, bright primary colors, highly detailed, resembling LEGO minifigures and LEGO structures`,
   };
 
   const handleNextButtonClick = () => {
