@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import OpenAI from 'openai';
 import { PromptSelector, YesOrNoButton } from '@/components';
+import { PromptType } from '@/types/promptType';
 
 interface Props {
   imageUrl: string;
@@ -12,14 +13,6 @@ interface Props {
   setSelectedButton: React.Dispatch<React.SetStateAction<SelectedType | null>>;
   convertedImageUrl: string;
   setConvertedImageUrl: React.Dispatch<React.SetStateAction<string>>;
-}
-
-interface PromptType {
-  지브리: string;
-  마인크래프트: string;
-  '진격의 거인': string;
-  심슨: string;
-  레고: string;
 }
 
 const ConvertPage: React.FC<Props> = ({
@@ -32,7 +25,8 @@ const ConvertPage: React.FC<Props> = ({
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [selectedPrompt, setSelectedPrompt] = useState<string>('지브리');
+  const [selectedPrompt, setSelectedPrompt] =
+    useState<keyof PromptType>('지브리');
 
   const prompt: PromptType = {
     지브리: `
@@ -56,10 +50,6 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
     "A scene in LEGO style: made of colorful plastic bricks, blocky shapes with visible studs, glossy plastic texture, modular toy design, bright primary colors, highly detailed, resembling LEGO minifigures and LEGO structures
   `,
   };
-
-  const text = '지브리';
-
-  prompt[text];
 
   const handleNextButtonClick = () => {
     if (selectedButton === null)
@@ -90,7 +80,7 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
 
   const handleBackButtonClick = () => setFlow(Flow.PHOTO_FLOW);
 
-  const handlePromptClick = (promptText: string) => {
+  const handlePromptClick = (promptText: keyof PromptType) => {
     setSelectedPrompt(promptText);
   };
 
@@ -127,7 +117,7 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
 
       const img = await openai.images.generate({
         model: 'dall-e-3',
-        prompt: `2D Anime-style ${prompt[text]} this style: ${imageDescription}`,
+        prompt: `2D Anime-style ${prompt[selectedPrompt]} this style: ${imageDescription}`,
         n: 1,
         size: '1024x1024',
       });
