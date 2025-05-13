@@ -1,6 +1,6 @@
 import { Flow, SelectedType } from '@/types';
 import * as S from './style';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import OpenAI from 'openai';
 import { PromptSelector, YesOrNoButton } from '@/components';
@@ -66,10 +66,14 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
   };
 
   const handleModalButtonClick = () => setIsModal(false);
-  const handlePreviewButtonClick = () =>
-    selectedButton !== null
-      ? setIsModal(true)
-      : toast.error('예, 아니요 중 하나를 선택해 주셔야해요.');
+  const handlePreviewButtonClick = () => {
+    if (selectedButton !== null) {
+      convertImage();
+      setIsModal(true);
+    } else {
+      toast.error('예, 아니요 중 하나를 선택해 주셔야해요.');
+    }
+  };
 
   const convertImage = async () => {
     setIsLoading(true);
@@ -129,10 +133,6 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
       return '';
     }
   };
-
-  useEffect(() => {
-    convertImage();
-  }, []);
 
   return (
     <S.Container>
