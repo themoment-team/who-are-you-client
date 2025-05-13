@@ -26,13 +26,13 @@ const ConvertPage: React.FC<Props> = ({
   const [isModal, setIsModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedPrompt, setSelectedPrompt] =
-    useState<keyof PromptType>('지브리');
+    useState<keyof PromptType>('디즈니');
 
   const prompt: PromptType = {
-    지브리: `studio Ghibli style, soft lighting, warm colors, anime aesthetic, 2D animation look, hand-drawn`,
+    디즈니: `Transform this character into a classic Disney style, with large, round, expressive eyes and a soft, endearing expression. The character should have a smooth, clean look with refined, youthful facial features. Focus on creating a **2D hand-drawn feel** with bright, bold, and vibrant colors. The character’s hair should be stylized with **fluid curves**, and their clothing should have intricate details, reminiscent of Disney princesses or heroes, such as flowing dresses or regal suits. The design should avoid any 3D effects or realistic shading, sticking to **flat 2D animation**. The background should reflect a **magical, dreamy atmosphere**, such as a fantasy castle or lush garden, to capture the enchanted Disney world. Ensure that the overall aesthetic is **timeless, whimsical, and full of wonder**, like the characters from *Beauty and the Beast*, *The Little Mermaid*, or *The Jungle Book*.`,
     마인크래프트: `Convert this image into Minecraft style: voxel art, pixelated blocks, low resolution textures, cubic shapes, blocky environment, bright lighting, 2D Minecraft aesthetic.`,
-    '진격의 거인': `A character in the style of Attack on Titan, with sharp, intense facial features, piercing eyes, a strong and muscular build, and detailed scout regiment gear, all depicted in a dramatic, realistic tone.`,
-    심슨: `A character in The Simpsons style, with exaggerated yellow skin, large round eyes, a quirky expression, and a simple, colorful outfit, embodying the playful and exaggerated cartoon aesthetic.`,
+    스누피: `A close-up cartoon portrait of a human character reimagined in the style of Peanuts comics (Snoopy style). Use very simple black line art, round head shapes, dot eyes, a small nose, and minimal facial detail. Flat colors with no shading or texture. Keep the expression friendly and innocent. Background should be plain or light-colored. Avoid realism and 3D elements; emphasize the charm of old-school newspaper comic strip style.`,
+    심슨: `Convert this person into a character in *The Simpsons* TV show. Use flat 2D cartoon style with thick black outlines and a limited color palette. The character must have bright yellow skin, large round white eyes with black pupils, a wide overbite, and a comically exaggerated facial expression. Style the hair in blocky or spiky cartoon shapes. Use only flat shading — no gradients or 3D effects. Ensure the character looks like it belongs in a screenshot from The Simpsons, standing in Springfield with the show’s signature humor and satirical American cartoon vibe. No realism, no anime, no webtoon — only classic Simpsons art style.`,
     레고: `"A scene in LEGO style: made of colorful plastic bricks, blocky shapes with visible studs, glossy plastic texture, modular toy design, bright primary colors, highly detailed, resembling LEGO minifigures and LEGO structures`,
   };
 
@@ -106,7 +106,7 @@ const ConvertPage: React.FC<Props> = ({
 
       const img = await openai.images.generate({
         model: 'dall-e-3',
-        prompt: `2D Anime-style ${prompt[selectedPrompt]} this style: ${imageDescription}`,
+        prompt: `${prompt[selectedPrompt]} this style: ${imageDescription}`,
         n: 1,
         size: '1024x1024',
       });
