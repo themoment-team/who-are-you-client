@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const YesOrNoBox = styled.div`
   display: flex;
   gap: 1.25rem;
+  margin: 0 0 6rem 0;
 `;
 
 export const Button = styled.button<{ isSelected: boolean }>`
