@@ -1,9 +1,9 @@
 import { Flow, SelectedType } from '@/types';
 import * as S from './style';
-import YesOrNoButton from '@/components/YesOrNoButton';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import OpenAI from 'openai';
+import { PromptSelector, YesOrNoButton } from '@/components';
 
 interface Props {
   imageUrl: string;
@@ -32,6 +32,7 @@ const ConvertPage: React.FC<Props> = ({
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [selectedPrompt, setSelectedPrompt] = useState<string>('지브리');
 
   const prompt: PromptType = {
     지브리: `
@@ -88,6 +89,10 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
   };
 
   const handleBackButtonClick = () => setFlow(Flow.PHOTO_FLOW);
+
+  const handlePromptClick = (promptText: string) => {
+    setSelectedPrompt(promptText);
+  };
 
   const postConvertedImage = async () => {
     try {
@@ -153,6 +158,12 @@ A character in The Simpsons style, with exaggerated yellow skin, large round eye
         selectedButton={selectedButton}
         setSelectedButton={setSelectedButton}
       />
+      {selectedButton === SelectedType.YES && (
+        <PromptSelector
+          selectedPrompt={selectedPrompt}
+          handlePromptClick={handlePromptClick}
+        />
+      )}
       <S.ButtonBox>
         <S.BackButton onClick={handleBackButtonClick}>다시찍기</S.BackButton>
         <S.ButtonWrapper>
