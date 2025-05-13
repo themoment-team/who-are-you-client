@@ -3,6 +3,7 @@ import * as S from './style';
 import YesOrNoButton from '@/components/YesOrNoButton';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import OpenAI from 'openai';
 
 interface Props {
   imageUrl: string;
@@ -11,6 +12,14 @@ interface Props {
   setSelectedButton: React.Dispatch<React.SetStateAction<SelectedType | null>>;
   convertedImageUrl: string;
   setConvertedImageUrl: React.Dispatch<React.SetStateAction<string>>;
+}
+
+interface PromptType {
+  지브리: string;
+  마인크래프트: string;
+  '진격의 거인': string;
+  심슨: string;
+  레고: string;
 }
 
 const ConvertPage: React.FC<Props> = ({
@@ -23,6 +32,33 @@ const ConvertPage: React.FC<Props> = ({
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const prompt: PromptType = {
+    지브리: `
+ studio Ghibli style, soft lighting, warm colors, anime aesthetic, 2D animation look, hand-drawn
+
+  `,
+
+    마인크래프트: `
+    Convert this image into Minecraft style: voxel art, pixelated blocks, low resolution textures, cubic shapes, blocky environment, bright lighting, 2D Minecraft aesthetic.:
+  `,
+
+    '진격의 거인': `
+  A character in the style of Attack on Titan, with sharp, intense facial features, piercing eyes, a strong and muscular build, and detailed scout regiment gear, all depicted in a dramatic, realistic tone.
+  `,
+
+    심슨: `
+A character in The Simpsons style, with exaggerated yellow skin, large round eyes, a quirky expression, and a simple, colorful outfit, embodying the playful and exaggerated cartoon aesthetic.\${imageDescription}
+  `,
+
+    레고: `
+    "A scene in LEGO style: made of colorful plastic bricks, blocky shapes with visible studs, glossy plastic texture, modular toy design, bright primary colors, highly detailed, resembling LEGO minifigures and LEGO structures
+  `,
+  };
+
+  const text = '지브리';
+
+  prompt[text];
 
   const handleNextButtonClick = () => {
     if (selectedButton === null)
@@ -47,7 +83,6 @@ const ConvertPage: React.FC<Props> = ({
   const convertImage = async () => {
     setIsLoading(true);
     const response = await postConvertedImage();
-
     setConvertedImageUrl(response);
     setIsLoading(false);
   };
@@ -56,34 +91,47 @@ const ConvertPage: React.FC<Props> = ({
 
   const postConvertedImage = async () => {
     try {
-      const sliceUrl = imageUrl.slice(22);
-
-      const body = {
-        prompt: 'clear background, naturally, reality',
-        image: sliceUrl,
-        steps: 20,
-        seed: 46588,
-        denoise: 0.75,
-        scheduler: 'simple',
-        sampler_name: 'euler',
-        base64: false,
-      };
-
-      const response = await fetch(import.meta.env.VITE_API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': import.meta.env.VITE_API_KEY,
-        },
-        body: JSON.stringify(body),
+      const openai = new OpenAI({
+        apiKey: import.meta.env.VITE_API_KEY,
+        dangerouslyAllowBrowser: true,
       });
 
-      const blobImageUrl = URL.createObjectURL(await response.blob());
+      const visionResponse = await openai.chat.completions.create({
+        model: 'chatgpt-4o-latest',
+        messages: [
+          {
+            role: 'user',
+            content: [
+              {
+                type: 'text',
+                text: 'Please describe this picture in English in great detail, without using markdown. Especially focus on the build and gender.',
+              },
+              {
+                type: 'image_url',
+                image_url: {
+                  url: imageUrl,
+                },
+              },
+            ],
+          },
+        ],
+        max_tokens: 1000,
+      });
 
-      return blobImageUrl;
-    } catch (error) {
-      toast.error('이미지 변환 중 오류가 발생했습니다. 다시 시도해 주세요.');
-      throw new Error('Error');
+      const imageDescription = visionResponse.choices[0]?.message.content;
+
+      const img = await openai.images.generate({
+        model: 'dall-e-3',
+        prompt: `2D Anime-style ${prompt[text]} this style: ${imageDescription}`,
+        n: 1,
+        size: '1024x1024',
+      });
+
+      const url = img.data && img.data[0]?.url ? img.data[0].url : '';
+      return url;
+    } catch (err) {
+      toast.error('이미지 변환 중 오류가 발생했습니다.');
+      return '';
     }
   };
 
