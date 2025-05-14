@@ -1,10 +1,11 @@
 import { Flow, SelectedType } from '@/types';
 import * as S from './style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import OpenAI from 'openai';
 import { PromptSelector, YesOrNoButton } from '@/components';
 import { PromptType } from '@/types/promptType';
+import { set } from 'zod';
 
 interface Props {
   imageUrl: string;
@@ -27,6 +28,12 @@ const ConvertPage: React.FC<Props> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedPrompt, setSelectedPrompt] =
     useState<keyof PromptType>('디즈니');
+  const [convert디즈니Image, setConvert디즈니Image] = useState<string>('');
+  const [convert마인크래프트Image, setConvert마인크래프트Image] =
+    useState<string>('');
+  const [convert스누피Image, setConvert스누피Image] = useState<string>('');
+  const [convert심슨Image, setConvert심슨Image] = useState<string>('');
+  const [convert레고Image, setConvert레고Image] = useState<string>('');
 
   const prompt: PromptType = {
     디즈니: `A 3D animated portrait in the exact style of a Disney or Pixar character, inspired by movies like Tangled, Frozen, and Encanto. The character has extremely large and expressive eyes, a small nose, soft rounded facial features, and slightly exaggerated proportions. The skin is flawless and glowing, with soft lighting and a dreamy fairytale color palette. The expression is kind and charming, like a Disney princess or prince. Rendered with cinematic lighting and studio-quality background. Stylized, not realistic. Disney 3D animation look, not anime or cartoon.`,
@@ -53,7 +60,7 @@ const ConvertPage: React.FC<Props> = ({
   const handleModalButtonClick = () => setIsModal(false);
   const handlePreviewButtonClick = () => {
     if (selectedButton !== null) {
-      convertImage();
+      // convertImage();
       setIsModal(true);
     } else {
       toast.error('예, 아니요 중 하나를 선택해 주셔야해요.');
@@ -119,6 +126,82 @@ const ConvertPage: React.FC<Props> = ({
     }
   };
 
+  const imageConvert = async (style: keyof PromptType) => {
+    try {
+      const openai = new OpenAI({
+        apiKey: import.meta.env.VITE_API_KEY,
+        dangerouslyAllowBrowser: true,
+      });
+
+      const visionResponse = await openai.chat.completions.create({
+        model: 'chatgpt-4o-latest',
+        messages: [
+          {
+            role: 'user',
+            content: [
+              {
+                type: 'text',
+                text: 'Please describe this picture in English in great detail, without using markdown. Especially focus on the build and gender.',
+              },
+              {
+                type: 'image_url',
+                image_url: {
+                  url: imageUrl,
+                },
+              },
+            ],
+          },
+        ],
+        max_tokens: 1000,
+      });
+
+      const imageDescription = visionResponse.choices[0]?.message.content;
+
+      const img = await openai.images.generate({
+        model: 'dall-e-3',
+        prompt: `2D Anime-style ${prompt[style]} for One image this style: ${imageDescription}`,
+        n: 1,
+        size: '1024x1024',
+      });
+
+      const url = img.data && img.data[0]?.url ? img.data[0].url : '';
+      return url;
+    } catch (err) {
+      toast.error('이미지 변환 중 오류가 발생했습니다.');
+      return '';
+    }
+  };
+
+  useEffect(() => {
+    const allImageConvert = async () => {
+      setIsLoading(true);
+
+      const [
+        디즈니image,
+        마인크래프트image,
+        스누피image,
+        심슨image,
+        레고image,
+      ] = await Promise.all([
+        imageConvert('디즈니'),
+        imageConvert('마인크래프트'),
+        imageConvert('스누피'),
+        imageConvert('심슨'),
+        imageConvert('레고'),
+      ]);
+
+      setConvert디즈니Image(디즈니image);
+      setConvert마인크래프트Image(마인크래프트image);
+      setConvert스누피Image(스누피image);
+      setConvert심슨Image(심슨image);
+      setConvert레고Image(레고image);
+
+      setIsLoading(false);
+    };
+
+    allImageConvert();
+  }, []);
+
   return (
     <S.Container>
       <S.TopBox>
@@ -158,7 +241,15 @@ const ConvertPage: React.FC<Props> = ({
                 <S.ModalImg
                   src={
                     selectedButton === SelectedType.YES
-                      ? convertedImageUrl!
+                      ? selectedPrompt === '디즈니'
+                        ? convert디즈니Image
+                        : selectedPrompt === '마인크래프트'
+                          ? convert마인크래프트Image
+                          : selectedPrompt === '스누피'
+                            ? convert스누피Image
+                            : selectedPrompt === '심슨'
+                              ? convert심슨Image
+                              : convert레고Image
                       : imageUrl
                   }
                 />
