@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import OpenAI from 'openai';
 import { PromptSelector, YesOrNoButton } from '@/components';
 import { PromptType } from '@/types/promptType';
-import { set } from 'zod';
 
 interface Props {
   imageUrl: string;
@@ -47,10 +46,17 @@ const ConvertPage: React.FC<Props> = ({
     if (selectedButton === null)
       return toast.error('예, 아니오 중 하나를 선택해 주셔야해요.');
 
+    if (selectedPrompt === "디즈니" && convert디즈니Image) setConvertedImageUrl(convert디즈니Image);
+    else if (selectedPrompt === "마인크래프트" && convert마인크래프트Image) setConvertedImageUrl(convert마인크래프트Image);
+    else if (selectedPrompt === "스누피" && convert스누피Image) setConvertedImageUrl(convert스누피Image);
+    else if (selectedPrompt === "심슨" && convert심슨Image) setConvertedImageUrl(convert심슨Image);
+    else if (selectedPrompt === "레고" && convert레고Image) setConvertedImageUrl(convert레고Image);
+
     if (
       (selectedButton === SelectedType.YES && !isLoading) ||
       selectedButton === SelectedType.NO
     )
+
       setFlow(Flow.SELECT_THEME_FLOW);
     else {
       return toast.error('아직 변환된 사진이 로딩되지 않았습니다');
