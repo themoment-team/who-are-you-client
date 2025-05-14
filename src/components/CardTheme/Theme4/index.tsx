@@ -16,7 +16,7 @@ const Theme4: React.FC<CardContentProps> = ({
 
   return (
     <S.Container>
-      <GSMLogo top='264px' left='20px' />
+      <GSMLogo top='252px' left='20px' />
       <S.UserImage imageUrl={imageUrl} />
       <S.UserInfoContainer>
         <T.MainInfoBox>
