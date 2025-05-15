@@ -49,6 +49,13 @@ export const NextButton = styled.button`
   border-radius: 0.5rem;
   width: 7.875rem;
   height: 3rem;
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.white};
+    border: ${({ theme }) => `0.0625rem solid ${theme.color.gray[40]}`};
+    color: ${({ theme }) => theme.color.gray[70]};
+    cursor: not-allowed;
+  }
 `;
 
 export const PreviewButton = styled(NextButton)`
@@ -110,7 +117,7 @@ export const ImgWrapper = styled.div`
 
 export const LoadingSpinner = styled.div`
   border: 0.3125rem solid rgba(0, 0, 0, 0.1);
-  border-left-color: ${({ theme }) => theme.color.gray[50]};
+  border-left-color: ${({ theme }) => theme.color.gray[70]};
   border-radius: 50%;
   width: 3.125rem;
   height: 3.125rem;
