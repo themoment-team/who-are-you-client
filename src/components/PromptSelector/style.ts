@@ -32,7 +32,7 @@ export const Prompt = styled.button<{ isSelected: boolean }>`
     isSelected ? theme.color.white : theme.color.gray[70]};
   border-radius: 0.5rem;
   display: inline-flex;
-  padding: 0.5rem 1rem 0.375rem 1.0625rem;
+  padding: 0.5rem 1rem;
   justify-content: center;
   align-items: center;
 `;
