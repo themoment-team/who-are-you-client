@@ -5,7 +5,7 @@ import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
 
 const MainPage = () => {
-  const [flow, setFlow] = useState<Flow>(Flow.FORM_FLOW);
+  const [flow, setFlow] = useState<Flow>(Flow.PHOTO_FLOW);
   const [imageUrl, setImageUrl] = useState<string>('');
   const [userInfo, setUserInfo] = useState<userInfoFormType | null>(null);
   const [selectedButton, setSelectedButton] = useState<SelectedType | null>(
@@ -16,9 +16,6 @@ const MainPage = () => {
   return (
     <S.Wrapper>
       <Header />
-      {flow === Flow.FORM_FLOW && (
-        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
-      )}
       {flow === Flow.PHOTO_FLOW && (
         <PhotoPage setImageUrl={setImageUrl} setFlow={setFlow} />
       )}
@@ -31,6 +28,9 @@ const MainPage = () => {
           convertedImageUrl={convertedImageUrl}
           setConvertedImageUrl={setConvertedImageUrl}
         />
+      )}
+      {flow === Flow.FORM_FLOW && (
+        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
       )}
       {flow === Flow.SELECT_THEME_FLOW && (
         <SelectPage
