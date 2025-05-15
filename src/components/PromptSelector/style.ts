@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  padding: 0 0.7188rem;
   box-sizing: border-box;
 `;
 
@@ -17,7 +16,8 @@ export const Title = styled.h2`
 
 export const PromptContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 `;
 
 export const Prompt = styled.button<{ isSelected: boolean }>`
@@ -31,8 +31,8 @@ export const Prompt = styled.button<{ isSelected: boolean }>`
   color: ${({ isSelected, theme }) =>
     isSelected ? theme.color.white : theme.color.gray[70]};
   border-radius: 0.5rem;
-  display: flex;
-  padding: 0.5rem 1rem 0.375rem 1.0625rem;
+  display: inline-flex;
+  padding: 0.5rem 1rem;
   justify-content: center;
   align-items: center;
 `;
