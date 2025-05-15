@@ -234,7 +234,7 @@ const ConvertPage: React.FC<Props> = ({
           <S.PreviewButton onClick={handlePreviewButtonClick}>
             미리보기
           </S.PreviewButton>
-          <S.NextButton onClick={handleNextButtonClick}>다음으로</S.NextButton>
+          <S.NextButton disabled={isLoading} onClick={handleNextButtonClick}>{isLoading ? "이미지 변환중":"다음으로"}</S.NextButton>
         </S.ButtonWrapper>
       </S.ButtonBox>
       {isModal && (
@@ -242,7 +242,7 @@ const ConvertPage: React.FC<Props> = ({
           <S.ModalBox>
             <S.ImgWrapper>
               {isLoading && selectedButton === SelectedType.YES ? (
-                <S.LoadingSpinner />
+                <S.LoadingSpinner /> 
               ) : (
                 <S.ModalImg
                   src={
