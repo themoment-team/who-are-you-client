@@ -3,6 +3,8 @@ import { ConvertPage, FormPage, PhotoPage, SelectPage } from '@/pageContainers';
 import { useState } from 'react';
 import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
+import { type PromptType } from '@/types/promptType';
+import { postConvertedImage } from '@/utils';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.PHOTO_FLOW);
@@ -12,6 +14,14 @@ const MainPage = () => {
     null
   );
   const [convertedImageUrl, setConvertedImageUrl] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [selectedPrompt, setSelectedPrompt] =
+    useState<keyof PromptType>('디즈니');
+
+  const handleConvertImage = async () => {
+    setConvertedImageUrl(await postConvertedImage(imageUrl, selectedPrompt));
+  };
 
   return (
     <S.Wrapper>
@@ -26,7 +36,11 @@ const MainPage = () => {
           selectedButton={selectedButton}
           setSelectedButton={setSelectedButton}
           convertedImageUrl={convertedImageUrl}
-          setConvertedImageUrl={setConvertedImageUrl}
+          selectedPrompt={selectedPrompt}
+          setSelectedPrompt={setSelectedPrompt}
+          handleConvertImage={handleConvertImage}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
       )}
       {flow === Flow.FORM_FLOW && (
