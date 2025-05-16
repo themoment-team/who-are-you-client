@@ -116,17 +116,13 @@ const ConvertPage: React.FC<Props> = ({
         <S.PreviewModal>
           <S.ModalBox>
             <S.ImgWrapper>
-              {isLoading && selectedButton === SelectedType.YES ? (
-                <S.LoadingSpinner />
-              ) : (
-                <S.ModalImg
-                  src={
-                    selectedButton === SelectedType.YES
-                      ? convertedImageUrl!
-                      : imageUrl
-                  }
-                />
-              )}
+              <S.ModalImg
+                src={
+                  selectedButton === SelectedType.YES
+                    ? convertedImageUrl!
+                    : imageUrl
+                }
+              />
             </S.ImgWrapper>
             <S.ModalButton onClick={handleModalButtonClick}>확인</S.ModalButton>
           </S.ModalBox>
