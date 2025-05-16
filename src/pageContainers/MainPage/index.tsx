@@ -52,6 +52,7 @@ const MainPage = () => {
           imageUrl={imageUrl}
           selectedButton={selectedButton}
           convertedImageUrl={convertedImageUrl}
+          isLoading={isLoading}
         />
       )}
     </S.Wrapper>

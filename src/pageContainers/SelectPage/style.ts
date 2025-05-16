@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
@@ -56,3 +57,47 @@ export const CarouselRightButton = styled.button`
   right: 3rem;
 `;
 
+//로딩 스타일
+
+export const PreviewModal = styled.div`
+  height: calc(100vh - 5rem);
+  width: 38.75rem;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ModalBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: end;
+`;
+
+export const ImgWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 0.5rem;
+  height: 27.5rem;
+  width: 27.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Spin = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+  `;
+
+export const LoadingSpinner = styled.div`
+  border: 0.3125rem solid rgba(0, 0, 0, 0.1);
+  border-left-color: ${({ theme }) => theme.color.gray[70]};
+  border-radius: 50%;
+  width: 3.125rem;
+  height: 3.125rem;
+  animation: ${Spin} 1s linear infinite;
+`;
