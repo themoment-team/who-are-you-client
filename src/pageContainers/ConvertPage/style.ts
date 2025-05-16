@@ -99,12 +99,6 @@ export const ModalButton = styled(NextButton)`
   margin-right: 0.99rem;
 `;
 
-const Spin = keyframes`
-  to {
-    transform: rotate(360deg);
-  }
-  `;
-
 export const ImgWrapper = styled.div`
   overflow: hidden;
   border-radius: 0.5rem;
@@ -113,13 +107,4 @@ export const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-export const LoadingSpinner = styled.div`
-  border: 0.3125rem solid rgba(0, 0, 0, 0.1);
-  border-left-color: ${({ theme }) => theme.color.gray[70]};
-  border-radius: 50%;
-  width: 3.125rem;
-  height: 3.125rem;
-  animation: ${Spin} 1s linear infinite;
 `;
