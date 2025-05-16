@@ -21,6 +21,7 @@ const MainPage = () => {
 
   const handleConvertImage = async () => {
     setConvertedImageUrl(await postConvertedImage(imageUrl, selectedPrompt));
+    setIsLoading(false);
   };
 
   return (
