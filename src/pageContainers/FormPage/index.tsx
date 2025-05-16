@@ -48,10 +48,7 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
 
   return (
     <S.MainContianer>
-      <S.Text>
-        후아유에 오신걸 환영합니다! <br />
-        먼저, 명함에 들어갈 정보들을 입력해주세요.
-      </S.Text>
+      <S.Text>명함에 들어갈 정보들을 입력해주세요.</S.Text>
 
       <S.InputContainer>
         <InputFormItem
