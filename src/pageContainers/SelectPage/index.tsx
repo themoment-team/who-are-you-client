@@ -54,11 +54,12 @@ const SelectPage: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    if (isLoading) toast.error('아직 이미지가 변환되지 않았습니다.');
-    else
-      toast.success('이미지가 성공적으로 변환되었습니다.', {
-        style: { whiteSpace: 'nowrap' },
-      });
+    if (selectedButton === SelectedType.YES)
+      if (isLoading) toast.error('아직 이미지가 변환되지 않았습니다.');
+      else
+        toast.success('이미지가 성공적으로 변환되었습니다.', {
+          style: { whiteSpace: 'nowrap' },
+        });
   }, [isLoading]);
   return (
     <>
