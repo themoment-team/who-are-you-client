@@ -97,13 +97,12 @@ const ConvertPage: React.FC<Props> = ({
       <S.ButtonBox>
         <S.BackButton onClick={handleBackButtonClick}>다시찍기</S.BackButton>
         <S.ButtonWrapper>
-          {(selectedButton === SelectedType.NO ||
-            (selectedButton === SelectedType.YES &&
-              (isLoading || convertedImageUrl))) && (
+          {selectedButton === SelectedType.NO ||
+          selectedButton === SelectedType.YES ? (
             <S.PreviewButton onClick={handlePreviewButtonClick}>
-              미리보기
+              확대하기
             </S.PreviewButton>
-          )}
+          ) : null}
           <S.NextButton
             onClick={handleNextButtonClick}
             disabled={selectedButton === SelectedType.YES && isLoading}
@@ -116,13 +115,7 @@ const ConvertPage: React.FC<Props> = ({
         <S.PreviewModal>
           <S.ModalBox>
             <S.ImgWrapper>
-              <S.ModalImg
-                src={
-                  selectedButton === SelectedType.YES
-                    ? convertedImageUrl!
-                    : imageUrl
-                }
-              />
+              <S.ModalImg src={imageUrl} />
             </S.ImgWrapper>
             <S.ModalButton onClick={handleModalButtonClick}>확인</S.ModalButton>
           </S.ModalBox>
