@@ -4,6 +4,7 @@ import { ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
+import DummyImage from '@/assets/DummyImage';
 
 const Theme4: React.FC<CardContentProps> = ({
   name,
@@ -11,13 +12,20 @@ const Theme4: React.FC<CardContentProps> = ({
   phoneNumber,
   email,
   imageUrl,
+  isLoading,
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
 
   return (
     <S.Container>
       <GSMLogo top='252px' left='20px' />
-      <S.UserImage imageUrl={imageUrl} />
+      {isLoading ? (
+        <S.DummyImageWrapper>
+          <DummyImage type='portrait' />
+        </S.DummyImageWrapper>
+      ) : (
+        <S.UserImage imageUrl={imageUrl} />
+      )}
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>

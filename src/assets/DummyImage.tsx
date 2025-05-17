@@ -1,14 +1,20 @@
-const DummyImage = () => {
+type DummyImageProps = {
+  type: 'landscape' | 'portrait';
+};
+
+const DummyImage = ({ type }: DummyImageProps) => {
+  const size = type === 'landscape' ? 133 : 135;
+
   return (
     <svg
-      width='135'
-      height='135'
+      width={size}
+      height={size}
       viewBox='0 0 135 135'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
       xmlnsXlink='http://www.w3.org/1999/xlink'
     >
-      <rect width='135' height='135' fill='url(#pattern0_1213_872)' />
+      <rect width={size} height={size} fill='url(#pattern0_1213_872)' />
       <defs>
         <pattern
           id='pattern0_1213_872'

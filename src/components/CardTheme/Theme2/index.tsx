@@ -4,6 +4,7 @@ import { LongBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
+import DummyImage from '@/assets/DummyImage';
 
 const Theme2: React.FC<CardContentProps> = ({
   name,
@@ -11,6 +12,7 @@ const Theme2: React.FC<CardContentProps> = ({
   phoneNumber,
   email,
   imageUrl,
+  isLoading,
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
 
@@ -31,7 +33,13 @@ const Theme2: React.FC<CardContentProps> = ({
           ))}
         </T.SubInfoBox>
       </S.UserInfoContainer>
-      <S.UserImage imageUrl={imageUrl} />
+      {isLoading ? (
+        <S.DummyImageWrapper>
+          <DummyImage type='landscape' />
+        </S.DummyImageWrapper>
+      ) : (
+        <S.UserImage imageUrl={imageUrl} />
+      )}
     </S.Container>
   );
 };

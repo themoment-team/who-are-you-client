@@ -27,6 +27,7 @@ const SelectPage: React.FC<Props> = ({
   imageUrl,
   selectedButton,
   convertedImageUrl,
+  isLoading,
 }) => {
   const [openModalCase, setOpenModalCase] = useState<'close' | 'open'>('close');
   const [currentTheme, setCurrentTheme] = useState(1);
@@ -48,6 +49,7 @@ const SelectPage: React.FC<Props> = ({
     email: userInfo!.email,
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
+    isLoading: isLoading,
   };
 
   return (

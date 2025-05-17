@@ -4,4 +4,5 @@ export interface CardContentProps {
   phoneNumber?: string;
   email?: string;
   major?: string;
+  isLoading: boolean;
 }
