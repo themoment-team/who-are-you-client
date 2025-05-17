@@ -1,8 +1,13 @@
-import { BusinessCardModal, Theme4 } from '@/components';
+import {
+  BusinessCardModal,
+  Theme1,
+  Theme2,
+  Theme3,
+  Theme4,
+} from '@/components';
 import * as S from './style';
 import { useState } from 'react';
 
-import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
 import { formatPhoneNumber, getNextTheme, getPrevTheme } from '@/utils';
