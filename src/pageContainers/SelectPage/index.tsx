@@ -6,11 +6,12 @@ import {
   Theme4,
 } from '@/components';
 import * as S from './style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
 import { formatPhoneNumber, getNextTheme, getPrevTheme } from '@/utils';
+import { toast } from 'react-toastify';
 
 interface Props {
   userInfo: userInfoFormType | null;
@@ -52,6 +53,13 @@ const SelectPage: React.FC<Props> = ({
     isLoading: isLoading,
   };
 
+  useEffect(() => {
+    if (isLoading) toast.error('아직 이미지가 변환되지 않았습니다.');
+    else
+      toast.success('이미지가 성공적으로 변환되었습니다.', {
+        style: { whiteSpace: 'nowrap' },
+      });
+  }, [isLoading]);
   return (
     <>
       {openModalCase === 'open' && (
