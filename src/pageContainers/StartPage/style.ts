@@ -46,7 +46,6 @@ export const IntroduceText = styled.h1`
 
 export const Text = styled.div`
   color: #0b1140;
-  font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -69,10 +68,9 @@ export const Button = styled.div`
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--primary-primary_30, #6052ff);
-  color: var(--primary-primary_30, #6052ff);
+  border: 1px solid #6052ff;
+  color: #6052ff;
   text-align: center;
-  font-family: Pretendard;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 500;
