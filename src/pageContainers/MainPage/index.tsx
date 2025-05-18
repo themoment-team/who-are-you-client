@@ -5,9 +5,10 @@ import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
 import { type PromptType } from '@/types/promptType';
 import { postConvertedImage } from '@/utils';
+import StartPage from '../StartPage';
 
 const MainPage = () => {
-  const [flow, setFlow] = useState<Flow>(Flow.PHOTO_FLOW);
+  const [flow, setFlow] = useState<Flow>(Flow.START_FLOW);
   const [imageUrl, setImageUrl] = useState<string>('');
   const [userInfo, setUserInfo] = useState<userInfoFormType | null>(null);
   const [selectedButton, setSelectedButton] = useState<SelectedType | null>(
@@ -26,7 +27,8 @@ const MainPage = () => {
 
   return (
     <S.Wrapper>
-      <Header />
+      {flow !== Flow.START_FLOW && <Header />}
+      {flow === Flow.START_FLOW && <StartPage setFlow={setFlow} />}
       {flow === Flow.PHOTO_FLOW && (
         <PhotoPage setImageUrl={setImageUrl} setFlow={setFlow} />
       )}

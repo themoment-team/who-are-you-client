@@ -1,4 +1,5 @@
 export enum Flow {
+  START_FLOW,
   PHOTO_FLOW,
   CONVERT_PHOTO_FLOW,
   FORM_FLOW,

@@ -71,6 +71,14 @@ const GlobalStyle = () => (
         background: inherit;
         cursor: pointer;
       }
+
+      @font-face {
+        font-family: 'GmarketSans';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+          format('woff');
+        font-weight: 400;
+        font-style: normal;
+      }
     `}
   />
 );
