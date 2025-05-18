@@ -36,7 +36,7 @@ export const DummyImageWrapper = styled.div`
   background-position: center;
   flex-shrink: 0;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.color.gray[30]};
+  background-color: ${({ theme }) => theme.color.gray[20]};
 
   img {
     width: 100%;
