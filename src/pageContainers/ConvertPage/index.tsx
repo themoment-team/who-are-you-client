@@ -100,7 +100,7 @@ const ConvertPage: React.FC<Props> = ({
           {selectedButton === SelectedType.NO ||
           selectedButton === SelectedType.YES ? (
             <S.PreviewButton onClick={handlePreviewButtonClick}>
-              확대하기
+              사진확대
             </S.PreviewButton>
           ) : null}
           <S.NextButton
