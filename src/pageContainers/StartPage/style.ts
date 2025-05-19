@@ -60,7 +60,7 @@ export const ButtonWrapper = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   display: flex;
   width: 7.875rem;
   height: 3rem;
