@@ -1,8 +1,8 @@
 import * as S from './style';
 import * as T from '../style';
-import { ShortBar } from '@/assets';
+import { DummyImage, ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
-import { CardContentProps } from '@/types';
+import { CardContentProps, CardTheme } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
 
 const Theme3: React.FC<CardContentProps> = ({
@@ -11,13 +11,22 @@ const Theme3: React.FC<CardContentProps> = ({
   phoneNumber,
   email,
   imageUrl,
+  isLoading,
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
+
+  const ThemeNumber = CardTheme.VerticalSquare;
 
   return (
     <S.Container>
       <GSMLogo top='252px' left='20px' />
-      <S.UserImage imageUrl={imageUrl} />
+      {isLoading ? (
+        <T.DummyImageWrapper Theme={ThemeNumber}>
+          <DummyImage type='Vertical' />
+        </T.DummyImageWrapper>
+      ) : (
+        <S.UserImage imageUrl={imageUrl} />
+      )}
       <S.UserInfoContainer>
         <T.MainInfoBox>
           <T.UserName>{name}</T.UserName>

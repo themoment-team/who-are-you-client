@@ -33,3 +33,20 @@ export const SubInfoText = styled.p`
   color: #494949;
   margin: 0.75px 0;
 `;
+
+export const DummyImageWrapper = styled.div<{ Theme: number }>`
+  width: ${({ Theme }) => (Theme === 1 || Theme === 2 ? '130px' : '135px')};
+  height: ${({ Theme }) => (Theme === 1 || Theme === 2 ? '130px' : '135px')};
+  border-radius: ${({ Theme }) => (Theme === 4 ? '50%' : '8px')};
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.color.gray[20]};
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;

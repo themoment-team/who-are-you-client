@@ -2,7 +2,6 @@ import * as S from './style';
 
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
 
 import { toast } from 'react-toastify';
 
@@ -33,14 +32,10 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
     },
   });
 
-  useEffect(() => {
-    toast.info('정보 등록 후에 서비스 이용이 가능합니다.');
-  }, []);
-
   const onSubmit: SubmitHandler<userInfoFormType> = (data) => {
     setUserInfo(data);
     toast.success('정보 등록에 성공하였습니다.');
-    setFlow(Flow.PHOTO_FLOW);
+    setFlow(Flow.SELECT_THEME_FLOW);
   };
 
   const onError: SubmitErrorHandler<userInfoFormType> = () => {
@@ -53,10 +48,7 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
 
   return (
     <S.MainContianer>
-      <S.Text>
-        후아유에 오신걸 환영합니다! <br />
-        먼저, 명함에 들어갈 정보들을 입력해주세요.
-      </S.Text>
+      <S.Text>명함에 들어갈 정보들을 입력해주세요.</S.Text>
 
       <S.InputContainer>
         <InputFormItem
@@ -88,7 +80,7 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
       </S.InputContainer>
       <S.BottomContainer>
         <S.ContinueButton onClick={handleContinueButtonClick}>
-          <S.ContinueText>계속</S.ContinueText>
+          <S.ContinueText>다음으로</S.ContinueText>
         </S.ContinueButton>
       </S.BottomContainer>
     </S.MainContianer>

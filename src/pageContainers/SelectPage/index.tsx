@@ -1,17 +1,24 @@
-import { BusinessCardModal, Theme4 } from '@/components';
+import {
+  BusinessCardModal,
+  Theme1,
+  Theme2,
+  Theme3,
+  Theme4,
+} from '@/components';
 import * as S from './style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Theme1, Theme2, Theme3 } from '@/components';
 import { LeftIcon, RightIcon } from '@/assets';
 import { SelectedType, userInfoFormType } from '@/types';
 import { formatPhoneNumber, getNextTheme, getPrevTheme } from '@/utils';
+import { toast } from 'react-toastify';
 
 interface Props {
   userInfo: userInfoFormType | null;
   imageUrl: string;
   selectedButton: SelectedType | null;
   convertedImageUrl: string;
+  isLoading: boolean;
 }
 
 const MAX_THEME = 4;
@@ -21,6 +28,7 @@ const SelectPage: React.FC<Props> = ({
   imageUrl,
   selectedButton,
   convertedImageUrl,
+  isLoading,
 }) => {
   const [openModalCase, setOpenModalCase] = useState<'close' | 'open'>('close');
   const [currentTheme, setCurrentTheme] = useState(1);
@@ -42,8 +50,14 @@ const SelectPage: React.FC<Props> = ({
     email: userInfo!.email,
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
+    isLoading: isLoading,
   };
 
+  useEffect(() => {
+    if (selectedButton === SelectedType.YES)
+      if (isLoading) toast.info('AI로 이미지 변환중입니다');
+      else toast.success('AI 변환이 완료되었습니다');
+  }, [isLoading]);
   return (
     <>
       {openModalCase === 'open' && (
@@ -73,7 +87,11 @@ const SelectPage: React.FC<Props> = ({
           </S.CarouselRightButton>
         </S.CardContainer>
         <S.ButtonBox onClick={() => setOpenModalCase('open')}>
-          <S.ShotButton>명함인쇄</S.ShotButton>
+          {isLoading && selectedButton === SelectedType.YES ? (
+            <S.BlockButton disabled={true}>명함인쇄</S.BlockButton>
+          ) : (
+            <S.ShotButton>명함인쇄</S.ShotButton>
+          )}
         </S.ButtonBox>
       </S.Container>
     </>

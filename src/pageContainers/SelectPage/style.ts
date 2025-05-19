@@ -38,6 +38,18 @@ export const ShotButton = styled.button`
   height: 3rem;
 `;
 
+export const BlockButton = styled.button`
+  ${({ theme }) => theme.typo.h3};
+  color: ${({ theme }) => theme.color.gray[40]};
+  background-color: ${({ theme }) => theme.color.gray[10]};
+  border: 1px solid ${({ theme }) => theme.color.gray[40]};
+  font-weight: 500;
+  border-radius: 0.5rem;
+  width: 7.875rem;
+  height: 3rem;
+  cursor: not-allowed;
+`;
+
 export const CardContainer = styled.div`
   display: flex;
   padding: 6.125rem 2.5rem;
@@ -55,4 +67,3 @@ export const CarouselRightButton = styled.button`
   position: absolute;
   right: 3rem;
 `;
-
