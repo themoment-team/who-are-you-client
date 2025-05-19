@@ -19,14 +19,15 @@ export const TextWrapper = styled.div`
 `;
 
 export const IntroduceBorder = styled.div`
-  width: 16rem;
-  height: 3rem;
+  width: fit-content;
   border: 1px solid #0b1140;
   border-radius: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  box-sizing: border-box;
+  padding: 0.3rem 1rem;
 `;
 
 export const IntroduceText = styled.h1`
@@ -34,7 +35,6 @@ export const IntroduceText = styled.h1`
   text-align: center;
   font-family: 'GmarketSans', sans-serif;
   font-size: 1.25rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 2.25rem;
   letter-spacing: -0.05rem;
