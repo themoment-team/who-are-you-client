@@ -1,6 +1,6 @@
 import { Flow } from '@/types';
 import * as S from './style';
-import WAYText from '@/assets/WAYText';
+import { WAYText } from '@/assets';
 
 interface Props {
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
