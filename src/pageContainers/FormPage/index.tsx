@@ -80,7 +80,7 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
       </S.InputContainer>
       <S.BottomContainer>
         <S.ContinueButton onClick={handleContinueButtonClick}>
-          <S.ContinueText>계속</S.ContinueText>
+          <S.ContinueText>다음으로</S.ContinueText>
         </S.ContinueButton>
       </S.BottomContainer>
     </S.MainContianer>

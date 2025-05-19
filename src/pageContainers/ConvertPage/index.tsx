@@ -107,7 +107,7 @@ const ConvertPage: React.FC<Props> = ({
             onClick={handleNextButtonClick}
             disabled={selectedButton === SelectedType.YES && isLoading}
           >
-            변환하기
+            다음으로
           </S.NextButton>
         </S.ButtonWrapper>
       </S.ButtonBox>
