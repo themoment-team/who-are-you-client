@@ -23,11 +23,9 @@ const PhotoPage: React.FC<Props> = ({ setImageUrl, setFlow }) => {
   return (
     <S.Container>
       <S.Description>
-        후아유에 오신걸 환영합니다!
+        먼저, 화면 중앙의 가이드에
         <br />
-        화면 중앙의 가이드에 얼굴을 맞춰
-        <br />
-        사진을 촬영해주세요!
+        얼굴을 맞춰 사진을 촬영해주세요!
       </S.Description>
       <S.WebcamWrapper>
         <CameraGuide />
