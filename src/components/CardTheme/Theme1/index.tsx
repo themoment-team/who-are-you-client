@@ -15,6 +15,8 @@ const Theme1: React.FC<CardContentProps> = ({
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
 
+  const ThemeNumber = 1;
+
   return (
     <S.Container>
       <GSMLogo top='20px' left='17px' />
@@ -33,9 +35,9 @@ const Theme1: React.FC<CardContentProps> = ({
         </T.SubInfoBox>
       </S.UserInfoContainer>
       {isLoading ? (
-        <S.DummyImageWrapper>
+        <T.DummyImageWrapper Theme={ThemeNumber}>
           <DummyImage type='Horizontal' />
-        </S.DummyImageWrapper>
+        </T.DummyImageWrapper>
       ) : (
         <S.UserImage imageUrl={imageUrl} />
       )}

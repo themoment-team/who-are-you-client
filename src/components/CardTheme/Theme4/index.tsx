@@ -15,13 +15,15 @@ const Theme4: React.FC<CardContentProps> = ({
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
 
+  const ThemeNumber = 4;
+
   return (
     <S.Container>
       <GSMLogo top='252px' left='20px' />
       {isLoading ? (
-        <S.DummyImageWrapper>
+        <T.DummyImageWrapper Theme={ThemeNumber}>
           <DummyImage type='Vertical' />
-        </S.DummyImageWrapper>
+        </T.DummyImageWrapper>
       ) : (
         <S.UserImage imageUrl={imageUrl} />
       )}

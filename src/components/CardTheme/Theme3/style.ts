@@ -30,19 +30,3 @@ export const UserImage = styled.div<{ imageUrl: string }>`
   background-position: center;
   flex-shrink: 0;
 `;
-
-export const DummyImageWrapper = styled.div`
-  width: 135px;
-  height: 135px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.color.gray[20]};
-  background-size: cover;
-  background-position: center;
-  flex-shrink: 0;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
