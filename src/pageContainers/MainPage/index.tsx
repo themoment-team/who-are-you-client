@@ -1,11 +1,16 @@
 import * as S from './style';
-import { ConvertPage, FormPage, PhotoPage, SelectPage } from '@/pageContainers';
+import {
+  ConvertPage,
+  FormPage,
+  PhotoPage,
+  SelectPage,
+  StartPage,
+} from '@/pageContainers';
 import { useState } from 'react';
 import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
 import { type PromptType } from '@/types/promptType';
 import { postConvertedImage } from '@/utils';
-import StartPage from '../StartPage';
 
 const MainPage = () => {
   const [flow, setFlow] = useState<Flow>(Flow.START_FLOW);
