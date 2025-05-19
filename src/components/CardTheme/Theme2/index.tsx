@@ -1,8 +1,8 @@
 import * as S from './style';
 import * as T from '../style';
-import { LongBar } from '@/assets';
+import { DummyImage, LongBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
-import { CardContentProps } from '@/types';
+import { CardContentProps, CardTheme } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
 
 const Theme2: React.FC<CardContentProps> = ({
@@ -11,8 +11,11 @@ const Theme2: React.FC<CardContentProps> = ({
   phoneNumber,
   email,
   imageUrl,
+  isLoading,
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
+
+  const ThemeNumber = CardTheme.HorizontalSideLine;
 
   return (
     <S.Container>
@@ -31,7 +34,13 @@ const Theme2: React.FC<CardContentProps> = ({
           ))}
         </T.SubInfoBox>
       </S.UserInfoContainer>
-      <S.UserImage imageUrl={imageUrl} />
+      {isLoading ? (
+        <T.DummyImageWrapper Theme={ThemeNumber}>
+          <DummyImage type='Horizontal' />
+        </T.DummyImageWrapper>
+      ) : (
+        <S.UserImage imageUrl={imageUrl} />
+      )}
     </S.Container>
   );
 };

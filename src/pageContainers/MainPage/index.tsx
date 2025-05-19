@@ -1,24 +1,39 @@
 import * as S from './style';
-import { ConvertPage, FormPage, PhotoPage, SelectPage } from '@/pageContainers';
+import {
+  ConvertPage,
+  FormPage,
+  PhotoPage,
+  SelectPage,
+  StartPage,
+} from '@/pageContainers';
 import { useState } from 'react';
 import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { Header } from '@/components';
+import { type PromptType } from '@/types/promptType';
+import { postConvertedImage } from '@/utils';
 
 const MainPage = () => {
-  const [flow, setFlow] = useState<Flow>(Flow.FORM_FLOW);
+  const [flow, setFlow] = useState<Flow>(Flow.START_FLOW);
   const [imageUrl, setImageUrl] = useState<string>('');
   const [userInfo, setUserInfo] = useState<userInfoFormType | null>(null);
   const [selectedButton, setSelectedButton] = useState<SelectedType | null>(
     null
   );
   const [convertedImageUrl, setConvertedImageUrl] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [selectedPrompt, setSelectedPrompt] =
+    useState<keyof PromptType>('디즈니');
+
+  const handleConvertImage = async () => {
+    setConvertedImageUrl(await postConvertedImage(imageUrl, selectedPrompt));
+    setIsLoading(false);
+  };
 
   return (
     <S.Wrapper>
-      <Header />
-      {flow === Flow.FORM_FLOW && (
-        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
-      )}
+      {flow !== Flow.START_FLOW && <Header />}
+      {flow === Flow.START_FLOW && <StartPage setFlow={setFlow} />}
       {flow === Flow.PHOTO_FLOW && (
         <PhotoPage setImageUrl={setImageUrl} setFlow={setFlow} />
       )}
@@ -29,8 +44,15 @@ const MainPage = () => {
           selectedButton={selectedButton}
           setSelectedButton={setSelectedButton}
           convertedImageUrl={convertedImageUrl}
-          setConvertedImageUrl={setConvertedImageUrl}
+          selectedPrompt={selectedPrompt}
+          setSelectedPrompt={setSelectedPrompt}
+          handleConvertImage={handleConvertImage}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
+      )}
+      {flow === Flow.FORM_FLOW && (
+        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
       )}
       {flow === Flow.SELECT_THEME_FLOW && (
         <SelectPage
@@ -38,6 +60,7 @@ const MainPage = () => {
           imageUrl={imageUrl}
           selectedButton={selectedButton}
           convertedImageUrl={convertedImageUrl}
+          isLoading={isLoading}
         />
       )}
     </S.Wrapper>
