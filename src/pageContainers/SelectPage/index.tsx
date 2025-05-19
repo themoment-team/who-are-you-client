@@ -90,7 +90,11 @@ const SelectPage: React.FC<Props> = ({
           </S.CarouselRightButton>
         </S.CardContainer>
         <S.ButtonBox onClick={() => setOpenModalCase('open')}>
-          <S.ShotButton>명함인쇄</S.ShotButton>
+          {isLoading && selectedButton === SelectedType.YES ? (
+            <S.BlockButton disabled={true}>명함인쇄</S.BlockButton>
+          ) : (
+            <S.ShotButton>명함인쇄</S.ShotButton>
+          )}
         </S.ButtonBox>
       </S.Container>
     </>
