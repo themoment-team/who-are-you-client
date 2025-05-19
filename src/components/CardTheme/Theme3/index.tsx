@@ -1,10 +1,9 @@
 import * as S from './style';
 import * as T from '../style';
-import { ShortBar } from '@/assets';
+import { DummyImage, ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
 import { CardContentProps } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
-import DummyImage from '@/assets/DummyImage';
 
 const Theme3: React.FC<CardContentProps> = ({
   name,
