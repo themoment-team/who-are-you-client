@@ -28,7 +28,7 @@ export const WebcamWrapper = styled.div`
   }
 
   video {
-    width: 32.75rem;
+    width: 33rem;
     border-radius: 0.5rem;
   }
 `;
