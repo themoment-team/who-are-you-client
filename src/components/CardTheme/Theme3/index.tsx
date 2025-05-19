@@ -2,7 +2,7 @@ import * as S from './style';
 import * as T from '../style';
 import { DummyImage, ShortBar } from '@/assets';
 import { getUserInfoList } from '@/utils';
-import { CardContentProps } from '@/types';
+import { CardContentProps, CardTheme } from '@/types';
 import GSMLogo from '@/components/GSMLogo';
 
 const Theme3: React.FC<CardContentProps> = ({
@@ -15,7 +15,7 @@ const Theme3: React.FC<CardContentProps> = ({
 }) => {
   const userInfo = getUserInfoList({ major, email, phoneNumber });
 
-  const ThemeNumber = 3;
+  const ThemeNumber = CardTheme.VerticalSquare;
 
   return (
     <S.Container>
