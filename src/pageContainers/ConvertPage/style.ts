@@ -17,8 +17,10 @@ export const TopBox = styled.div`
 `;
 
 export const Image = styled.img`
+  width: 6.9375rem;
   height: 6.9375rem;
   border-radius: 0.5rem;
+  object-fit: cover;
 `;
 
 export const Description = styled.h1`
