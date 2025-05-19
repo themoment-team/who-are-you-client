@@ -1,4 +1,4 @@
-const WAYText = () => {
+const WRUText = () => {
   return (
     <svg
       width='371'
@@ -15,4 +15,4 @@ const WAYText = () => {
   );
 };
 
-export default WAYText;
+export default WRUText;

@@ -8,4 +8,4 @@ export { default as SelectIcon } from './SelectIcon';
 export { default as ShortBar } from './ShortBar';
 export { default as LongBar } from './LongBar';
 export { default as DummyImage } from './DummyImage';
-export { default as WAYText } from './WAYText';
+export { default as WRUText } from './WRUText';
