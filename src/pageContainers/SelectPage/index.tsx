@@ -55,11 +55,8 @@ const SelectPage: React.FC<Props> = ({
 
   useEffect(() => {
     if (selectedButton === SelectedType.YES)
-      if (isLoading) toast.error('아직 이미지가 변환되지 않았습니다.');
-      else
-        toast.success('이미지가 성공적으로 변환되었습니다.', {
-          style: { whiteSpace: 'nowrap' },
-        });
+      if (isLoading) toast.info('AI로 이미지 변환중입니다');
+      else toast.success('AI 변환이 완료되었습니다');
   }, [isLoading]);
   return (
     <>
