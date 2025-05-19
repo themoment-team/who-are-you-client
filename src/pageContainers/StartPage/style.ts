@@ -1,25 +1,20 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  height: calc(100vh - 5rem);
   width: 100%;
+  height: 100%;
+  padding: 0 3.85rem;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 export const Contents = styled.div`
-  padding-top: 5rem;
-  width: 31.75rem;
-  height: 37.5rem;
+  width: 100%;
 `;
 
 export const TextWrapper = styled.div`
   width: 100%;
-  height: 12rem;
-  display: flex;
-  justify-content: space-between;
   flex-direction: column;
 `;
 
@@ -31,6 +26,7 @@ export const IntroduceBorder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 `;
 
 export const IntroduceText = styled.h1`
@@ -51,6 +47,7 @@ export const Text = styled.div`
   font-weight: 400;
   line-height: 1.5rem;
   letter-spacing: -0.04rem;
+  margin-top: 1.5rem;
 `;
 
 export const ButtonWrapper = styled.div`
