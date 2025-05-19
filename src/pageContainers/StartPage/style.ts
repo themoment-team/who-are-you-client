@@ -31,6 +31,7 @@ export const IntroduceBorder = styled.div`
 `;
 
 export const IntroduceText = styled.h1`
+  height: 2rem;
   color: #0b1140;
   text-align: center;
   font-family: 'GmarketSans', sans-serif;
