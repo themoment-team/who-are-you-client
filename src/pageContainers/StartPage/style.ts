@@ -35,7 +35,7 @@ export const IntroduceText = styled.h1`
   color: #0b1140;
   text-align: center;
   font-family: 'GmarketSans', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 2.25rem;
   letter-spacing: -0.05rem;
