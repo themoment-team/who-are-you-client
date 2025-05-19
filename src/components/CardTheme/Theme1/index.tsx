@@ -34,7 +34,7 @@ const Theme1: React.FC<CardContentProps> = ({
       </S.UserInfoContainer>
       {isLoading ? (
         <S.DummyImageWrapper>
-          <DummyImage type='landscape' />
+          <DummyImage type='Horizontal' />
         </S.DummyImageWrapper>
       ) : (
         <S.UserImage imageUrl={imageUrl} />

@@ -20,7 +20,7 @@ const Theme4: React.FC<CardContentProps> = ({
       <GSMLogo top='252px' left='20px' />
       {isLoading ? (
         <S.DummyImageWrapper>
-          <DummyImage type='portrait' />
+          <DummyImage type='Vertical' />
         </S.DummyImageWrapper>
       ) : (
         <S.UserImage imageUrl={imageUrl} />

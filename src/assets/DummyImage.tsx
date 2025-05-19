@@ -1,9 +1,9 @@
 type DummyImageProps = {
-  type: 'landscape' | 'portrait';
+  type: 'Horizontal' | 'Vertical';
 };
 
 const DummyImage = ({ type }: DummyImageProps) => {
-  const size = type === 'landscape' ? 133 : 135;
+  const size = type === 'Horizontal' ? 133 : 135;
 
   return (
     <svg
