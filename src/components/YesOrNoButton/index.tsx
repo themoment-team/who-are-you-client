@@ -18,18 +18,20 @@ const YesOrNoButton: React.FC<Props> = ({
         isSelected={selectedButton === SelectedType.YES}
       >
         <OIcon />
-        네,
-        <br />
-        변환할게요!
+        <span>
+          네,
+          <div>변환할게요!</div>
+        </span>
       </S.Button>
       <S.Button
         onClick={() => setSelectedButton(SelectedType.NO)}
         isSelected={selectedButton === SelectedType.NO}
       >
         <XIcon />
-        아니요,
-        <br />
-        그대로 인쇄할게요!
+        <span>
+          아니요,
+          <div>그대로 인쇄할게요!</div>
+        </span>
       </S.Button>
     </S.YesOrNoBox>
   );
