@@ -9,7 +9,7 @@ import * as S from './style';
 import { useEffect, useState } from 'react';
 
 import { LeftIcon, RightIcon } from '@/assets';
-import { SelectedType, userInfoFormType } from '@/types';
+import { Flow, SelectedType, userInfoFormType } from '@/types';
 import { formatPhoneNumber, getNextTheme, getPrevTheme } from '@/utils';
 import { toast } from 'react-toastify';
 
@@ -19,6 +19,7 @@ interface Props {
   selectedButton: SelectedType | null;
   convertedImageUrl: string;
   isLoading: boolean;
+  setFlow: React.Dispatch<React.SetStateAction<Flow>>;
 }
 
 const MAX_THEME = 4;
@@ -29,6 +30,7 @@ const SelectPage: React.FC<Props> = ({
   selectedButton,
   convertedImageUrl,
   isLoading,
+  setFlow,
 }) => {
   const [openModalCase, setOpenModalCase] = useState<'close' | 'open'>('close');
   const [currentTheme, setCurrentTheme] = useState(1);
@@ -51,6 +53,10 @@ const SelectPage: React.FC<Props> = ({
     imageUrl:
       selectedButton === SelectedType.YES ? convertedImageUrl! : imageUrl,
     isLoading: isLoading,
+  };
+
+  const handleStepBack = () => {
+    setFlow(Flow.FORM_FLOW);
   };
 
   useEffect(() => {
@@ -87,6 +93,9 @@ const SelectPage: React.FC<Props> = ({
           </S.CarouselRightButton>
         </S.CardContainer>
         <S.ButtonBox onClick={() => setOpenModalCase('open')}>
+          <S.BackButton onClick={handleStepBack}>
+            <S.BackText>이전으로</S.BackText>
+          </S.BackButton>
           {isLoading && selectedButton === SelectedType.YES ? (
             <S.BlockButton disabled={true}>명함인쇄</S.BlockButton>
           ) : (

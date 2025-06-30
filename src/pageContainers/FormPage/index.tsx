@@ -13,11 +13,12 @@ import type { userInfoFormType } from '@/types';
 import { Flow } from '@/types';
 
 interface Props {
+  userInfo: userInfoFormType | null;
   setUserInfo: React.Dispatch<React.SetStateAction<userInfoFormType | null>>;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
 }
 
-const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
+const FormPage: React.FC<Props> = ({ userInfo, setUserInfo, setFlow }) => {
   const {
     register,
     handleSubmit,
@@ -25,12 +26,16 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
   } = useForm<userInfoFormType>({
     resolver: zodResolver(userInfoFormSchema),
     defaultValues: {
-      name: '',
-      phoneNumber: '',
-      email: '',
-      major: '',
+      name: userInfo?.name,
+      phoneNumber: userInfo?.phoneNumber,
+      email: userInfo?.email,
+      major: userInfo?.major,
     },
   });
+
+  const handleStepBack = () => {
+    setFlow(Flow.CONVERT_PHOTO_FLOW);
+  };
 
   const onSubmit: SubmitHandler<userInfoFormType> = (data) => {
     setUserInfo(data);
@@ -79,6 +84,9 @@ const FormPage: React.FC<Props> = ({ setUserInfo, setFlow }) => {
         />
       </S.InputContainer>
       <S.BottomContainer>
+        <S.BackButton onClick={handleStepBack}>
+          <S.BackText>이전으로</S.BackText>
+        </S.BackButton>
         <S.ContinueButton onClick={handleContinueButtonClick}>
           <S.ContinueText>다음으로</S.ContinueText>
         </S.ContinueButton>
