@@ -22,8 +22,7 @@ export const CarouselButton = styled.button``;
 export const ButtonBox = styled.div`
   width: 32.75rem;
   display: flex;
-  justify-content: end;
-  gap: 0.75rem;
+  justify-content: space-between;
   position: absolute;
   bottom: 2.5rem;
 `;
@@ -48,6 +47,25 @@ export const BlockButton = styled.button`
   width: 7.875rem;
   height: 3rem;
   cursor: not-allowed;
+`;
+
+export const BackButton = styled.button`
+  display: flex;
+  width: 7.875rem;
+  height: 3rem;
+  padding: 0.625rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background: ${({ theme }) => theme.color.white};
+  border: 1px solid ${({ theme }) => theme.color.primary[30]};
+`;
+
+export const BackText = styled.h3`
+  ${({ theme }) => theme.typo.h3};
+  color: ${({ theme }) => theme.color.primary[30]};
+  text-align: center;
 `;
 
 export const CardContainer = styled.div`
