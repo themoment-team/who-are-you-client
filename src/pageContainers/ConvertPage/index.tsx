@@ -63,7 +63,6 @@ const ConvertPage: React.FC<Props> = ({
 
   const convertImage = async () => {
     handleConvertImage();
-    setIsLoading(true);
     setFlow(Flow.FORM_FLOW);
     return;
   };

@@ -26,6 +26,7 @@ const MainPage = () => {
     useState<keyof PromptType>('디즈니');
 
   const handleConvertImage = async () => {
+    setIsLoading(true);
     setConvertedImageUrl(await postConvertedImage(imageUrl, selectedPrompt));
     setIsLoading(false);
   };
@@ -64,6 +65,7 @@ const MainPage = () => {
           imageUrl={imageUrl}
           selectedButton={selectedButton}
           convertedImageUrl={convertedImageUrl}
+          handleConvertImage={handleConvertImage}
           isLoading={isLoading}
           setFlow={setFlow}
         />
