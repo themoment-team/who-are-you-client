@@ -18,6 +18,7 @@ interface Props {
   imageUrl: string;
   selectedButton: SelectedType | null;
   convertedImageUrl: string;
+  handleConvertImage: () => Promise<void>;
   isLoading: boolean;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
 }
@@ -29,6 +30,7 @@ const SelectPage: React.FC<Props> = ({
   imageUrl,
   selectedButton,
   convertedImageUrl,
+  handleConvertImage,
   isLoading,
   setFlow,
 }) => {
@@ -59,6 +61,11 @@ const SelectPage: React.FC<Props> = ({
     setFlow(Flow.FORM_FLOW);
   };
 
+  const handleReconvert = async () => {
+    if (selectedButton === SelectedType.YES) {
+      await handleConvertImage();
+    }
+  };
   useEffect(() => {
     if (selectedButton === SelectedType.YES)
       if (isLoading) toast.info('AI로 이미지 변환중입니다');
@@ -92,14 +99,21 @@ const SelectPage: React.FC<Props> = ({
             <RightIcon />
           </S.CarouselRightButton>
         </S.CardContainer>
-        <S.ButtonBox onClick={() => setOpenModalCase('open')}>
+        <S.ButtonBox>
           <S.BackButton onClick={handleStepBack}>
             <S.BackText>이전으로</S.BackText>
           </S.BackButton>
           {isLoading && selectedButton === SelectedType.YES ? (
             <S.BlockButton disabled={true}>명함인쇄</S.BlockButton>
           ) : (
-            <S.ShotButton>명함인쇄</S.ShotButton>
+            <S.ReconvertAndPrintBox>
+              <S.AIReconvertButton onClick={handleReconvert}>
+                재변환
+              </S.AIReconvertButton>
+              <S.ShotButton onClick={() => setOpenModalCase('open')}>
+                명함인쇄
+              </S.ShotButton>
+            </S.ReconvertAndPrintBox>
           )}
         </S.ButtonBox>
       </S.Container>
