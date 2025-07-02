@@ -52,7 +52,11 @@ const MainPage = () => {
         />
       )}
       {flow === Flow.FORM_FLOW && (
-        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
+        <FormPage
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+          setFlow={setFlow}
+        />
       )}
       {flow === Flow.SELECT_THEME_FLOW && (
         <SelectPage
@@ -61,6 +65,7 @@ const MainPage = () => {
           selectedButton={selectedButton}
           convertedImageUrl={convertedImageUrl}
           isLoading={isLoading}
+          setFlow={setFlow}
         />
       )}
     </S.Wrapper>
