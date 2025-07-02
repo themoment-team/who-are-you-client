@@ -27,10 +27,25 @@ export const ButtonBox = styled.div`
   bottom: 2.5rem;
 `;
 
+export const ReconvertAndPrintBox = styled.div`
+  display: flex;
+  gap: 0.75rem;
+`;
+
 export const ShotButton = styled.button`
   ${({ theme }) => theme.typo.h3};
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.primary[30]};
+  font-weight: 500;
+  border-radius: 0.5rem;
+  width: 7.875rem;
+  height: 3rem;
+`;
+
+export const AIReconvertButton = styled.button`
+  ${({ theme }) => theme.typo.h3};
+  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.primary[20]};
   font-weight: 500;
   border-radius: 0.5rem;
   width: 7.875rem;
