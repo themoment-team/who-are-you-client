@@ -1,9 +1,9 @@
-import { useCallback, useRef, useState, useEffect } from 'react';
-import * as S from './style';
-import Webcam from 'react-webcam';
 import { CameraGuide } from '@/assets';
-import { Flow } from '@/types';
 import { useImageCrop } from '@/hooks/useImageCrop';
+import { Flow } from '@/types';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Webcam from 'react-webcam';
+import * as S from './style';
 
 interface Props {
   setImageUrl: React.Dispatch<React.SetStateAction<string>>;
@@ -47,10 +47,7 @@ const PhotoPage: React.FC<Props> = ({ setImageUrl, setFlow }) => {
         />
       </S.WebcamWrapper>
       <S.ButtonBox>
-        <S.ShotButton 
-          onClick={handleShotButtonClick}
-          disabled={isProcessing}
-        >
+        <S.ShotButton onClick={handleShotButtonClick} disabled={isProcessing}>
           {isProcessing ? '얼굴 감지 중...' : '사진촬영'}
         </S.ShotButton>
       </S.ButtonBox>
