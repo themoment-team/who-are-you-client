@@ -28,7 +28,6 @@ const ConvertPage: React.FC<Props> = ({
   setSelectedPrompt,
   handleConvertImage,
   isLoading,
-  setIsLoading,
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
@@ -48,16 +47,6 @@ const ConvertPage: React.FC<Props> = ({
         return;
       }
       setFlow(Flow.SELECT_THEME_FLOW);
-    }
-  };
-
-  const handleModalButtonClick = () => setIsModal(false);
-
-  const handlePreviewButtonClick = () => {
-    if (selectedButton !== null) {
-      setIsModal(true);
-    } else {
-      toast.error('예, 아니요 중 하나를 선택해 주셔야해요.');
     }
   };
 
@@ -96,12 +85,9 @@ const ConvertPage: React.FC<Props> = ({
       <S.ButtonBox>
         <S.BackButton onClick={handleBackButtonClick}>다시찍기</S.BackButton>
         <S.ButtonWrapper>
-          {selectedButton === SelectedType.NO ||
-          selectedButton === SelectedType.YES ? (
-            <S.PreviewButton onClick={handlePreviewButtonClick}>
-              사진확대
-            </S.PreviewButton>
-          ) : null}
+          <S.PreviewButton onClick={() => setIsModal(true)}>
+            사진확대
+          </S.PreviewButton>
           <S.NextButton
             onClick={handleNextButtonClick}
             disabled={selectedButton === SelectedType.YES && isLoading}
@@ -116,7 +102,9 @@ const ConvertPage: React.FC<Props> = ({
             <S.ImgWrapper>
               <S.ModalImg src={imageUrl} />
             </S.ImgWrapper>
-            <S.ModalButton onClick={handleModalButtonClick}>확인</S.ModalButton>
+            <S.ModalButton onClick={() => setIsModal(false)}>
+              확인
+            </S.ModalButton>
           </S.ModalBox>
         </S.PreviewModal>
       )}
