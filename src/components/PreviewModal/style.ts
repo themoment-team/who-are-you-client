@@ -59,11 +59,19 @@ export const PreviewBox = styled.div`
   margin-top: 16px;
 `;
 
-export const ImageText = styled.p`
+export const ImageText = styled.p<{ isHovered: boolean }>`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 26px;
+  border: 1px solid
+    ${({ isHovered, theme }) => (isHovered ? theme.color.primary[30] : 'white')};
+  border-radius: 4px;
 `;
 
 export const ImageBox = styled.div`
