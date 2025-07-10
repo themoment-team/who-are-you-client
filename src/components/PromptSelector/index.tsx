@@ -1,5 +1,7 @@
 import { PromptType } from '@/types/promptType';
 import * as S from './style';
+import { useState } from 'react';
+import PreviewModal from '../PreviewModal';
 
 interface Props {
   selectedPrompt: keyof PromptType;
@@ -15,9 +17,16 @@ const prompts: { text: keyof PromptType }[] = [
 ];
 
 const PromptSelector = ({ selectedPrompt, handlePromptClick }: Props) => {
+  const [isModal, setIsModal] = useState<boolean>(false);
+
   return (
     <S.Container>
-      <S.Title>어떤 스타일로 변환하시겠습니까?</S.Title>
+      <S.TextContainer>
+        <S.Title>어떤 스타일로 변환하시겠습니까?</S.Title>
+        <S.PreviewBtn onClick={() => setIsModal(true)}>
+          AI 스타일 예시
+        </S.PreviewBtn>
+      </S.TextContainer>
       <S.PromptContainer>
         {prompts.map((prompt, index) => (
           <S.Prompt
@@ -29,6 +38,7 @@ const PromptSelector = ({ selectedPrompt, handlePromptClick }: Props) => {
           </S.Prompt>
         ))}
       </S.PromptContainer>
+      {isModal && <PreviewModal setIsModal={setIsModal} />}
     </S.Container>
   );
 };
