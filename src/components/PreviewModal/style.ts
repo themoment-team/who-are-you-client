@@ -28,6 +28,10 @@ export const ModalHeader = styled.div`
   align-items: center;
 `;
 
+export const Close = styled.div`
+  cursor: pointer;
+`;
+
 export const ModalTitle = styled.p`
   ${({ theme }) => `
     font-size: ${theme.typo.h2.fontSize};

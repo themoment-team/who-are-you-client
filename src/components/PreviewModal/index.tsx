@@ -19,9 +19,9 @@ const PreviewModal = ({ setIsModal }: Props) => {
       <S.ModalBox>
         <S.ModalHeader>
           <S.ModalTitle>AI 스타일 예시💡</S.ModalTitle>
-          <div onClick={() => setIsModal(false)}>
+          <S.Close onClick={() => setIsModal(false)}>
             <CloseIcon />
-          </div>
+          </S.Close>
         </S.ModalHeader>
         <S.ModalExplanate>
           각 프롬프트에 따라 다른 스타일로 AI 이미지가 생성됩니다!
