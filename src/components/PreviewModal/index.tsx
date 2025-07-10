@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { CloseIcon } from '@/assets';
 import * as S from './style';
+import { PromptType } from '@/types/promptType';
 
 interface Props {
   setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
+  handlePromptClick: (promptText: keyof PromptType) => void;
 }
 
-const PreviewModal = ({ setIsModal }: Props) => {
-  const previewArray = [
+const PreviewModal = ({ setIsModal, handlePromptClick }: Props) => {
+  const previewArray: { title: keyof PromptType; img: string }[] = [
     { title: '디즈니', img: '/images/디즈니preview.png' },
     { title: '마인크래프트', img: '/images/마인크래프트preview.png' },
     { title: '스누피', img: '/images/스누피preview.png' },
@@ -16,6 +18,11 @@ const PreviewModal = ({ setIsModal }: Props) => {
   ];
 
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+
+  const handleclick = (title: keyof PromptType) => {
+    handlePromptClick(title);
+    setIsModal(false);
+  };
 
   return (
     <S.Continer>
@@ -35,6 +42,7 @@ const PreviewModal = ({ setIsModal }: Props) => {
               key={x.title}
               onMouseEnter={() => setHoveredIdx(index)}
               onMouseLeave={() => setHoveredIdx(null)}
+              onClick={() => handleclick(x.title)}
             >
               <S.ImageText isHovered={hoveredIdx === index}>
                 {x.title}
