@@ -55,13 +55,6 @@ export const PreviewBox = styled.div`
   margin-top: 16px;
 `;
 
-export const ImageWrapper = styled.div`
-  width: 512px;
-  height: 190px;
-  display: flex;
-  justify-contents: center;
-`;
-
 export const ImageText = styled.p`
   font-size: 18px;
   font-style: normal;
