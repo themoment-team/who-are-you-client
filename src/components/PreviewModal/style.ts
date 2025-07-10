@@ -16,7 +16,6 @@ export const Continer = styled.div`
 
 export const ModalBox = styled.div`
   width: 560px;
-  height: 536px;
   background: white;
   border-radius: 16px;
   padding: 32px 24px;
@@ -30,9 +29,11 @@ export const ModalHeader = styled.div`
 `;
 
 export const ModalTitle = styled.p`
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
+  ${({ theme }) => `
+    font-size: ${theme.typo.h2.fontSize};
+    line-height: ${theme.typo.h2.lineHeight};
+    font-weight: ${theme.typo.h2.fontWeight};
+  `}
   line-height: 28px;
 `;
 
@@ -79,4 +80,5 @@ export const ImageBox = styled.div`
 
 export const Image = styled.img`
   border-radius: 8px;
+  margin-top: 6px;
 `;

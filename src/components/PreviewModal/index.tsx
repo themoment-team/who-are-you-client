@@ -30,7 +30,7 @@ const PreviewModal = ({ setIsModal }: Props) => {
           {previewArray.map((x) => {
             return (
               <S.ImageBox key={x.title}>
-                <S.ModalTitle>{x.title}</S.ModalTitle>
+                <S.ImageText>{x.title}</S.ImageText>
                 <S.Image src={x.img} />
               </S.ImageBox>
             );
