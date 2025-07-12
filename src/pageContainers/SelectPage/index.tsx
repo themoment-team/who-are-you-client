@@ -78,14 +78,14 @@ const SelectPage: React.FC<Props> = ({
         await handleConvertImage();
         setReconvertCount((prev) => prev + 1);
       } else {
-        toast.warn('최대 3회까지만 재변환 가능합니다');
+        toast.warn('최대 3회까지만 재변환 가능합니다.');
       }
     }
   };
   useEffect(() => {
     if (selectedButton === SelectedType.YES)
-      if (isLoading) toast.info('AI로 이미지 변환중입니다');
-      else toast.success('AI 변환이 완료되었습니다');
+      if (isLoading) toast.info('AI로 이미지 변환중입니다.');
+      else toast.success('AI 변환이 완료되었습니다.');
   }, [isLoading]);
   return (
     <>
