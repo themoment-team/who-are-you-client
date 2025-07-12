@@ -136,13 +136,15 @@ const SelectPage: React.FC<Props> = ({
           <S.BackButton onClick={handleStepBack}>
             <S.BackText>이전으로</S.BackText>
           </S.BackButton>
-          {isLoading && selectedButton === SelectedType.YES ? (
+          {isLoading ? (
             <S.BlockButton disabled={true}>명함인쇄</S.BlockButton>
           ) : (
             <S.ReconvertAndPrintBox>
-              <S.AIReconvertButton onClick={handleReconvert}>
-                {`재변환 (${reconvertCount}/3)`}
-              </S.AIReconvertButton>
+              {selectedButton === SelectedType.YES && (
+                <S.AIReconvertButton onClick={handleReconvert}>
+                  {`재변환 (${reconvertCount}/3)`}
+                </S.AIReconvertButton>
+              )}
               <S.ShotButton onClick={() => setOpenPrintModal('open')}>
                 명함인쇄
               </S.ShotButton>
