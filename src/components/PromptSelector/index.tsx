@@ -38,7 +38,12 @@ const PromptSelector = ({ selectedPrompt, handlePromptClick }: Props) => {
           </S.Prompt>
         ))}
       </S.PromptContainer>
-      {isModal && <PreviewModal setIsModal={setIsModal} />}
+      {isModal && (
+        <PreviewModal
+          setIsModal={setIsModal}
+          handlePromptClick={handlePromptClick}
+        />
+      )}
     </S.Container>
   );
 };
