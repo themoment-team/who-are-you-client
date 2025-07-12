@@ -1,5 +1,6 @@
 import {
   BusinessCardModal,
+  PhotoSelectModal,
   Theme1,
   Theme2,
   Theme3,
@@ -18,6 +19,8 @@ interface Props {
   imageUrl: string;
   selectedButton: SelectedType | null;
   convertedImageUrl: string;
+  setConvertedImageUrl: React.Dispatch<React.SetStateAction<string>>;
+  convertedImageUrlList: string[];
   handleConvertImage: () => Promise<void>;
   isLoading: boolean;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
@@ -30,12 +33,20 @@ const SelectPage: React.FC<Props> = ({
   imageUrl,
   selectedButton,
   convertedImageUrl,
+  setConvertedImageUrl,
+  convertedImageUrlList,
   handleConvertImage,
   isLoading,
   setFlow,
 }) => {
-  const [openModalCase, setOpenModalCase] = useState<'close' | 'open'>('close');
+  const [openPrintModal, setOpenPrintModal] = useState<'close' | 'open'>(
+    'close'
+  );
+  const [openPhotoSelectModal, setOpenPhotoSelectModal] = useState<
+    'close' | 'open'
+  >('close');
   const [currentTheme, setCurrentTheme] = useState(1);
+  const [reconvertCount, setReconvertCount] = useState(1);
 
   const nextTheme = () => {
     setCurrentTheme((prev) => getNextTheme(prev, MAX_THEME));
@@ -63,7 +74,12 @@ const SelectPage: React.FC<Props> = ({
 
   const handleReconvert = async () => {
     if (selectedButton === SelectedType.YES) {
-      await handleConvertImage();
+      if (reconvertCount < 3) {
+        await handleConvertImage();
+        setReconvertCount((prev) => prev + 1);
+      } else {
+        toast.warn('최대 3회까지만 재변환 가능합니다');
+      }
     }
   };
   useEffect(() => {
@@ -73,9 +89,9 @@ const SelectPage: React.FC<Props> = ({
   }, [isLoading]);
   return (
     <>
-      {openModalCase === 'open' && (
+      {openPrintModal === 'open' && (
         <BusinessCardModal
-          closeModal={() => setOpenModalCase('close')}
+          closeModal={() => setOpenPrintModal('close')}
           currentTheme={currentTheme}
           userInfo={userInfo}
           imageUrl={
@@ -83,10 +99,27 @@ const SelectPage: React.FC<Props> = ({
           }
         />
       )}
+      {openPhotoSelectModal === 'open' && (
+        <PhotoSelectModal
+          setOpenPhotoSelectModal={setOpenPhotoSelectModal}
+          setConvertedImageUrl={setConvertedImageUrl}
+          convertedImageUrlList={convertedImageUrlList}
+        />
+      )}
       <S.Container>
-        <S.Description>
-          인쇄하실 명함의 테마를 <br /> 선택해주세요!
-        </S.Description>
+        <S.TopBox>
+          <S.Description>
+            인쇄하실 명함의 테마를 <br /> 선택해주세요!
+          </S.Description>
+          {selectedButton === SelectedType.YES &&
+            convertedImageUrlList.length > 1 && (
+              <S.PhotoSelectButton
+                onClick={() => setOpenPhotoSelectModal('open')}
+              >
+                다른 이미지 선택
+              </S.PhotoSelectButton>
+            )}
+        </S.TopBox>
         <S.CardContainer>
           <S.CarouselLeftButton onClick={prevTheme}>
             <LeftIcon />
@@ -108,9 +141,9 @@ const SelectPage: React.FC<Props> = ({
           ) : (
             <S.ReconvertAndPrintBox>
               <S.AIReconvertButton onClick={handleReconvert}>
-                재변환
+                {`재변환 (${reconvertCount}/3)`}
               </S.AIReconvertButton>
-              <S.ShotButton onClick={() => setOpenModalCase('open')}>
+              <S.ShotButton onClick={() => setOpenPrintModal('open')}>
                 명함인쇄
               </S.ShotButton>
             </S.ReconvertAndPrintBox>
