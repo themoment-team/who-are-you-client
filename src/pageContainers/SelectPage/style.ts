@@ -9,12 +9,28 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const TopBox = styled.div`
+  width: 32.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.5rem 0 2.25rem 0;
+`;
+
+export const PhotoSelectButton = styled.button`
+  display: flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.color.gray[60]};
+  border: 1px solid ${({ theme }) => theme.color.primary[20]};
+`;
+
 export const Description = styled.h1`
   ${({ theme }) => theme.typo.title};
   color: ${({ theme }) => theme.color.gray[90]};
   font-weight: bold;
-  margin: 2.5rem 0 2.25rem 0;
-  width: 32.7rem;
 `;
 
 export const CarouselButton = styled.button``;

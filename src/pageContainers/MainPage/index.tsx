@@ -20,6 +20,11 @@ const MainPage = () => {
     null
   );
   const [convertedImageUrl, setConvertedImageUrl] = useState<string>('');
+  const [convertedImageUrlList, setConvertedImageUrlList] = useState<string[]>(
+    []
+  );
+  const [reconvertCount, setReconvertCount] = useState(1);
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [selectedPrompt, setSelectedPrompt] =
@@ -27,7 +32,9 @@ const MainPage = () => {
 
   const handleConvertImage = async () => {
     setIsLoading(true);
-    setConvertedImageUrl(await postConvertedImage(imageUrl, selectedPrompt));
+    const newImageUrl = await postConvertedImage(imageUrl, selectedPrompt);
+    setConvertedImageUrl(newImageUrl);
+    setConvertedImageUrlList((prev) => [...prev, newImageUrl]);
     setIsLoading(false);
   };
 
@@ -65,9 +72,13 @@ const MainPage = () => {
           imageUrl={imageUrl}
           selectedButton={selectedButton}
           convertedImageUrl={convertedImageUrl}
+          setConvertedImageUrl={setConvertedImageUrl}
+          convertedImageUrlList={convertedImageUrlList}
           handleConvertImage={handleConvertImage}
           isLoading={isLoading}
           setFlow={setFlow}
+          reconvertCount={reconvertCount}
+          setReconvertCount={setReconvertCount}
         />
       )}
     </S.Wrapper>
