@@ -24,6 +24,8 @@ interface Props {
   handleConvertImage: () => Promise<void>;
   isLoading: boolean;
   setFlow: React.Dispatch<React.SetStateAction<Flow>>;
+  reconvertCount: number;
+  setReconvertCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const MAX_THEME = 4;
@@ -38,6 +40,8 @@ const SelectPage: React.FC<Props> = ({
   handleConvertImage,
   isLoading,
   setFlow,
+  reconvertCount,
+  setReconvertCount,
 }) => {
   const [openPrintModal, setOpenPrintModal] = useState<'close' | 'open'>(
     'close'
@@ -46,7 +50,6 @@ const SelectPage: React.FC<Props> = ({
     'close' | 'open'
   >('close');
   const [currentTheme, setCurrentTheme] = useState(1);
-  const [reconvertCount, setReconvertCount] = useState(1);
 
   const nextTheme = () => {
     setCurrentTheme((prev) => getNextTheme(prev, MAX_THEME));

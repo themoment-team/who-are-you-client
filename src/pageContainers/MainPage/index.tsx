@@ -23,6 +23,7 @@ const MainPage = () => {
   const [convertedImageUrlList, setConvertedImageUrlList] = useState<string[]>(
     []
   );
+  const [reconvertCount, setReconvertCount] = useState(1);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -76,6 +77,8 @@ const MainPage = () => {
           handleConvertImage={handleConvertImage}
           isLoading={isLoading}
           setFlow={setFlow}
+          reconvertCount={reconvertCount}
+          setReconvertCount={setReconvertCount}
         />
       )}
     </S.Wrapper>
