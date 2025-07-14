@@ -36,3 +36,20 @@ export const Prompt = styled.button<{ isSelected: boolean }>`
   justify-content: center;
   align-items: center;
 `;
+
+export const TextContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const PreviewBtn = styled.button`
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.color.gray[70]};
+  border: 1px solid ${({ theme }) => theme.color.primary[20]};
+  border-radius: 8px;
+  padding: 4px 8px;
+`;

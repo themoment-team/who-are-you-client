@@ -9,3 +9,4 @@ export { default as ShortBar } from './ShortBar';
 export { default as LongBar } from './LongBar';
 export { default as DummyImage } from './DummyImage';
 export { default as WRUText } from './WRUText';
+export { default as CloseIcon } from './CloseIcon';

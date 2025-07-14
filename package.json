@@ -53,5 +53,5 @@
     "storybook": "^8.0.10",
     "vite": "^5.2.0"
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.9.2"
 }

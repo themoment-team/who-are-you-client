@@ -9,12 +9,28 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const TopBox = styled.div`
+  width: 32.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.5rem 0 2.25rem 0;
+`;
+
+export const PhotoSelectButton = styled.button`
+  display: flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.color.gray[60]};
+  border: 1px solid ${({ theme }) => theme.color.primary[20]};
+`;
+
 export const Description = styled.h1`
   ${({ theme }) => theme.typo.title};
   color: ${({ theme }) => theme.color.gray[90]};
   font-weight: bold;
-  margin: 2.5rem 0 2.25rem 0;
-  width: 32.7rem;
 `;
 
 export const CarouselButton = styled.button``;
@@ -22,16 +38,30 @@ export const CarouselButton = styled.button``;
 export const ButtonBox = styled.div`
   width: 32.75rem;
   display: flex;
-  justify-content: end;
-  gap: 0.75rem;
+  justify-content: space-between;
   position: absolute;
   bottom: 2.5rem;
+`;
+
+export const ReconvertAndPrintBox = styled.div`
+  display: flex;
+  gap: 0.75rem;
 `;
 
 export const ShotButton = styled.button`
   ${({ theme }) => theme.typo.h3};
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.primary[30]};
+  font-weight: 500;
+  border-radius: 0.5rem;
+  width: 7.875rem;
+  height: 3rem;
+`;
+
+export const AIReconvertButton = styled.button`
+  ${({ theme }) => theme.typo.h3};
+  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.primary[20]};
   font-weight: 500;
   border-radius: 0.5rem;
   width: 7.875rem;
@@ -48,6 +78,25 @@ export const BlockButton = styled.button`
   width: 7.875rem;
   height: 3rem;
   cursor: not-allowed;
+`;
+
+export const BackButton = styled.button`
+  display: flex;
+  width: 7.875rem;
+  height: 3rem;
+  padding: 0.625rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background: ${({ theme }) => theme.color.white};
+  border: 1px solid ${({ theme }) => theme.color.primary[30]};
+`;
+
+export const BackText = styled.h3`
+  ${({ theme }) => theme.typo.h3};
+  color: ${({ theme }) => theme.color.primary[30]};
+  text-align: center;
 `;
 
 export const CardContainer = styled.div`

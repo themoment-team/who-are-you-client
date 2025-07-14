@@ -1,8 +1,9 @@
-import { useCallback, useRef } from 'react';
-import * as S from './style';
-import Webcam from 'react-webcam';
 import { CameraGuide } from '@/assets';
+import { useImageCrop } from '@/hooks/useImageCrop';
 import { Flow } from '@/types';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Webcam from 'react-webcam';
+import * as S from './style';
 
 interface Props {
   setImageUrl: React.Dispatch<React.SetStateAction<string>>;
@@ -11,14 +12,23 @@ interface Props {
 
 const PhotoPage: React.FC<Props> = ({ setImageUrl, setFlow }) => {
   const webcamRef = useRef<Webcam>(null);
+  const [capturedImage, setCapturedImage] = useState<string>('');
+  const { processedImageUrl, isProcessing } = useImageCrop(capturedImage);
 
   const handleShotButtonClick = useCallback(() => {
     if (webcamRef.current) {
       const imageUrl = webcamRef.current.getScreenshot();
-      setImageUrl(imageUrl!);
-      setFlow(Flow.CONVERT_PHOTO_FLOW);
+      setCapturedImage(imageUrl!);
     }
   }, [webcamRef]);
+
+  // 크롭된 이미지가 준비되면 자동으로 다음 단계로 진행
+  useEffect(() => {
+    if (processedImageUrl && !isProcessing) {
+      setImageUrl(processedImageUrl);
+      setFlow(Flow.CONVERT_PHOTO_FLOW);
+    }
+  }, [processedImageUrl, isProcessing, setImageUrl, setFlow]);
 
   return (
     <S.Container>
@@ -37,7 +47,9 @@ const PhotoPage: React.FC<Props> = ({ setImageUrl, setFlow }) => {
         />
       </S.WebcamWrapper>
       <S.ButtonBox>
-        <S.ShotButton onClick={handleShotButtonClick}>사진촬영</S.ShotButton>
+        <S.ShotButton onClick={handleShotButtonClick} disabled={isProcessing}>
+          {isProcessing ? '얼굴 감지 중...' : '사진촬영'}
+        </S.ShotButton>
       </S.ButtonBox>
     </S.Container>
   );

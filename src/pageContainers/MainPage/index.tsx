@@ -20,13 +20,21 @@ const MainPage = () => {
     null
   );
   const [convertedImageUrl, setConvertedImageUrl] = useState<string>('');
+  const [convertedImageUrlList, setConvertedImageUrlList] = useState<string[]>(
+    []
+  );
+  const [reconvertCount, setReconvertCount] = useState(1);
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [selectedPrompt, setSelectedPrompt] =
     useState<keyof PromptType>('디즈니');
 
   const handleConvertImage = async () => {
-    setConvertedImageUrl(await postConvertedImage(imageUrl, selectedPrompt));
+    setIsLoading(true);
+    const newImageUrl = await postConvertedImage(imageUrl, selectedPrompt);
+    setConvertedImageUrl(newImageUrl);
+    setConvertedImageUrlList((prev) => [...prev, newImageUrl]);
     setIsLoading(false);
   };
 
@@ -52,7 +60,11 @@ const MainPage = () => {
         />
       )}
       {flow === Flow.FORM_FLOW && (
-        <FormPage setUserInfo={setUserInfo} setFlow={setFlow} />
+        <FormPage
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+          setFlow={setFlow}
+        />
       )}
       {flow === Flow.SELECT_THEME_FLOW && (
         <SelectPage
@@ -60,7 +72,13 @@ const MainPage = () => {
           imageUrl={imageUrl}
           selectedButton={selectedButton}
           convertedImageUrl={convertedImageUrl}
+          setConvertedImageUrl={setConvertedImageUrl}
+          convertedImageUrlList={convertedImageUrlList}
+          handleConvertImage={handleConvertImage}
           isLoading={isLoading}
+          setFlow={setFlow}
+          reconvertCount={reconvertCount}
+          setReconvertCount={setReconvertCount}
         />
       )}
     </S.Wrapper>

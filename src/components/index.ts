@@ -7,3 +7,5 @@ export { default as Header } from './Header';
 export { default as GSMLogo } from './GSMLogo';
 export { default as YesOrNoButton } from './YesOrNoButton';
 export { default as PromptSelector } from './PromptSelector';
+export { default as PreviewModal } from './PreviewModal';
+export { default as PhotoSelectModal } from './PhotoSelectModal';
