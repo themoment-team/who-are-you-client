@@ -75,16 +75,19 @@ const SelectPage: React.FC<Props> = ({
     setFlow(Flow.FORM_FLOW);
   };
 
+  const MAX_RECONVERT = 5;
+
   const handleReconvert = async () => {
     if (selectedButton === SelectedType.YES) {
-      if (reconvertCount < 3) {
+      if (reconvertCount < MAX_RECONVERT) {
         await handleConvertImage();
         setReconvertCount((prev) => prev + 1);
       } else {
-        toast.warn('최대 3회까지만 재변환 가능합니다.');
+        toast.warn(`최대 ${MAX_RECONVERT}회까지만 재변환 가능합니다.`);
       }
     }
   };
+
   useEffect(() => {
     if (selectedButton === SelectedType.YES)
       if (isLoading) toast.info('AI로 이미지 변환중입니다.');
@@ -145,7 +148,7 @@ const SelectPage: React.FC<Props> = ({
             <S.ReconvertAndPrintBox>
               {selectedButton === SelectedType.YES && (
                 <S.AIReconvertButton onClick={handleReconvert}>
-                  {`재변환 (${reconvertCount}/3)`}
+                  {`재변환 (${reconvertCount}/${MAX_RECONVERT})`}
                 </S.AIReconvertButton>
               )}
               <S.ShotButton onClick={() => setOpenPrintModal('open')}>
